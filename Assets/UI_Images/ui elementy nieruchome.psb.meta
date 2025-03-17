@@ -1,0 +1,660 @@
+fileFormatVersion: 2
+guid: 6285ad828116d7c4d8c900f088ce146a
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: 11500000, guid: b2a9591990af98743ba3ff7cf1000886, type: 3}
+  textureImporterSettings:
+    alphaSource: 1
+    mipMapMode: 0
+    enableMipMap: 1
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+    convertToNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+    swizzle: 50462976
+    isReadable: 0
+    streamingMipmaps: 0
+    streamingMipmapsPriority: 0
+    vTOnly: 0
+    ignoreMipmapLimit: 0
+    nPOTScale: 1
+    sRGBTexture: 1
+    spriteMode: 1
+    spriteExtrude: 1
+    spriteMeshType: 1
+    alignment: 0
+    spritePivot: {x: 0.5, y: 0.5}
+    spritePixelsToUnits: 100
+    spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+    spriteGenerateFallbackPhysicsShape: 0
+    generateCubemap: 6
+    cubemapConvolution: 0
+    seamlessCubemap: 0
+    alphaIsTransparency: 1
+    spriteTessellationDetail: -1
+    textureType: 8
+    textureShape: 1
+    singleChannelComponent: 0
+    flipbookRows: 0
+    flipbookColumns: 0
+    ignorePngGamma: 0
+    cookieMode: 0
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 0
+    wrapV: 0
+    wrapW: 0
+    normalMap: 0
+    textureFormat: 0
+    maxTextureSize: 0
+    lightmap: 0
+    compressionQuality: 0
+    linearTexture: 0
+    grayScaleToAlpha: 0
+    rGBM: 0
+    cubemapConvolutionSteps: 0
+    cubemapConvolutionExponent: 0
+    maxTextureSizeSet: 0
+    compressionQualitySet: 0
+    textureFormatSet: 0
+    applyGammaDecoding: 0
+  singleSpriteImportData:
+  - name: ui elementy nieruchome_1
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 3840
+      height: 2160
+    spriteID: d9066cb8bdf479e45b9829ae50a38d8c
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 0, y: 0}
+    spritePosition: {x: 0, y: 0}
+  multiSpriteImportData: []
+  layeredSpriteImportData:
+  - name: lewy dol
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 3569
+      y: 4
+      width: 244
+      height: 250
+    spriteID: 99781b63a15e92e4c9b88b3ebb2d3a16
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 3569, y: 4}
+    spritePosition: {x: 12, y: 1663}
+  - name: prawy dol
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 1287
+      y: 390
+      width: 198
+      height: 201
+    spriteID: ef6fcc1e36af2b1449d9272e2822b25c
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 1287, y: 390}
+    spritePosition: {x: 3633, y: 1603}
+  - name: prawy srodek
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 1493
+      y: 390
+      width: 198
+      height: 201
+    spriteID: 6b9695a282f75dc4292ed5a079f1ea91
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 1493, y: 390}
+    spritePosition: {x: 3446, y: 1776}
+  - name: prawy gora
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 1699
+      y: 390
+      width: 198
+      height: 201
+    spriteID: 46406ba7d160b914ca7f942197a1bc04
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 1699, y: 390}
+    spritePosition: {x: 3262, y: 1943}
+  - name: lewy gora
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 3821
+      y: 4
+      width: 244
+      height: 250
+    spriteID: de69f851c5e3e0748b1b0ddba541b1c4
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 3821, y: 4}
+    spritePosition: {x: 244, y: 1875}
+  - name: LINIA
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 985
+      width: 3840
+      height: 11
+    spriteID: 2630aa0161a4f6a43bcd163e319237f4
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 985}
+    spritePosition: {x: 0, y: 255}
+  - name: CRYSTAL lineart
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 1273
+      y: 4
+      width: 1202
+      height: 316
+    spriteID: ad75a02e2653f564cb5825c8e8f515de
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: -72, y: 4}
+    spritePosition: {x: 1345, y: 101}
+  - name: gold
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 2483
+      y: 4
+      width: 1078
+      height: 303
+    spriteID: 801b9547a481c19449660949462d3b0a
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 2483, y: 4}
+    spritePosition: {x: 1381, y: 108}
+  - name: ornaments gora lewo
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 646
+      y: 390
+      width: 633
+      height: 526
+    spriteID: d5f67db8e4c1983419c732682898dd9d
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 646, y: 390}
+    spritePosition: {x: 0, y: 1634}
+  - name: ornaments gora prawo
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 390
+      width: 634
+      height: 587
+    spriteID: df5261c1a84a24348b8bdea7dbba3695
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 390}
+    spritePosition: {x: 3206, y: 1573}
+  - name: ss lewy
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 1287
+      y: 599
+      width: 34
+      height: 235
+    spriteID: ff650c8dc8a394a4aa986acecc940b3d
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 1287, y: 599}
+    spritePosition: {x: 933, y: 148}
+  - name: 'ss prawy '
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 1329
+      y: 599
+      width: 34
+      height: 234
+    spriteID: 3b35d7f37359e9941ace52b03580c044
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 1329, y: 599}
+    spritePosition: {x: 2733, y: 149}
+  - name: ornaments ss
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 4
+      width: 1261
+      height: 378
+    spriteID: c4eaa0a1bc0141e4caf47dd022d8fb88
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 4}
+    spritePosition: {x: 1282, y: 48}
+  spriteImportData: []
+  rigSpriteImportData: []
+  sharedRigSpriteImportData: []
+  mosaicSpriteImportData: []
+  sharedRigCharacterData:
+    bones: []
+    parts: []
+    dimension: {x: 0, y: 0}
+    characterGroups: []
+    pivot: {x: 0, y: 0}
+    boneReadOnly: 0
+  characterData:
+    bones: []
+    parts: []
+    dimension: {x: 0, y: 0}
+    characterGroups: []
+    pivot: {x: 0, y: 0}
+    boneReadOnly: 0
+  platformSettings:
+  - name: DefaultTexturePlatform
+    overridden: 0
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    androidETC2FallbackOverride: 0
+  - name: Standalone
+    overridden: 0
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    androidETC2FallbackOverride: 0
+  mosaicLayers: 1
+  characterMode: 1
+  documentPivot: {x: 0, y: 0}
+  documentAlignment: 7
+  importHiddenLayers: 0
+  layerMappingOption: 2
+  generatePhysicsShape: 0
+  paperDollMode: 0
+  keepDupilcateSpriteName: 1
+  padding: 4
+  spriteSizeExpand: 0
+  skeletonAssetReferenceID: 
+  spriteCategoryList:
+    categories: []
+  spritePackingTag: 
+  resliceFromLayer: 0
+  pSDLayerImportSetting: []
+  psdLayers:
+  - name: indicator left
+    spriteName: 
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 59aa690957191ba43bf7c4505e4dd2db
+    layerID: 0
+    mosaicPosition: {x: 0, y: 0}
+    flatten: 0
+    isImported: 0
+    isVisible: 0
+  - name: indicator
+    spriteName: 
+    isGroup: 0
+    parentIndex: -1
+    spriteID: e780bf19ddf4aaa4995a2dde5afec899
+    layerID: 580694825
+    mosaicPosition: {x: 0, y: 0}
+    flatten: 0
+    isImported: 0
+    isVisible: 0
+  - name: top buttons
+    spriteName: 
+    isGroup: 1
+    parentIndex: -1
+    spriteID: 88b6c43ac321fb64aa33a362735d0d4f
+    layerID: -1402068572
+    mosaicPosition: {x: 0, y: 0}
+    flatten: 0
+    isImported: 0
+    isVisible: 1
+  - name: lewy dol
+    spriteName: lewy dol
+    isGroup: 0
+    parentIndex: 2
+    spriteID: 99781b63a15e92e4c9b88b3ebb2d3a16
+    layerID: -1879610202
+    mosaicPosition: {x: 3569, y: 4}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: prawy dol
+    spriteName: prawy dol
+    isGroup: 0
+    parentIndex: 2
+    spriteID: ef6fcc1e36af2b1449d9272e2822b25c
+    layerID: 743079888
+    mosaicPosition: {x: 1287, y: 390}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: prawy srodek
+    spriteName: prawy srodek
+    isGroup: 0
+    parentIndex: 2
+    spriteID: 6b9695a282f75dc4292ed5a079f1ea91
+    layerID: 617477637
+    mosaicPosition: {x: 1493, y: 390}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: prawy gora
+    spriteName: prawy gora
+    isGroup: 0
+    parentIndex: 2
+    spriteID: 46406ba7d160b914ca7f942197a1bc04
+    layerID: -250618914
+    mosaicPosition: {x: 1699, y: 390}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: lewy gora
+    spriteName: lewy gora
+    isGroup: 0
+    parentIndex: 2
+    spriteID: de69f851c5e3e0748b1b0ddba541b1c4
+    layerID: -1608675124
+    mosaicPosition: {x: 3821, y: 4}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: LINIA
+    spriteName: LINIA
+    isGroup: 0
+    parentIndex: 2
+    spriteID: 2630aa0161a4f6a43bcd163e319237f4
+    layerID: -972070657
+    mosaicPosition: {x: 4, y: 985}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: hp crystal
+    spriteName: 
+    isGroup: 1
+    parentIndex: -1
+    spriteID: 39a4302330144044d90f60394488245a
+    layerID: -1170249568
+    mosaicPosition: {x: 0, y: 0}
+    flatten: 0
+    isImported: 0
+    isVisible: 1
+  - name: CRYSTAL lineart
+    spriteName: CRYSTAL lineart
+    isGroup: 0
+    parentIndex: 9
+    spriteID: ad75a02e2653f564cb5825c8e8f515de
+    layerID: 1084252631
+    mosaicPosition: {x: 1273, y: 4}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: crystal1
+    spriteName: 
+    isGroup: 0
+    parentIndex: 9
+    spriteID: c16b984587c29d347843808e0e8ad386
+    layerID: -1906228821
+    mosaicPosition: {x: 0, y: 0}
+    flatten: 0
+    isImported: 0
+    isVisible: 0
+  - name: crystal2
+    spriteName: 
+    isGroup: 0
+    parentIndex: 9
+    spriteID: e34b1506b6309fb4cb42c5c3e66c30df
+    layerID: -1502944294
+    mosaicPosition: {x: 0, y: 0}
+    flatten: 0
+    isImported: 0
+    isVisible: 0
+  - name: crystal3
+    spriteName: 
+    isGroup: 0
+    parentIndex: 9
+    spriteID: 438a7061aa521aa419a282e6b75da7e0
+    layerID: 1225939061
+    mosaicPosition: {x: 0, y: 0}
+    flatten: 0
+    isImported: 0
+    isVisible: 0
+  - name: crystal4
+    spriteName: 
+    isGroup: 0
+    parentIndex: 9
+    spriteID: 30dd95c55623ca24ab76ad24f5ab4235
+    layerID: 1985453948
+    mosaicPosition: {x: 0, y: 0}
+    flatten: 0
+    isImported: 0
+    isVisible: 0
+  - name: gold
+    spriteName: gold
+    isGroup: 0
+    parentIndex: 9
+    spriteID: 801b9547a481c19449660949462d3b0a
+    layerID: -151839020
+    mosaicPosition: {x: 2483, y: 4}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: ornaments gora lewo
+    spriteName: ornaments gora lewo
+    isGroup: 0
+    parentIndex: -1
+    spriteID: d5f67db8e4c1983419c732682898dd9d
+    layerID: -1723310747
+    mosaicPosition: {x: 646, y: 390}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: ornaments gora prawo
+    spriteName: ornaments gora prawo
+    isGroup: 0
+    parentIndex: -1
+    spriteID: df5261c1a84a24348b8bdea7dbba3695
+    layerID: -1414649385
+    mosaicPosition: {x: 4, y: 390}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: ss lewy
+    spriteName: ss lewy
+    isGroup: 0
+    parentIndex: -1
+    spriteID: ff650c8dc8a394a4aa986acecc940b3d
+    layerID: 935732843
+    mosaicPosition: {x: 1287, y: 599}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: 'ss prawy '
+    spriteName: 'ss prawy '
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 3b35d7f37359e9941ace52b03580c044
+    layerID: 53011977
+    mosaicPosition: {x: 1329, y: 599}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: ornaments ss
+    spriteName: ornaments ss
+    isGroup: 0
+    parentIndex: -1
+    spriteID: c4eaa0a1bc0141e4caf47dd022d8fb88
+    layerID: -2000892437
+    mosaicPosition: {x: 4, y: 4}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: UI Layout
+    spriteName: 
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 7446752c31ca1384a91807a509180679
+    layerID: 1011690950
+    mosaicPosition: {x: 0, y: 0}
+    flatten: 0
+    isImported: 0
+    isVisible: 0
+  mosaicPSDLayers: []
+  rigPSDLayers: []
+  sharedRigPSDLayers: []
+  importFileNodeState: 1
+  platformSettingsDirtyTick: 0
+  spriteSizeExpandChanged: 0
+  generateGOHierarchy: 0
+  textureAssetName: 
+  prefabAssetName: 
+  spriteLibAssetName: 
+  skeletonAssetName: 
+  secondarySpriteTextures: []
