@@ -9,7 +9,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{EFC6BDBE-DC0E-853C-C0D5-7209D2FD0660}</ProjectGuid>
+    <ProjectGuid>{528B5C55-1B24-78DA-50FE-FE9916B62F09}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Gentleland.Utils.SteampunkUI</AssemblyName>

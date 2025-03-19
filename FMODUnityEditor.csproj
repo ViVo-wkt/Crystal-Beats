@@ -9,7 +9,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{95B8DD0B-106B-F54F-C8FC-1C11C71CBCF8}</ProjectGuid>
+    <ProjectGuid>{AB2D1E5B-4444-8FFA-E7A2-98DCE73A3638}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>FMODUnityEditor</AssemblyName>
@@ -807,7 +807,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="FMODUnity.csproj">
-      <Project>{4DF1277D-2EB5-36CA-FF96-987AF23497A6}</Project>
+      <Project>{65603DB5-69FB-7CEC-9164-2622558BD2FC}</Project>
       <Name>FMODUnity</Name>
     </ProjectReference>
   </ItemGroup>

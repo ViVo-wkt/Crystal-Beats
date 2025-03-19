@@ -29,7 +29,7 @@ public class EnemyController : MonoBehaviour
     private Vector3 lastDirection; // Ostatni kierunek ruchu przeciwnika
     private Vector3 secondLastDirection; // Przedostatni kierunek ruchu przeciwnika
 
-
+    public kó³ko_ataku_instance kó³ko_Ataku_Instance;
 
     private Animator anim;
     void Start()
@@ -45,7 +45,7 @@ public class EnemyController : MonoBehaviour
 
         anim = GetComponent<Animator>();
         AudioManager.BeatUpdated += UpdateMoveDelay;
-
+        kó³ko_Ataku_Instance = FindFirstObjectByType<kó³ko_ataku_instance>();
     }
     private void OnDisable()
     {
@@ -57,20 +57,25 @@ public class EnemyController : MonoBehaviour
 
         if (GameManager.instance != null)
         {
-            kó³ko_ataku_instance.instance.CircleActive(false);
+            kó³ko_ataku_instance.instance.CircleCommonActive(false);
+            kó³ko_ataku_instance.instance.CircleRangerActive(false);
+            kó³ko_ataku_instance.instance.CircleTankActive(false);
         }
     }
 
     private void OnDestroy()
     {
         AudioManager.BeatUpdated -= UpdateMoveDelay;
-        
+
 
 
     }
     private void Update()
     {
-
+        if (!IsPositionValid(CurrentGridPosition))
+        {
+            gridCenter = transform.position;
+        }
         if (isChasingPlayer)
         {
 
@@ -79,18 +84,33 @@ public class EnemyController : MonoBehaviour
             {
 
 
+                if (gameObject.CompareTag("Common"))
+                {
+                    kó³ko_Ataku_Instance.NewCircleAnimationLength = kó³ko_ataku_instance.CommonCircleLenght;
+                    kó³ko_ataku_instance.instance.CircleCommonActive(true);
+                }
+                else if (gameObject.CompareTag("Ranger"))
+                {
+                    kó³ko_Ataku_Instance.NewCircleAnimationLength = kó³ko_ataku_instance.RangerCircleLenght;
+                    kó³ko_ataku_instance.instance.CircleRangerActive(true);
+                }
+                else if (gameObject.CompareTag("Tank"))
+                {
+                    kó³ko_Ataku_Instance.NewCircleAnimationLength = kó³ko_ataku_instance.TankCircleLenght;
+                    kó³ko_ataku_instance.instance.CircleTankActive(true);
+                }
 
-                kó³ko_ataku_instance.instance.CircleActive(true);
                 Vector3 snappedDirection = SnapDirection(GameManager.instance.player.position - transform.position);
                 Quaternion targetRotation = Quaternion.LookRotation(snappedDirection, Vector3.up);
                 transform.rotation = targetRotation;
 
             }
-            else if (GameManager.instance.playerMoved || !IsAdjacentToPlayerWithRaycast())
-            {
+            //else if (GameManager.instance.playerMoved || !IsAdjacentToPlayerWithRaycast())
+            //{
 
-                kó³ko_ataku_instance.instance.CircleActive(false);
-            }
+
+            //}
+
         }
 
     }
@@ -111,6 +131,13 @@ public class EnemyController : MonoBehaviour
             AgrroStatus.instance.SetAggroState(false);
         }
 
+        if (distanceToPlayer > ReachDistanceToAttack)
+        {
+            kó³ko_ataku_instance.instance.CircleCommonActive(false);
+            kó³ko_ataku_instance.instance.CircleRangerActive(false);
+            kó³ko_ataku_instance.instance.CircleTankActive(false);
+
+        }
     }
 
 
@@ -159,7 +186,7 @@ public class EnemyController : MonoBehaviour
     //Ruch w kierunku gracza
     private void MoveTowardsPlayer()
     {
-        
+
         Vector3 playerGridPosition = WorldToGrid(Player.position);
         Vector3 direction = playerGridPosition - CurrentGridPosition;
 
@@ -176,19 +203,39 @@ public class EnemyController : MonoBehaviour
         Vector3 newPosition = CurrentGridPosition + direction * tileSize;
 
 
-        
 
 
-        if (IsPositionValid(newPosition) && !IsWallBlocking(direction))
+
+        if (/*IsPositionValid(newPosition) &&*/ !IsWallBlocking(direction))
         {
+
             CurrentGridPosition = newPosition;
             transform.position = CurrentGridPosition;
-            if(!IsAdjacentToPlayerWithRaycast())
+            if (!IsAdjacentToPlayerWithRaycast())
             {
                 Quaternion targetRotation = Quaternion.LookRotation(direction, Vector3.up);
                 transform.rotation = targetRotation;
             }
-            
+
+        }
+        else
+        {
+
+            Vector3 NewChasingPosition;
+            Vector3 positionNew;
+
+            do
+            {
+                NewChasingPosition = GenerateRandomDirection();
+
+                positionNew = CurrentGridPosition + NewChasingPosition * tileSize;
+            }
+            while (Vector3.Distance(positionNew, GameManager.instance.player.position) > detectionRadius
+             || IsWallBlocking(NewChasingPosition));
+
+            CurrentGridPosition = positionNew;
+            transform.position = CurrentGridPosition;
+
         }
 
 
@@ -216,7 +263,7 @@ public class EnemyController : MonoBehaviour
             if (hit.collider != null && hit.collider.transform == Player && !hit.collider.isTrigger)
             {
                 return true;
-                
+
             }
         }
 
@@ -277,20 +324,39 @@ public class EnemyController : MonoBehaviour
     private void EnemyAttack()
     {
 
-        if(SceneManager.GetActiveScene().name != "Tutorial")
+        if (SceneManager.GetActiveScene().name != "Tutorial")
         {
             Player_Info.Instance.Player_HP -= 1;
             Player_Info.Instance.PlayerHpUpdate();
 
             Player_Info.Instance.CheckIfDead();
         }
-        
 
-        
+
+
 
     }
     private void UpdateMoveDelay()
     {
+        if (isChasingPlayer)
+        {
+
+            if (kó³ko_Ataku_Instance.End && !GameManager.instance.playerMoved && IsAdjacentToPlayerWithRaycast())
+            {
+                if (anim != null)
+                {
+                    anim.SetTrigger("EnemyAttack");
+
+                }
+
+                EnemyAttack();
+                kó³ko_Ataku_Instance.End = false;
+            }
+            else if (GameManager.instance.playerMoved || !IsAdjacentToPlayerWithRaycast())
+            {
+                kó³ko_Ataku_Instance.End = false;
+            }
+        }
 
         BeatsCollection++;
         if (BeatsCollection == BeatsToMove)
@@ -305,15 +371,10 @@ public class EnemyController : MonoBehaviour
 
 
                 }
-                else if (!GameManager.instance.playerMoved && IsAdjacentToPlayerWithRaycast())
-                {
-                    if(anim != null)
-                    {
-                        anim.SetTrigger("EnemyAttack");
-                    }
-                    
-                    EnemyAttack();
-                }
+                //else if (!GameManager.instance.playerMoved && IsAdjacentToPlayerWithRaycast())
+                //{
+
+                //}
 
             }
             else
@@ -324,7 +385,7 @@ public class EnemyController : MonoBehaviour
             BeatsCollection = 0;
         }
     }
-    
+
     private Vector3 SnapDirection(Vector3 direction)
     {
         // Zaokr¹glanie kierunku do osi g³ównych (X lub Z)
@@ -339,8 +400,10 @@ public class EnemyController : MonoBehaviour
     }
     private void NewEnemyPosition()
     {
+
         Vector3 newPosition;
         Vector3 chosenDirection;
+
         do
         {
             chosenDirection = GenerateRandomDirection();
@@ -359,6 +422,7 @@ public class EnemyController : MonoBehaviour
         transform.rotation = targetRotation;
         // Losowy ruch
     }
+
 
 }
 

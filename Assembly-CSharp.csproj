@@ -9,7 +9,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{C2091AD8-3776-BC7A-F4D4-D83353F43729}</ProjectGuid>
+    <ProjectGuid>{5407B016-B012-E4FB-E141-70D7B04D291E}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Assembly-CSharp</AssemblyName>
@@ -59,7 +59,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\MainMenu\Settings.cs" />
-    <Compile Include="Assets\Animations\Kółko_Ataku_Animacja\kółko_ataku_instance.cs" />
     <Compile Include="Assets\Scripts\Player\Movement.cs" />
     <Compile Include="Assets\Scripts\Enemy\Common.cs" />
     <Compile Include="Assets\Scripts\Enemy\EnemyController.cs" />
@@ -71,6 +70,7 @@
     <Compile Include="Assets\Scripts\Enemy\Ranger.cs" />
     <Compile Include="Assets\Scripts\MainMenu\SaveVolume.cs" />
     <Compile Include="Assets\Scripts\Player\Inventory\Crystal_Controller.cs" />
+    <Compile Include="Assets\Scripts\kółko_ataku_instance.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerAttack.cs" />
     <Compile Include="Assets\Scripts\Hub\GameManager.cs" />
     <Compile Include="Assets\Scripts\Audio\FMODEvents.cs" />
@@ -967,27 +967,27 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="FMODUnityResonanceEditor.csproj">
-      <Project>{48C4FFE6-23DD-AC30-5F81-149CEECD1734}</Project>
+      <Project>{AA4AE189-8848-A50E-DE65-BA83A5B5EA3B}</Project>
       <Name>FMODUnityResonanceEditor</Name>
     </ProjectReference>
     <ProjectReference Include="Gentleland.SteampunkUI.DemoAndExample.csproj">
-      <Project>{D6B67BAD-09B0-1A18-413B-26676FF1F797}</Project>
+      <Project>{47EB390E-1206-50C0-C901-18E4B388C5D6}</Project>
       <Name>Gentleland.SteampunkUI.DemoAndExample</Name>
     </ProjectReference>
     <ProjectReference Include="FMODUnityResonance.csproj">
-      <Project>{42CCFCF5-A8D9-4798-0A51-B9E9DE1B2D49}</Project>
+      <Project>{BC331AB3-4E05-7EEE-0C77-D37E8F2B54AA}</Project>
       <Name>FMODUnityResonance</Name>
     </ProjectReference>
     <ProjectReference Include="FMODUnity.csproj">
-      <Project>{4DF1277D-2EB5-36CA-FF96-987AF23497A6}</Project>
+      <Project>{65603DB5-69FB-7CEC-9164-2622558BD2FC}</Project>
       <Name>FMODUnity</Name>
     </ProjectReference>
     <ProjectReference Include="Gentleland.Utils.SteampunkUI.csproj">
-      <Project>{EFC6BDBE-DC0E-853C-C0D5-7209D2FD0660}</Project>
+      <Project>{528B5C55-1B24-78DA-50FE-FE9916B62F09}</Project>
       <Name>Gentleland.Utils.SteampunkUI</Name>
     </ProjectReference>
     <ProjectReference Include="FMODUnityEditor.csproj">
-      <Project>{95B8DD0B-106B-F54F-C8FC-1C11C71CBCF8}</Project>
+      <Project>{AB2D1E5B-4444-8FFA-E7A2-98DCE73A3638}</Project>
       <Name>FMODUnityEditor</Name>
     </ProjectReference>
   </ItemGroup>

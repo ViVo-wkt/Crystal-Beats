@@ -464,8 +464,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 3.3979492, y: 4.3746886, z: 3.380521}
-  m_Center: {x: 0.0019073486, y: 2.1873443, z: 0.060827613}
+  m_Size: {x: 3.3979492, y: 4.7180495, z: 3.380521}
+  m_Center: {x: 0.0019073486, y: 2.0156639, z: 0.060827613}
 --- !u!95 &3569995770512968128
 Animator:
   serializedVersion: 7
@@ -505,10 +505,11 @@ MonoBehaviour:
   gridSizeX: 3
   gridSizeZ: 3
   Player: {fileID: 0}
-  detectionRadius: 3
+  detectionRadius: 2
   BeatsToMove: 3
   ReachDistanceToAttack: 0.6
   isChasingPlayer: 0
+  "k\xF3\u0142ko_Ataku_Instance": {fileID: 0}
 --- !u!114 &4692391594660295713
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -1,0 +1,69 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\smako\\Crystal-Beats\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{5407B016-B012-E4FB-E141-70D7B04D291E}|Assembly-CSharp.csproj|c:\\users\\smako\\crystal-beats\\assets\\scripts\\mainmenu\\mainmenubuttons.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5407B016-B012-E4FB-E141-70D7B04D291E}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\mainmenu\\mainmenubuttons.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5407B016-B012-E4FB-E141-70D7B04D291E}|Assembly-CSharp.csproj|C:\\Users\\smako\\Crystal-Beats\\assets\\scripts\\k\u00F3\u0142ko_ataku_instance.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5407B016-B012-E4FB-E141-70D7B04D291E}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\k\u00F3\u0142ko_ataku_instance.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5407B016-B012-E4FB-E141-70D7B04D291E}|Assembly-CSharp.csproj|C:\\Users\\smako\\Crystal-Beats\\assets\\scripts\\enemy\\enemycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5407B016-B012-E4FB-E141-70D7B04D291E}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\enemy\\enemycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "MainMenuButtons.cs",
+              "DocumentMoniker": "C:\\Users\\smako\\Crystal-Beats\\Assets\\Scripts\\MainMenu\\MainMenuButtons.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\MainMenu\\MainMenuButtons.cs",
+              "ToolTip": "C:\\Users\\smako\\Crystal-Beats\\Assets\\Scripts\\MainMenu\\MainMenuButtons.cs",
+              "RelativeToolTip": "Assets\\Scripts\\MainMenu\\MainMenuButtons.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAjAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-19T22:40:06.785Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "EnemyController.cs",
+              "DocumentMoniker": "C:\\Users\\smako\\Crystal-Beats\\Assets\\Scripts\\Enemy\\EnemyController.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Enemy\\EnemyController.cs",
+              "ToolTip": "C:\\Users\\smako\\Crystal-Beats\\Assets\\Scripts\\Enemy\\EnemyController.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Enemy\\EnemyController.cs",
+              "ViewState": "AgIAALcAAAAAAAAAAAApwKkAAAAlAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-19T18:00:28.819Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "k\u00F3\u0142ko_ataku_instance.cs",
+              "DocumentMoniker": "C:\\Users\\smako\\Crystal-Beats\\Assets\\Scripts\\k\u00F3\u0142ko_ataku_instance.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\k\u00F3\u0142ko_ataku_instance.cs",
+              "ToolTip": "C:\\Users\\smako\\Crystal-Beats\\Assets\\Scripts\\k\u00F3\u0142ko_ataku_instance.cs",
+              "RelativeToolTip": "Assets\\Scripts\\k\u00F3\u0142ko_ataku_instance.cs",
+              "ViewState": "AgIAADUAAAAAAAAAAAAqwFcAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-19T18:00:09.047Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

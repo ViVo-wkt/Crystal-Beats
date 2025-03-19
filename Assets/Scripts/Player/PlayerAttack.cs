@@ -150,7 +150,8 @@ public class PlayerAttack : MonoBehaviour
                 //CanAttack.SetActive(true);
                 if (Input.GetKeyDown(KeyCode.Space) && weaponManager.Weapons[weaponManager.WeaponIndex] != null && weaponManager.WeaponIndex != 3)
                 {
-                    if(CanAttackCommon)
+                    player_anim.SetTrigger("TriggerAttack");
+                    if (CanAttackCommon)
                     {
                         
                         //player_anim.SetBool("PlayerCanAttack", true);

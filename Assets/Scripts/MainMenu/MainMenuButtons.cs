@@ -16,7 +16,7 @@ public class MainMenuButtons : MonoBehaviour
     {
 
         SaveScript.ClearJsonData();
-        SceneManager.LoadScene("Tutorial");
+        SceneManager.LoadScene("HUB");
         
     }
     public void Settings()
