@@ -1,0 +1,67 @@
+Library/
+Logs/
+
+
+.vs/Dungeon Crawler/FileContentIndex/78ff78a6-7f02-418f-8d2d-83517b84115e.vsidx
+.vs/Dungeon Crawler/FileContentIndex/d0961cef-767e-4bca-b77c-6feb0f9e1478.vsidx
+.vs/Dungeon Crawler/FileContentIndex/d92959d0-e02a-4733-92b6-80700da1c878.vsidx
+.vs/Dungeon Crawler/FileContentIndex/65473698-fda6-4aed-8f33-d0b85ef9c719.vsidx
+.vs/Dungeon Crawler/FileContentIndex/99a8ebd1-61e1-400b-a4ce-f78060b17d3f.vsidx
+.vs/Dungeon Crawler/FileContentIndex/d31b4f2c-78e1-4d53-b91b-d240492dc09e.vsidx
+# Log files can be ignored.
+fmod_editor.log/[Aa]ssets/Plugins/FMOD/**/lib/*
+
+# Don't ignore images and gizmos used by FMOD in the Unity Editor.
+!/[Aa]ssets/Gizmos/FMOD/*
+!/[Aa]ssets/Editor Default Resources/FMOD/*
+
+# Ignore the Cache folder since it is updated locally.
+/[Aa]ssets/Plugins/FMOD/Cache/*
+
+# Ignore bank files in the StreamingAssets folder.
+/[Aa]ssets/StreamingAssets/**/*.bank
+/[Aa]ssets/StreamingAssets/**/*.bank.meta
+
+# If the source bank files are kept outside of the StreamingAssets folder then these can be ignored.
+# Log files can be ignored.
+fmod_editor.log
+.vs/Dungeon Crawler/FileContentIndex/2961c3c9-7418-4806-b855-456244a8590d.vsidx
+.vs/Dungeon Crawler/FileContentIndex/4ee4b7c6-4781-4cc1-85ce-df293dfea529.vsidx
+.vs/Dungeon Crawler/FileContentIndex/c1aa7ffd-7dba-437b-b136-ab34ae70491f.vsidx
+.vs/Dungeon Crawler/FileContentIndex/dfc3ad81-0e2f-43a2-831c-b6f11f5c45e5.vsidx
+.vs/Dungeon Crawler/FileContentIndex/018d38fa-3f47-4022-9b7d-2fe3f1b077cb.vsidx
+.vs/Dungeon Crawler/FileContentIndex/8ec20aa0-d780-418c-918f-03f16c36693e.vsidx
+.vs/Dungeon Crawler/FileContentIndex/d6a359a3-66c5-4c96-9edd-144445e800a4.vsidx
+.vs/Dungeon Crawler/FileContentIndex/dbd898c8-902c-4f6b-a079-8fc02ccb1384.vsidx
+.vs/Dungeon Crawler/FileContentIndex/dbd898c8-902c-4f6b-a079-8fc02ccb1384.vsidx
+.vs/Dungeon Crawler/FileContentIndex/4dfd3f1f-b83b-4ed1-956d-8dd3f8668172.vsidx
+.vs/Dungeon Crawler/FileContentIndex/bb3bcb0f-72f9-430f-a32f-a6ae54ec6e92.vsidx
+.vs/Dungeon Crawler/FileContentIndex/d41c1fb7-9792-442a-9cbe-cef8dedb7834.vsidx
+.vs/Dungeon Crawler/FileContentIndex/dcb3e147-e99f-46ad-8acb-eaff235322d6.vsidx
+.vs/Dungeon Crawler/FileContentIndex/4333cb67-77e4-4b1e-b95d-e18c9b2beef2.vsidx
+.vs/Dungeon Crawler/FileContentIndex/975f5ee3-effa-43d6-9e1e-3ac57acec675.vsidx
+.vs/Dungeon Crawler/FileContentIndex/a2a48085-8991-4a8b-8cef-f302e8e4d34f.vsidx
+.vs/Dungeon Crawler/FileContentIndex/3b3ed597-57b5-480b-b028-f338e3c62898.vsidx
+.vs/Dungeon Crawler/FileContentIndex/fdc96753-6bf8-49d0-9e6b-cdcc03783c52.vsidx
+.vs/Dungeon Crawler/FileContentIndex/9bb0e70a-3709-4bed-8e4d-75a6f03d9101.vsidx
+.vs/Dungeon Crawler/FileContentIndex/9bb0e70a-3709-4bed-8e4d-75a6f03d9101.vsidx
+.vs/Dungeon Crawler/FileContentIndex/0a8ef413-2690-4faf-b106-57d9f7337c54.vsidx
+.vs/Dungeon Crawler/FileContentIndex/600fc4a4-f153-4b36-8a3e-7dec22c0946e.vsidx
+.vs/Dungeon Crawler/FileContentIndex/9b840280-153b-423a-bb01-f00add58fba6.vsidx
+.vs/Dungeon Crawler/FileContentIndex/823fafa9-3c77-403f-aa4c-fc8fc0657656.vsidx
+.vs/Dungeon Crawler/FileContentIndex/8f1e7b12-696c-4b27-98cd-90a275a51d28.vsidx
+.vs/Dungeon Crawler/FileContentIndex/5342c1cd-eb1d-44bc-a7bc-c77e02e67e0a.vsidx
+.vs/Dungeon Crawler/FileContentIndex/f8fb6909-6fb3-4c7b-9a13-48d60f6f0be1.vsidx
+.vs/Dungeon Crawler/FileContentIndex/63799e86-bfd4-4c79-8993-cf7f7bc27b04.vsidx
+.vs/Dungeon Crawler/FileContentIndex/c226c018-e666-47e2-9d75-d80e6ac91e88.vsidx
+.vs/Dungeon Crawler/FileContentIndex/c2f001ad-94b6-4d56-8e49-04a05ca4899b.vsidx
+.vs/Dungeon Crawler/FileContentIndex/b76a5e73-f9ca-476f-ba10-fd663dc817dd.vsidx
+.vs/Dungeon Crawler/FileContentIndex/e286aa92-5a80-48c1-8cba-4a56c5785011.vsidx
+.vs/Dungeon Crawler/FileContentIndex/4947edd0-3bec-4bf3-8b9c-26f84d2e609e.vsidx
+.vs/Dungeon Crawler/FileContentIndex/8b823a8b-8bcf-4ed0-aefd-6930e440e40e.vsidx
+.vs/Dungeon Crawler/FileContentIndex/dde086a5-8810-40ca-907c-5791a0283f42.vsidx
+.vs/Dungeon Crawler/FileContentIndex/64e3db53-5372-4160-a602-781b29e1e117.vsidx
+.vs/Dungeon Crawler/FileContentIndex/b6ed7491-1ccf-4f31-aabd-620a13946606.vsidx
+.vs/Dungeon Crawler/FileContentIndex/cc7bb551-4d7a-4829-af07-f300592e43c2.vsidx
+.vs/Dungeon Crawler/FileContentIndex/e90a09ed-56a5-4751-b2c0-9446395fb70f.vsidx
+.vs/Dungeon Crawler/FileContentIndex/283c4d9b-11df-4b0c-a525-3829acdb9aa2.vsidx
