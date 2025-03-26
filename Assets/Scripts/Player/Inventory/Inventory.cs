@@ -32,6 +32,8 @@ public class Inventory : MonoBehaviour
         Instance = this;
         inventoryManager = GameObject.FindWithTag("Manager").GetComponent<InventoryManager>();
         Cursor.SetCursor(CursorTexture, new Vector2(CursorTexture.width / 2, 0), cursorMode);
+
+        
     }
 
     // Update is called once per frame
@@ -43,13 +45,14 @@ public class Inventory : MonoBehaviour
             
             if (Inventory_Panel.activeSelf || PausePanel.activeSelf || DeathPanel.activeSelf)
             {
-                
-                
-                    CursorVisibility(true);
+
+                Cursor.lockState = CursorLockMode.None;
+                CursorVisibility(true);
 
             }
             else
             {
+                Cursor.lockState = CursorLockMode.Locked;
                 CursorVisibility(false);
             }
         }
@@ -57,12 +60,14 @@ public class Inventory : MonoBehaviour
         if (playerInteracionHUB != null)// scena HUB
         {
             
-            if (playerInteracionHUB.WeaponPanel.activeSelf || playerInteracionHUB.CraftPanel.activeSelf || Inventory_Panel.activeSelf || PausePanel.activeSelf || DeathPanel.activeSelf || playerInteracionHUB.Tutorial_Panel.activeSelf)
+            if (playerInteracionHUB.WeaponPanel.activeSelf || playerInteracionHUB.CraftPanel.activeSelf || Inventory_Panel.activeSelf || PausePanel.activeSelf || DeathPanel.activeSelf || playerInteracionHUB.Tutorial_Panel.activeSelf || playerInteracionHUB.Lore_Panel.activeSelf)
             {
+                Cursor.lockState = CursorLockMode.None;
                 CursorVisibility(true);
             }
             else 
             {
+                Cursor.lockState = CursorLockMode.Locked;
                 CursorVisibility(false);
             }
         }
@@ -71,10 +76,12 @@ public class Inventory : MonoBehaviour
             
             if(Inventory_Panel.activeSelf || PausePanel.activeSelf || DeathPanel.activeSelf || tutorial_Guid_Panel.GuidePanels[0].activeSelf || tutorial_Guid_Panel.GuidePanels[1].activeSelf || tutorial_Guid_Panel.GuidePanels[2].activeSelf)
             {
+                Cursor.lockState = CursorLockMode.None;
                 CursorVisibility(true);
             }
             else
             {
+                Cursor.lockState = CursorLockMode.Locked;
                 CursorVisibility(false);
             }
         }
@@ -136,18 +143,18 @@ public class Inventory : MonoBehaviour
         }
         //Tutorial
 
-        if (Inventory_Panel.activeSelf)
-        {
-            foreach (var item in SlotsInfo)
-            {
-                SlotsInfo[0].text = "Single Crystals slots left: " + inventoryManager.Inventory_SingleCrystal_Slots.Count.ToString() + "/40";
-                SlotsInfo[1].text = "Small Clusters slots left: " + inventoryManager.Inventory_SmallCrystalCluster_Slots.Count.ToString() + "/20";
-                SlotsInfo[2].text = "Large Clusters slots left: " + inventoryManager.Inventory_LargeCrystalCLuster_Slots.Count.ToString() + "/9";
-                SlotsInfo[3].text = "Red Clusters slots left: " + inventoryManager.Inventory_RedCrystalCluster_Slots.Count.ToString() + "/8";
-                break;
-            }
+        //if (Inventory_Panel.activeSelf) ////liczyd³o
+        //{
+        //    foreach (var item in SlotsInfo)
+        //    {
+        //        SlotsInfo[0].text = "Single Crystals slots left: " + inventoryManager.Inventory_SingleCrystal_Slots.Count.ToString() + "/40";
+        //        SlotsInfo[1].text = "Small Clusters slots left: " + inventoryManager.Inventory_SmallCrystalCluster_Slots.Count.ToString() + "/20";
+        //        SlotsInfo[2].text = "Large Clusters slots left: " + inventoryManager.Inventory_LargeCrystalCLuster_Slots.Count.ToString() + "/9";
+        //        SlotsInfo[3].text = "Red Clusters slots left: " + inventoryManager.Inventory_RedCrystalCluster_Slots.Count.ToString() + "/8";
+        //        break;
+        //    }
           
-        }
+        //}
         
         
     }

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{837f32ca-ed35-4f0b-8183-5629a986ff43}">
+		<property name="assetPath">
+			<value>SFX/Crystal (4).wav</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>44.0999985</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>1.7499773242630385</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{a18f12bb-bc5c-4c8f-a3c4-29fe0083a69d}</destination>
+		</relationship>
+	</object>
+</objects>

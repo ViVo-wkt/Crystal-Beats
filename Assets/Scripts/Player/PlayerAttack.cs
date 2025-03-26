@@ -99,7 +99,8 @@ public class PlayerAttack : MonoBehaviour
 
 
             }
-            if (playerInteracionHUB != null)
+
+            if (playerInteracionHUB != null)//do obrzyna
             {
                 
                 if (Physics.Raycast(transform.position + Vector3.up, PlayerForward ,GunRangeRaycast, LayerMask.GetMask("Default")))
@@ -115,15 +116,22 @@ public class PlayerAttack : MonoBehaviour
                         }
                         
                         
-                            if (playerInteracionHUB.CanInteractShop)
-                            {
-                                playerInteracionHUB.WeaponPanel.gameObject.SetActive(true);
+                        if (playerInteracionHUB.CanInteractShop)
+                        {
+                            playerInteracionHUB.WeaponPanel.gameObject.SetActive(true);
 
-                            }
+                        }
                         
                         if (playerInteracionHUB.CanInteractTutorial)
                         {
+                            
                             playerInteracionHUB.Tutorial_Panel.gameObject.SetActive(true);
+                        }
+
+                        if (playerInteracionHUB.CanInteractLore)
+                        {
+                            
+                            playerInteracionHUB.Lore_Panel.gameObject.SetActive(true);
                         }
                     }
                 }
@@ -238,6 +246,11 @@ public class PlayerAttack : MonoBehaviour
                         if(playerInteracionHUB.CanInteractTutorial)
                         {
                             playerInteracionHUB.Tutorial_Panel.gameObject.SetActive(true);
+                        }
+                        if (playerInteracionHUB.CanInteractLore)
+                        {
+
+                            playerInteracionHUB.Lore_Panel.gameObject.SetActive(true);
                         }
                     }
                 }

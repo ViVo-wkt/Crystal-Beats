@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{15cd2c0f-a4d4-4553-993d-6e537d0f726f}">
+		<property name="assetPath">
+			<value>SFX/Teleport (2).ogg</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>44.0999985</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>4.8653741496598641</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{a18f12bb-bc5c-4c8f-a3c4-29fe0083a69d}</destination>
+		</relationship>
+	</object>
+</objects>

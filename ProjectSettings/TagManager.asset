@@ -24,6 +24,7 @@ TagManager:
   - Tank
   - Trap
   - Tutorial
+  - Lore
   layers:
   - Default
   - TransparentFX

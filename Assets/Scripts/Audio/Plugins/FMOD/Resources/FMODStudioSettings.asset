@@ -307,8 +307,8 @@ MonoBehaviour:
   switchSettingsMigration: 1
   HasSourceProject: 1
   HasPlatforms: 1
-  sourceProjectPath: ../Desktop/fm mod soundtrack/fm mod soundtrack.fspro
-  sourceBankPath: ../Desktop/fm mod soundtrack/Build
+  sourceProjectPath: fm mod soundtrack/fm mod soundtrack.fspro
+  sourceBankPath: fm mod soundtrack/Build
   sourceBankPathUnformatted: 
   BankRefreshCooldown: 5
   ShowBankRefreshWindow: 1

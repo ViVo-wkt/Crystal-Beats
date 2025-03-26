@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{120094bb-f86f-4f0c-8fc4-fb0fa790f1c9}">
+		<property name="assetPath">
+			<value>SFX/Smite 09.wav</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>44.0999985</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>1.25</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{a18f12bb-bc5c-4c8f-a3c4-29fe0083a69d}</destination>
+		</relationship>
+	</object>
+</objects>

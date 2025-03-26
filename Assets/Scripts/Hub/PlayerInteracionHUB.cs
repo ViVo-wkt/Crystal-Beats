@@ -10,17 +10,62 @@ public class PlayerInteracionHUB : MonoBehaviour
     public GameObject WeaponPanel;
     public GameObject CraftPanel;
     public GameObject Tutorial_Panel;
+    public GameObject Lore_Panel;
+    public GameObject[] Lore_Pages;
+    private int Page_Index;
 
     public bool CanInteractCraft;
     public bool CanInteractShop;
     public bool CanInteractTutorial;
+    public bool CanInteractLore;
     public PlayerAttack playerAttack;
 
 
     public Inventory inventory;
     private void OnTriggerStay(Collider other)
     {
-        
+        switch (Page_Index)
+        {
+            case 0:
+                foreach (GameObject item in Lore_Pages)
+                {
+                    item.SetActive(false);
+                    
+                }
+
+                Lore_Pages[0].SetActive(true);
+                break;
+            case 1:
+                foreach (GameObject item in Lore_Pages)
+                {
+                    item.SetActive(false);
+                    
+                }
+
+                Lore_Pages[1].SetActive(true);
+                break;
+            case 2:
+                foreach (GameObject item in Lore_Pages)
+                {
+                    item.SetActive(false);
+                    
+                }
+
+                Lore_Pages[2].SetActive(true);
+                break;
+            case 3:
+                foreach (GameObject item in Lore_Pages)
+                {
+                    item.SetActive(false);
+
+                }
+
+                Lore_Pages[3].SetActive(true);
+                break;
+            default:
+                break;
+        }
+
         if (other.gameObject.CompareTag("CraftWorkshop") && !inventory.PausePanel.activeSelf && !inventory.Inventory_Panel.activeSelf)
         {
             CanInteractCraft = true;
@@ -34,14 +79,43 @@ public class PlayerInteracionHUB : MonoBehaviour
         {
             CanInteractTutorial = true;
         }
+        if (other.gameObject.CompareTag("Lore") && !inventory.PausePanel.activeSelf && !inventory.Inventory_Panel.activeSelf)
+        {
+            CanInteractLore = true;
+            
+        }
+
     }
     private void OnTriggerExit(Collider other)
     {
         CanInteractTutorial = false;
-
+        CanInteractLore = false;
         CanInteractCraft = false;
         CanInteractShop = false;
         CraftPanel.SetActive(false);
         WeaponPanel.SetActive(false);
+    }
+
+    public void OnClickPage1()
+    {
+        Page_Index = 0;
+    }
+    public void OnClickPage2()
+    {
+        Page_Index = 1;
+    }
+    public void OnClickPage3()
+    {
+        Page_Index = 2;
+    }
+    public void OnClickPage4()
+    {
+        Page_Index = 3;
+    }
+    public void OnClickExit_Lore()
+    {
+        Page_Index = 0;
+        Lore_Panel.SetActive(false);
+        
     }
 }
