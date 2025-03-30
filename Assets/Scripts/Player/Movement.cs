@@ -1,14 +1,14 @@
-using System.Collections;
+Ôªøusing System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Movement : MonoBehaviour
 {
     public AudioManager audioManager;
-    [HideInInspector] public float moveTimer = 0f; // Uøywamy float dla wiÍkszej precyzji w czasie, im mniej tym trzeba byÊ bardziej precyzyjnym
+    [HideInInspector] public float moveTimer = 0f; // U≈ºywamy float dla wiƒôkszej precyzji w czasie, im mniej tym trzeba by√¶ bardziej precyzyjnym
     public float timeWindow = 0.5f; // Okno czasowe (w sekundach) na wykonanie ruchu po beacie
-    public int BlockDuration; // ustawianie iloúci blokad
-   [HideInInspector] public int blockCounter = 0; // Licznik blokady (liczba beatÛw)
+    public int BlockDuration; // ustawianie ilo≈ìci blokad
+   [HideInInspector] public int blockCounter = 0; // Licznik blokady (liczba beat√≥w)
     private bool BlockIsActive = false;
     public static bool CanMove;
     //public GameObject CanMoveImage;
@@ -38,10 +38,10 @@ public class Movement : MonoBehaviour
         
         
         CheckWallCollision();
-        // Sprawdzaj czas pomiÍdzy beatami
+        // Sprawdzaj czas pomiƒôdzy beatami
         if (blockCounter > 0)
         {
-            // Jeúli gracz jest zablokowany, zmniejsz licznik na kolejnych beatach
+            // Je≈ìli gracz jest zablokowany, zmniejsz licznik na kolejnych beatach
             return;
         }
         if (moveTimer <= 0)
@@ -65,7 +65,7 @@ public class Movement : MonoBehaviour
             
         }
 
-        // Jeúli naciúniÍto przycisk poza oknem czasowym, aktywuj blokadÍ
+        // Je≈ìli naci≈ìniƒôto przycisk poza oknem czasowym, aktywuj blokadƒô
         else if ((Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.S)) && !BlockIsActive && !CanMove)
         {
             blockCounter = BlockDuration; 
@@ -77,7 +77,7 @@ public class Movement : MonoBehaviour
         AudioManager.BeatUpdated -= OnBeat; // Odsubskrybowanie eventu
     }
 
-    // Funkcja sprawdzajπca moøliwoúÊ ruchu w oknie czasowym
+    // Funkcja sprawdzaj¬πca mo≈ºliwo≈ì√¶ ruchu w oknie czasowym
     private void CheckOnBeat()
     {
         
@@ -160,7 +160,7 @@ public class Movement : MonoBehaviour
         }
     }
 
-    // Funkcja wywo≥ywana na kaødym beacie
+    // Funkcja wywo≈Çywana na ka≈ºdym beacie
     private void OnBeat()
     {
         
@@ -175,9 +175,9 @@ public class Movement : MonoBehaviour
             BlockIsActive = false;
         }
     }
-    private void RuchWDÛ≥()
+    private void RuchWD√≥≈Ç()
     {
-        Vector3 S = new Vector3(0, 0, -1); // Ruch do ty≥u
+        Vector3 S = new Vector3(0, 0, -1); // Ruch do ty≈Çu
 
         gameObject.transform.position += S;
         gameObject.transform.rotation = Quaternion.Euler(0, -180, 0);
@@ -186,7 +186,7 @@ public class Movement : MonoBehaviour
         KeyboardActivity = false;
         AudioManager.Instance.PlayOneShot(FMODEvents.Instance.Swoosh, this.transform.position);
     }
-    private void RuchWGÛre()
+    private void RuchWG√≥re()
     {
         Vector3 W = new Vector3(0, 0, 1);  // Ruch do przodu
 

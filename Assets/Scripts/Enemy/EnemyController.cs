@@ -1,4 +1,4 @@
-using System.Collections;
+ï»¿using System.Collections;
 using Unity.VisualScripting;
 
 using UnityEngine;
@@ -13,28 +13,28 @@ public class EnemyController : MonoBehaviour
     public int gridSizeX = 3; // Rozmiar siatki w osi X
     public int gridSizeZ = 3; // Rozmiar siatki w osi Z
     //public Vector2Int gridSize = new Vector2Int(3,3); // Rozmiar siatki (3x3)
-    /*private float moveDelay;*/ // OpóŸnienie miêdzy ruchami
+    /*private float moveDelay;*/ // OpÃ³Åºnienie miÄ™dzy ruchami
     public Transform Player; // Obiekt gracza
-    public float detectionRadius = 3f; // Promieñ wykrywania gracza
+    public float detectionRadius = 3f; // PromieÃ± wykrywania gracza
     private int BeatsCollection;
     public int BeatsToMove;
     //private bool CanMove;
     public float ReachDistanceToAttack = 0.6f;
 
-    private Vector3 gridCenter; // Sta³y œrodek siatki
+    private Vector3 gridCenter; // StaÅ‚y Å“rodek siatki
     private Vector3 CurrentGridPosition; // Aktualna pozycja przeciwnika
-    public bool isChasingPlayer; // Czy przeciwnik œciga gracza?
+    public bool isChasingPlayer; // Czy przeciwnik Å“ciga gracza?
     private Vector3 lastPlayerPosition; // Ostatnia pozycja gracza
-    /*private bool playerMoved = true;*/ // Czy gracz siê poruszy³?
+    /*private bool playerMoved = true;*/ // Czy gracz siÄ™ poruszyÅ‚?
     private Vector3 lastDirection; // Ostatni kierunek ruchu przeciwnika
     private Vector3 secondLastDirection; // Przedostatni kierunek ruchu przeciwnika
 
-    public kó³ko_ataku_instance kó³ko_Ataku_Instance;
+    public kÃ³Å‚ko_ataku_instance kÃ³Å‚ko_Ataku_Instance;
 
     private Animator anim;
     void Start()
     {
-        // Ustaw aktualn¹ pozycjê przeciwnika jako pozycjê startow¹ siatki
+        // Ustaw aktualnÄ… pozycjÄ™ przeciwnika jako pozycjÄ™ startowÄ… siatki
         gridCenter = transform.position;
         CurrentGridPosition = transform.position;
         //CurrentGridPosition = transform.position;
@@ -45,7 +45,7 @@ public class EnemyController : MonoBehaviour
 
         anim = GetComponent<Animator>();
         AudioManager.BeatUpdated += UpdateMoveDelay;
-        kó³ko_Ataku_Instance = FindFirstObjectByType<kó³ko_ataku_instance>();
+        kÃ³Å‚ko_Ataku_Instance = FindFirstObjectByType<kÃ³Å‚ko_ataku_instance>();
     }
     private void OnDisable()
     {
@@ -57,9 +57,9 @@ public class EnemyController : MonoBehaviour
 
         if (GameManager.instance != null)
         {
-            kó³ko_ataku_instance.instance.CircleCommonActive(false);
-            kó³ko_ataku_instance.instance.CircleRangerActive(false);
-            kó³ko_ataku_instance.instance.CircleTankActive(false);
+            kÃ³Å‚ko_ataku_instance.instance.CircleCommonActive(false);
+            kÃ³Å‚ko_ataku_instance.instance.CircleRangerActive(false);
+            kÃ³Å‚ko_ataku_instance.instance.CircleTankActive(false);
         }
     }
 
@@ -86,18 +86,18 @@ public class EnemyController : MonoBehaviour
 
                 if (gameObject.CompareTag("Common"))
                 {
-                    kó³ko_Ataku_Instance.NewCircleAnimationLength = kó³ko_ataku_instance.CommonCircleLenght;
-                    kó³ko_ataku_instance.instance.CircleCommonActive(true);
+                    kÃ³Å‚ko_Ataku_Instance.NewCircleAnimationLength = kÃ³Å‚ko_ataku_instance.CommonCircleLenght;
+                    kÃ³Å‚ko_ataku_instance.instance.CircleCommonActive(true);
                 }
                 else if (gameObject.CompareTag("Ranger"))
                 {
-                    kó³ko_Ataku_Instance.NewCircleAnimationLength = kó³ko_ataku_instance.RangerCircleLenght;
-                    kó³ko_ataku_instance.instance.CircleRangerActive(true);
+                    kÃ³Å‚ko_Ataku_Instance.NewCircleAnimationLength = kÃ³Å‚ko_ataku_instance.RangerCircleLenght;
+                    kÃ³Å‚ko_ataku_instance.instance.CircleRangerActive(true);
                 }
                 else if (gameObject.CompareTag("Tank"))
                 {
-                    kó³ko_Ataku_Instance.NewCircleAnimationLength = kó³ko_ataku_instance.TankCircleLenght;
-                    kó³ko_ataku_instance.instance.CircleTankActive(true);
+                    kÃ³Å‚ko_Ataku_Instance.NewCircleAnimationLength = kÃ³Å‚ko_ataku_instance.TankCircleLenght;
+                    kÃ³Å‚ko_ataku_instance.instance.CircleTankActive(true);
                 }
 
                 Vector3 snappedDirection = SnapDirection(GameManager.instance.player.position - transform.position);
@@ -133,21 +133,21 @@ public class EnemyController : MonoBehaviour
 
         if (distanceToPlayer > ReachDistanceToAttack)
         {
-            kó³ko_ataku_instance.instance.CircleCommonActive(false);
-            kó³ko_ataku_instance.instance.CircleRangerActive(false);
-            kó³ko_ataku_instance.instance.CircleTankActive(false);
+            kÃ³Å‚ko_ataku_instance.instance.CircleCommonActive(false);
+            kÃ³Å‚ko_ataku_instance.instance.CircleRangerActive(false);
+            kÃ³Å‚ko_ataku_instance.instance.CircleTankActive(false);
 
         }
     }
 
 
 
-    // Generowanie losowego kierunku z uwzglêdnieniem ostatnich ruchów
+    // Generowanie losowego kierunku z uwzglÄ™dnieniem ostatnich ruchÃ³w
     private Vector3 GenerateRandomDirection()
     {
         Vector3[] directions = {
-            new Vector3(0, 0, tileSize),  // Góra (Z+)
-            new Vector3(0, 0, -tileSize), // Dó³ (Z-)
+            new Vector3(0, 0, tileSize),  // GÃ³ra (Z+)
+            new Vector3(0, 0, -tileSize), // DÃ³Å‚ (Z-)
             new Vector3(tileSize, 0, 0),  // Prawo (X+)
             new Vector3(-tileSize, 0, 0) // Lewo (X-)
         };
@@ -163,14 +163,14 @@ public class EnemyController : MonoBehaviour
         return chosenDirection;
     }
 
-    // Aktualizacja historii ruchów
+    // Aktualizacja historii ruchÃ³w
     private void UpdateMovementHistory(Vector3 newDirection)
     {
         secondLastDirection = lastDirection;
         lastDirection = newDirection;
     }
 
-    // Sprawdzenie, czy w danym kierunku znajduje siê œciana
+    // Sprawdzenie, czy w danym kierunku znajduje siÄ™ Å“ciana
     private bool IsWallBlocking(Vector3 direction)
     {
         if (Physics.Raycast(transform.position, direction.normalized, out RaycastHit hit, tileSize))
@@ -246,7 +246,7 @@ public class EnemyController : MonoBehaviour
     {
         Vector3 directionToPlayer = GameManager.instance.player.position - transform.position;
 
-        // Sprawdzenie dominuj¹cego kierunku: X lub Z
+        // Sprawdzenie dominujÄ…cego kierunku: X lub Z
         if (Mathf.Abs(directionToPlayer.x) > Mathf.Abs(directionToPlayer.z))
         {
             directionToPlayer = new Vector3(Mathf.Sign(directionToPlayer.x), 0, 0); // Ruch w osi X
@@ -278,7 +278,7 @@ public class EnemyController : MonoBehaviour
                Mathf.Abs(position.z - gridCenter.z) <= (gridSizeZ / 2) * tileSize;
     }
 
-    // Konwersja pozycji œwiata na siatkê
+    // Konwersja pozycji Å“wiata na siatkÄ™
     private Vector3 WorldToGrid(Vector3 worldPosition)
     {
         return new Vector3(
@@ -289,7 +289,7 @@ public class EnemyController : MonoBehaviour
     }
 
 
-    private void OnDrawGizmos()// Rysuje linie poruszania siê
+    private void OnDrawGizmos()// Rysuje linie poruszania siÄ™
     {
 
         if (!Application.isPlaying)
@@ -341,7 +341,7 @@ public class EnemyController : MonoBehaviour
         if (isChasingPlayer)
         {
 
-            if (kó³ko_Ataku_Instance.End && !GameManager.instance.playerMoved && IsAdjacentToPlayerWithRaycast())
+            if (kÃ³Å‚ko_Ataku_Instance.End && !GameManager.instance.playerMoved && IsAdjacentToPlayerWithRaycast())
             {
                 if (anim != null)
                 {
@@ -350,11 +350,11 @@ public class EnemyController : MonoBehaviour
                 }
 
                 EnemyAttack();
-                kó³ko_Ataku_Instance.End = false;
+                kÃ³Å‚ko_Ataku_Instance.End = false;
             }
             else if (GameManager.instance.playerMoved || !IsAdjacentToPlayerWithRaycast())
             {
-                kó³ko_Ataku_Instance.End = false;
+                kÃ³Å‚ko_Ataku_Instance.End = false;
             }
         }
 
@@ -363,7 +363,7 @@ public class EnemyController : MonoBehaviour
         {
             if (isChasingPlayer)
             {
-                // Pod¹¿anie za graczem
+                // PodÄ…Å¼anie za graczem
                 if (GameManager.instance.playerMoved || !IsAdjacentToPlayerWithRaycast())
                 {
                     anim.SetTrigger("EnemyWalk");
@@ -388,7 +388,7 @@ public class EnemyController : MonoBehaviour
 
     private Vector3 SnapDirection(Vector3 direction)
     {
-        // Zaokr¹glanie kierunku do osi g³ównych (X lub Z)
+        // ZaokrÄ…glanie kierunku do osi gÅ‚Ã³wnych (X lub Z)
         if (Mathf.Abs(direction.x) > Mathf.Abs(direction.z))
         {
             return new Vector3(Mathf.Sign(direction.x), 0, 0); // Wektor w osi X
