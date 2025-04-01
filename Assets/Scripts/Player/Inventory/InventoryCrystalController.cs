@@ -24,7 +24,7 @@ public class InventoryCrystalController : MonoBehaviour
                 InventoryManager.Instance.Remove(crystal);
                 InventoryManager.Instance.ListCrystals(crystal);
                 Destroy(gameObject);
-                Texture.Destroy(gameObject);
+                
             }
             
         }
@@ -40,7 +40,7 @@ public class InventoryCrystalController : MonoBehaviour
                 InventoryManager.Instance.Remove(crystal);
                 InventoryManager.Instance.ListCrystals(crystal);
                 Destroy(gameObject);
-                Texture.Destroy(gameObject);
+                
             }
             
         }
@@ -54,7 +54,7 @@ public class InventoryCrystalController : MonoBehaviour
                 InventoryManager.Instance.Remove(crystal);
                 InventoryManager.Instance.ListCrystals(crystal);
                 Destroy(gameObject);
-                Texture.Destroy(gameObject);
+                
             }
         }
     }
@@ -67,7 +67,7 @@ public class InventoryCrystalController : MonoBehaviour
                 InventoryManager.Instance.Remove(crystal);
                 InventoryManager.Instance.ListCrystals(crystal);
                 Destroy(gameObject);
-                Texture.Destroy(gameObject);
+                
             }
         }
     }

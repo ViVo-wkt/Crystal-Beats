@@ -19,7 +19,21 @@ public class LayoutPotions : MonoBehaviour
 
     private void Awake()
     {
-        Instance = this;
+        if(Instance == null)
+        {
+            Instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
+    private void OnDestroy()
+    {
+        Smallpotions.Clear();
+        Mediumpotions.Clear();
+        Bigpotions.Clear();
+
     }
     public void ShowLayoutSmallPotions()
     {

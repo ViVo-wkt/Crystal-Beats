@@ -16,7 +16,7 @@ public class InventorySlot : MonoBehaviour, IDropHandler, IPointerClickHandler
     public InventoryCrumbleController inventoryCrumbleController;
     public void Start()
     {
-
+        
         inventoryManager = GameObject.FindWithTag("Manager").GetComponent<InventoryManager>();
     }
     public void OnDrop(PointerEventData eventData)

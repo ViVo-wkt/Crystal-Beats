@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44300324, g: 0.49219626, b: 0.5719261, a: 1}
+  m_IndirectSpecularColor: {r: 0.44300324, g: 0.49219632, b: 0.5719261, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2174,6 +2174,10 @@ PrefabInstance:
 
 '
       objectReference: {fileID: 0}
+    - target: {fileID: 7572952306843757118, guid: 1f8e8e31d82ff2a48b38c6db457c695a, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0.61035156
+      objectReference: {fileID: 0}
     - target: {fileID: 7689291136503312045, guid: 1f8e8e31d82ff2a48b38c6db457c695a, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -3393,6 +3397,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6626185221413151211, guid: d6a50c1ae44af0f4db30d0db57f8b857, type: 3}
+      propertyPath: inventoryManager
+      value: 
+      objectReference: {fileID: 337113022}
     - target: {fileID: 6838198859753170012, guid: d6a50c1ae44af0f4db30d0db57f8b857, type: 3}
       propertyPath: m_Name
       value: LargeCrystal (1)
@@ -7015,7 +7023,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0, y: -87}
+  m_AnchoredPosition: {x: 0, y: -144}
   m_SizeDelta: {x: 350, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &230634093
@@ -10661,7 +10669,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 21}
+  m_AnchoredPosition: {x: 0, y: -54}
   m_SizeDelta: {x: 1000, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &338743882
@@ -10731,8 +10739,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 30
+  m_fontSizeBase: 30
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -10767,7 +10775,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: -127.33551, z: 0, w: -259.56845}
+  m_margin: {x: -147.47198, y: -127.33551, z: -154.56995, w: -259.56845}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -17085,7 +17093,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 265}
+  m_AnchoredPosition: {x: 0, y: 202}
   m_SizeDelta: {x: 1000, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &558886939
@@ -17141,7 +17149,7 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 0
+  m_fontStyle: 1
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 256
   m_textAlignment: 65535
@@ -18190,6 +18198,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1a1137fb1e08a3d44aea3532b74fa75d, type: 3}
+--- !u!114 &594151298 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3803238283043977103, guid: 1a1137fb1e08a3d44aea3532b74fa75d, type: 3}
+  m_PrefabInstance: {fileID: 594151297}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b2303d68f2312b4782a56a7e10a9c9c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &594151299 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8430953955755242483, guid: 1a1137fb1e08a3d44aea3532b74fa75d, type: 3}
@@ -18450,7 +18469,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 21}
+  m_AnchoredPosition: {x: 0, y: -53}
   m_SizeDelta: {x: 1000, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &608603937
@@ -18506,7 +18525,7 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 0
+  m_fontStyle: 1
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 256
   m_textAlignment: 65535
@@ -20308,8 +20327,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 21300000, guid: 185ef3ad1352bdc43a22c700cd97696d, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -24437,8 +24456,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 21300000, guid: 185ef3ad1352bdc43a22c700cd97696d, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -24985,6 +25004,10 @@ PrefabInstance:
       propertyPath: player_info
       value: 
       objectReference: {fileID: 342584480}
+    - target: {fileID: 2374542557601302137, guid: 3584c7e8bdcb3294d800719634eecc29, type: 3}
+      propertyPath: "k\xF3\u0142ko_Ataku_Instance"
+      value: 
+      objectReference: {fileID: 594151298}
     - target: {fileID: 3063975761514846199, guid: 3584c7e8bdcb3294d800719634eecc29, type: 3}
       propertyPath: m_Layer
       value: 3
@@ -35675,6 +35698,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6626185221413151211, guid: d6a50c1ae44af0f4db30d0db57f8b857, type: 3}
+      propertyPath: inventoryManager
+      value: 
+      objectReference: {fileID: 337113022}
     - target: {fileID: 6838198859753170012, guid: d6a50c1ae44af0f4db30d0db57f8b857, type: 3}
       propertyPath: m_Name
       value: LargeCrystal (2)
@@ -46851,7 +46878,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 265}
+  m_AnchoredPosition: {x: 0, y: 243}
   m_SizeDelta: {x: 1000, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1546830924
@@ -46907,8 +46934,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 32
+  m_fontSizeBase: 32
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -46943,7 +46970,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: -156.72052, y: 132.23285, z: -140.39551, w: -520.76935}
+  m_margin: {x: -172.29797, y: 132.23285, z: -178.90869, w: -520.76935}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -50128,6 +50155,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: RedCrystal (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 4536821363925472270, guid: 80047e8a94784cf4bb8ef3d42a762012, type: 3}
+      propertyPath: inventoryManager
+      value: 
+      objectReference: {fileID: 337113022}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -56454,8 +56485,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 21300000, guid: 185ef3ad1352bdc43a22c700cd97696d, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -60884,7 +60915,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -62.12686}
+  m_AnchoredPosition: {x: 0, y: -127}
   m_SizeDelta: {x: 700, y: 554.2537}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1975852990
@@ -60985,7 +61016,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: -107.745544, y: 102.84784, z: -86.52295, w: 0}
+  m_margin: {x: -300.00653, y: 102.84784, z: -290.7312, w: 93.95622}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0

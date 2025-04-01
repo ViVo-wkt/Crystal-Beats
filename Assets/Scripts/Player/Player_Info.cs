@@ -21,8 +21,15 @@ public class Player_Info : MonoBehaviour
     public Inventory inventory;
     private void Awake()
     {
+        if(Instance == null)
+        {
+            Instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
         
-        Instance = this;
         Player = GameObject.FindGameObjectWithTag("Player");
         PlayerHpUpdate();
     }

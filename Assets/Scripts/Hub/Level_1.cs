@@ -22,5 +22,9 @@ public class Level_1 : MonoBehaviour
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         }
     }
-    
+    private void OnDestroy()
+    {
+        Destroy(gameObject);
+
+    }
 }

@@ -11,7 +11,7 @@ public class Movement : MonoBehaviour
    [HideInInspector] public int blockCounter = 0; // Licznik blokady (liczba beatów)
     private bool BlockIsActive = false;
     public static bool CanMove;
-    //public GameObject CanMoveImage;
+    
     [HideInInspector] public bool KeyboardActivity;
 
     private Rigidbody rb;
@@ -44,12 +44,7 @@ public class Movement : MonoBehaviour
             // Jeœli gracz jest zablokowany, zmniejsz licznik na kolejnych beatach
             return;
         }
-        if (moveTimer <= 0)
-
-        {
-            //CanMoveImage.SetActive(false);
-            
-        }
+        
 
         if (moveTimer > 0)
         {
@@ -59,7 +54,7 @@ public class Movement : MonoBehaviour
                 
                 
                 CheckOnBeat(); // Pozwalaj na ruch tylko w oknie czasowym
-                //CanMoveImage.SetActive(true);
+                
             }
             
             

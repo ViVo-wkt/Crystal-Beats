@@ -8,6 +8,12 @@ onBoardingDoNotAskAgain = true
 showPackageIndexes = false
 showStatusBar = false
 scopes = {
+	"last_search.8E1C0765" = "Standard Surface t:Shader"
+	"OpenInspectorPreview.8E1C0765" = "0"
+	"currentGroup.8E1C0765" = "asset"
+	"last_search.2567E822" = ""
+	"OpenInspectorPreview.2567E822" = "0"
+	"currentGroup.2567E822" = "performance"
 }
 providers = {
 	scene = {
@@ -53,6 +59,11 @@ providers = {
 	find = {
 		active = true
 		priority = 25
+		defaultAction = null
+	}
+	presets_provider = {
+		active = false
+		priority = -10
 		defaultAction = null
 	}
 }

@@ -16,6 +16,7 @@ public class CollisionIndicatorAttack : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         rectTransform = GetComponent<RectTransform>();
         spawnIndicators = FindAnyObjectByType<SpawnIndicators>();
+        Destroy(gameObject, 5f);
     }
 
     // Update is called once per frame
@@ -27,7 +28,7 @@ public class CollisionIndicatorAttack : MonoBehaviour
 
 
             
-            rb.bodyType = RigidbodyType2D.Dynamic;// nic siê nie dzieje
+            rb.bodyType = RigidbodyType2D.Dynamic;
             
 
 
@@ -53,7 +54,7 @@ public class CollisionIndicatorAttack : MonoBehaviour
         if (other.gameObject.CompareTag("End"))
         {
             Destroy(gameObject);
-            Texture.Destroy(image);
+            
         }
     }
     private void OnTriggerStay2D(Collider2D other)

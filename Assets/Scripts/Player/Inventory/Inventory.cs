@@ -29,7 +29,15 @@ public class Inventory : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Instance = this;
+        if(Instance == null)
+        {
+            Instance = this;
+        }
+        else
+        {
+
+            Destroy(gameObject);
+        }    
         inventoryManager = GameObject.FindWithTag("Manager").GetComponent<InventoryManager>();
         Cursor.SetCursor(CursorTexture, new Vector2(CursorTexture.width / 2, 0), cursorMode);
 
@@ -168,6 +176,7 @@ public class Inventory : MonoBehaviour
         else
         {
             Cursor.visible = false;
+            
         }
     }
 }

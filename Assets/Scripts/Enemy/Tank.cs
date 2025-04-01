@@ -6,27 +6,24 @@ public class Tank : MonoBehaviour
 {
     public EnemyInfo enemyInfo;
 
-
+    private int EnemyHP;
     private void Start()
     {
-        enemyInfo = Instantiate(enemyInfo);
+        EnemyHP = enemyInfo.HP;
     }
     // Update is called once per frame
     void Update()
     {
-        if (enemyInfo.HP <= 0 && gameObject != null)
+        if (EnemyHP <= 0 && gameObject != null)
         {
-            gameObject.SetActive(false);
+            Destroy(gameObject);
             
-            MeshRenderer.Destroy(gameObject);
+            
         }
     }
-    private void OnDestroy()
-    {
-        enemyInfo.HP = 4;
-    }
+    
     public void TakeDamage(int damage)
     {
-        enemyInfo.HP -= damage;
+        EnemyHP -= damage;
     }
 }

@@ -38,14 +38,28 @@ public class InventoryManager : MonoBehaviour
     public GameObject[] InventoryCrystal;
     public void Awake()
     {
-        Instance = this;
+        if(Instance == null)
+        {
+            Instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+        
     }
-
+    private void OnDestroy()
+    {
+        Inventory_SingleCrystal_Slots.Clear();
+        Inventory_SmallCrystalCluster_Slots.Clear();
+        Inventory_LargeCrystalCLuster_Slots.Clear();
+        Inventory_RedCrystalCluster_Slots.Clear();
+    }
 
 
     public void Add(Crystal crystal)
     {
-
+        
         switch (crystal.id)
         {
             case 0:
@@ -105,6 +119,7 @@ public class InventoryManager : MonoBehaviour
     }
     public void Remove(Crystal crystal)
     {
+        
         switch (crystal.id)
         {
             case 0:
@@ -112,6 +127,7 @@ public class InventoryManager : MonoBehaviour
                     if (Inventory_SingleCrystal_Slots.Count < SingleCrystal_slots + 1)
                     {
                         Inventory_SingleCrystal_Slots.Remove(crystal);
+                        
                     }
                     else
                     {
@@ -164,7 +180,7 @@ public class InventoryManager : MonoBehaviour
     public void ListCrystals(Crystal crystal)
     {
 
-
+        
         switch (crystal.id)
         {
 

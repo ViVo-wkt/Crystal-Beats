@@ -60,7 +60,7 @@ public class PlayerAttack : MonoBehaviour
         //Raycast do broni
         if (weaponManager.WeaponIndex == 3)
         {
-            Debug.DrawRay(transform.position + Vector3.up, PlayerForward * GunRangeRaycast, Color.blue, 1f);
+            //Debug.DrawRay(transform.position + Vector3.up, PlayerForward * GunRangeRaycast, Color.blue, 1f);
             int layerMask = LayerMask.GetMask("Enemy");
             PlayerForward = transform.forward;
             if(Physics.Raycast(transform.position + Vector3.up, PlayerForward,out RaycastHit shoot ,GunRangeRaycast, layerMask))
@@ -90,6 +90,7 @@ public class PlayerAttack : MonoBehaviour
                     else
                     {
                         Debug.Log("Trafia w coœ jeszcze");
+                        
                     }
                     //HUB interkacja
                     

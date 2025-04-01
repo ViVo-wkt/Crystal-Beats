@@ -35,7 +35,7 @@ public class Trap_Behaviour : MonoBehaviour
         if (collision.gameObject.CompareTag("Player"))
         {
             isTakingDamage = false;
-            StopAllCoroutines();
+            StopCoroutine(TimeToDealDamage());
             
         }
             

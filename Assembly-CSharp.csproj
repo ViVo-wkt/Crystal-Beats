@@ -95,6 +95,7 @@
     <Compile Include="Assets\Scripts\Enemy\EnemyInfo.cs" />
     <Compile Include="Assets\Scripts\Hub\WeaponShop.cs" />
     <Compile Include="Assets\Scripts\Hub\PlayerInteracionHUB.cs" />
+    <Compile Include="Assets\Scripts\Enemy\EnemyScriptableObjects\Enemy_Info.cs" />
     <Compile Include="Assets\Scripts\Hub\CraftArea.cs" />
     <Compile Include="Assets\Scripts\MainMenu\LoadBar.cs" />
     <Compile Include="Assets\Scripts\Tutorial\Trigger1.cs" />
@@ -106,7 +107,6 @@
     <Compile Include="Assets\Scripts\Level\LoadHub.cs" />
     <Compile Include="Assets\Scripts\Player\Inventory\Inventory.cs" />
     <Compile Include="Assets\Scripts\Hub\Level_1.cs" />
-    <Compile Include="Assets\Scripts\Hub\Panels_Hub_Controller.cs" />
     <Compile Include="Assets\Scripts\Tutorial\Tutorial_Guid_Panels.cs" />
     <Compile Include="Assets\Scripts\Player\Inventory\Weapons\Weapon_Controller.cs" />
     <Compile Include="Assets\Scripts\Player\Inventory\Potions_item\Potion.cs" />

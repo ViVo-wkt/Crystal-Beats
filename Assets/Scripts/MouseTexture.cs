@@ -12,13 +12,11 @@ public class MouseTexture : MonoBehaviour
     void Awake()
     {
         Cursor.SetCursor(CursorTexture, new Vector2(CursorTexture.width / 2, 0), cursorMode);
-    }
-
-    private void Update()
-    {
-        if(SceneManager.GetActiveScene() != null)
+        if (SceneManager.GetActiveScene() != null)
         {
             Cursor.visible = true;
         }
     }
+
+    
 }

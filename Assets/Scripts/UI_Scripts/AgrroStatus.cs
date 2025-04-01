@@ -11,7 +11,14 @@ public class AgrroStatus : MonoBehaviour
     void Start()
     {
         agrroimage = GetComponent<Image>();
-        instance = this;
+        if(instance == null)
+        {
+            instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
     }
 
     

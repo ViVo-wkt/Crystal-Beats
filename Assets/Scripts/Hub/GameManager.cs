@@ -15,7 +15,14 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        instance = this;
+        if(instance == null)
+        {
+            instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
 
         //DynamicGI.UpdateEnvironment();
         SaveScript.LoadFromJson();
@@ -25,6 +32,7 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
+        
         playerMoved = Vector3.Distance(lastPlayerPosition, player.position) > 0.2f;
         lastPlayerPosition = player.position;
     }

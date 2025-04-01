@@ -19,6 +19,8 @@ public class LoadHub : MonoBehaviour
         {
             if (other.gameObject.CompareTag("Player"))
             {
+                Resources.UnloadUnusedAssets();
+                System.GC.Collect();
                 SceneManager.LoadScene("HUB");
             }
         }
@@ -27,11 +29,17 @@ public class LoadHub : MonoBehaviour
             SaveScript.SaveToJson();
             if (other.gameObject.CompareTag("Player"))
             {
+                Resources.UnloadUnusedAssets();
+                System.GC.Collect();
                 SceneManager.LoadScene("HUB");
             }
         }
         
         
         
+    }
+    private void OnDestroy()
+    {
+        Destroy(gameObject);
     }
 }

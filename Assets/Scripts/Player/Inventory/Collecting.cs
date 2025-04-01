@@ -12,7 +12,7 @@ public class Collecting : MonoBehaviour
     private bool CanAddCrystal = false;
     private void Start()
     {
-        inventoryManager = GameObject.FindWithTag("Manager").GetComponent<InventoryManager>();
+        //inventoryManager = GameObject.FindWithTag("Manager").GetComponent<InventoryManager>();
     }
     void PickUpCrystal()
     {
@@ -23,14 +23,7 @@ public class Collecting : MonoBehaviour
     }
     
 
-    //private void OnTriggerEnter(Collider other)
-    //{
-    //    if(other.gameObject.CompareTag("Player"))
-    //    {
-    //        PickUpCrystal();
-    //        inventoryManager.ListCrystals(crystal);
-    //    }
-    //}
+    
     public void OnCollisionEnter(Collision collision)
     {
         

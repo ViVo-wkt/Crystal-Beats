@@ -45,7 +45,7 @@ public class EnemyController : MonoBehaviour
 
         anim = GetComponent<Animator>();
         AudioManager.BeatUpdated += UpdateMoveDelay;
-        kółko_Ataku_Instance = FindFirstObjectByType<kółko_ataku_instance>();
+        
     }
     private void OnDisable()
     {
@@ -61,13 +61,14 @@ public class EnemyController : MonoBehaviour
             kółko_ataku_instance.instance.CircleRangerActive(false);
             kółko_ataku_instance.instance.CircleTankActive(false);
         }
+        Destroy(gameObject);
     }
 
     private void OnDestroy()
     {
         AudioManager.BeatUpdated -= UpdateMoveDelay;
 
-
+        
 
     }
     private void Update()
@@ -289,7 +290,7 @@ public class EnemyController : MonoBehaviour
     }
 
 
-    private void OnDrawGizmos()// Rysuje linie poruszania się
+    private void OnDrawGizmosSelected()// Rysuje linie poruszania się
     {
 
         if (!Application.isPlaying)

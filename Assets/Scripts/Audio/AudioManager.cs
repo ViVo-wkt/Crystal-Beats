@@ -150,6 +150,7 @@ public class AudioManager : MonoBehaviour
             eventInstance.release();
         }
     }
+    
     private void OnDestroy()
     {
 

@@ -7,29 +7,27 @@ public class Common : MonoBehaviour
 {
     public EnemyInfo enemyInfo;
 
-
+    private int EnemyHP;
     private void Start()
     {
-        enemyInfo = Instantiate(enemyInfo);
+        //enemyInfo = Instantiate(enemyInfo);
+        EnemyHP = enemyInfo.HP;
     }
     // Update is called once per frame
     void Update()
     {
         
-        if(enemyInfo.HP <= 0 && gameObject != null)
+        if(EnemyHP <= 0 && gameObject != null)
         {
             Destroy(gameObject);
-            MeshRenderer.Destroy(gameObject);
+            
 
         }
     }
-    private void OnDestroy()
-    {
-         enemyInfo.HP = 2;
-    }
+
     public void TakeDamage(int damage)
     {
-        enemyInfo.HP -= damage;
+        EnemyHP -= damage;
     }
 
     
