@@ -30,6 +30,7 @@ public class PlayerAttack : MonoBehaviour
     public double Attackbeats =2; // liczba pó³beatów do ataku
    [HideInInspector] public double AttackbeatsCounter = 0; // liczba beatów do ataku
 
+    public static bool HasAttackedThisBeat = true;
     public PlayerInteracionHUB playerInteracionHUB;
     private bool CanAttackCommon;
     private bool CanAttackRanger;
@@ -42,19 +43,28 @@ public class PlayerAttack : MonoBehaviour
     {
         //collider = GetComponent<Collider>();
         player_anim = GetComponent<Animator>();
-        AudioManager.BeatUpdated += PlayerAttacking;
+        
         AttackbeatsCounter = Attackbeats;
         
     }
-
-    // Update is called once per frame
+    private void OnEnable()
+    {
+        AudioManager.BeatUpdated += PlayerAttacking;
+    }
+        // Update is called once per frame
+        
     private void OnDestroy()
     {
         AudioManager.BeatUpdated -= PlayerAttacking;
     }
+    private void OnDisable()
+    {
+        AudioManager.BeatUpdated -= PlayerAttacking;
+        
+    }
     void Update()
     {
-
+        
         
 
         //Raycast do broni
@@ -78,13 +88,15 @@ public class PlayerAttack : MonoBehaviour
                     else if (shoot.collider.CompareTag("Ranger"))
                     {
                         AudioManager.Instance.PlayOneShot(FMODEvents.Instance.Shoot, this.transform.position);
-                        ranger.gameObject.GetComponent<Ranger>();
+                        //ranger.gameObject.GetComponent<Ranger>();
+                        ranger = shoot.collider.gameObject.GetComponent<Ranger>();
                         ranger.TakeDamage(Gun.Damage);
+                        
                     }
                     else if (shoot.collider.CompareTag("Tank"))
                     {
                         AudioManager.Instance.PlayOneShot(FMODEvents.Instance.Shoot, this.transform.position);
-                        tank.gameObject.GetComponent<Tank>();
+                        tank = shoot.collider.gameObject.GetComponent<Tank>();
                         tank.TakeDamage(Gun.Damage);
                     }
                     else
@@ -150,114 +162,116 @@ public class PlayerAttack : MonoBehaviour
             return;
         }
         
-        if (AttackTimer > 0  && !BlockIsActive)
-        {
+        //if (AttackTimer > 0  && !BlockIsActive)
+        //{
             
-            AttackTimer -= Time.deltaTime; // Zmniejsz timer o czas miniony od ostatniej klatki
-            if (CanAttackUI)
+        //    AttackTimer -= Time.deltaTime; 
+            
+            
+        //}
+        if (CanAttackUI && !HasAttackedThisBeat)
+        {
+            //CanAttack.SetActive(true);
+            if (Input.GetKeyDown(KeyCode.Space) && weaponManager.Weapons[weaponManager.WeaponIndex] != null && weaponManager.WeaponIndex != 3 && !Movement.HasMovedThisBeat)
             {
-                //CanAttack.SetActive(true);
-                if (Input.GetKeyDown(KeyCode.Space) && weaponManager.Weapons[weaponManager.WeaponIndex] != null && weaponManager.WeaponIndex != 3)
+                player_anim.SetTrigger("TriggerAttack");
+                if (CanAttackCommon)
                 {
-                    player_anim.SetTrigger("TriggerAttack");
-                    if (CanAttackCommon)
-                    {
-                        
-                        //player_anim.SetBool("PlayerCanAttack", true);
-                        if (weaponManager.Weapons[weaponManager.WeaponIndex] != null && weaponManager.WeaponIndex == 0)
-                        {
-                            player_anim.SetTrigger("TriggerAttack");
-                            common.TakeDamage(Pickaxe.Damage);/* -= Pickaxe.Damage;*/
-                        }
-                        else if(weaponManager.Weapons[weaponManager.WeaponIndex] != null && weaponManager.WeaponIndex == 1)
-                        {
-                            player_anim.SetTrigger("TriggerAttack");
-                            common.TakeDamage(Hammer.Damage); /*-= Hammer.Damage;*/
-                        }
-                        else if(weaponManager.Weapons[weaponManager.WeaponIndex] != null && weaponManager.WeaponIndex == 2)
-                        {
-                            player_anim.SetTrigger("TriggerAttack");
-                            common.TakeDamage(Axe.Damage); /*-= Axe.Damage;*/
-                        }
-                        
-                        
-                        AudioManager.Instance.PlayOneShot(FMODEvents.Instance.Punch, this.transform.position);
-                        
-                    }
-                    if (CanAttackRanger)
-                    {
-                        
-                        //player_anim.SetBool("PlayerCanAttack", true);
-                        if (weaponManager.Weapons[weaponManager.WeaponIndex] != null && weaponManager.WeaponIndex == 0)
-                        {
-                            player_anim.SetTrigger("TriggerAttack");
-                            ranger.TakeDamage(Pickaxe.Damage);
-                        }
-                        else if (weaponManager.Weapons[weaponManager.WeaponIndex] != null && weaponManager.WeaponIndex == 1)
-                        {
-                            player_anim.SetTrigger("TriggerAttack");
-                            ranger.TakeDamage(Hammer.Damage);
-                        }
-                        else if (weaponManager.Weapons[weaponManager.WeaponIndex] != null && weaponManager.WeaponIndex == 2)
-                        {
-                            player_anim.SetTrigger("TriggerAttack");
-                            ranger.TakeDamage(Axe.Damage);
-                        }
 
-                         
-                        
-                        AudioManager.Instance.PlayOneShot(FMODEvents.Instance.Punch, this.transform.position);
-                    }
-                    if(CanAttackTank)
+                    //player_anim.SetBool("PlayerCanAttack", true);
+                    if (weaponManager.Weapons[weaponManager.WeaponIndex] != null && weaponManager.WeaponIndex == 0)
                     {
-                        
-                        //player_anim.SetBool("PlayerCanAttack", true);
-                        if (weaponManager.Weapons[weaponManager.WeaponIndex] != null && weaponManager.WeaponIndex == 0)
-                        {
-                            player_anim.SetTrigger("TriggerAttack");
-                            tank.TakeDamage(Pickaxe.Damage);
-                        }
-                        else if (weaponManager.Weapons[weaponManager.WeaponIndex] != null && weaponManager.WeaponIndex == 1)
-                        {
-                            player_anim.SetTrigger("TriggerAttack");
-                            tank.TakeDamage(Hammer.Damage);
-                        }
-                        else if (weaponManager.Weapons[weaponManager.WeaponIndex] != null && weaponManager.WeaponIndex == 2)
-                        {
-                            player_anim.SetTrigger("TriggerAttack");
-                            tank.TakeDamage(Axe.Damage);
-                        }
-
-                         
-                        AudioManager.Instance.PlayOneShot(FMODEvents.Instance.Punch, this.transform.position);
+                        player_anim.SetTrigger("TriggerAttack");
+                        common.TakeDamage(Pickaxe.Damage);/* -= Pickaxe.Damage;*/
                     }
-                    if (playerInteracionHUB != null)
+                    else if (weaponManager.Weapons[weaponManager.WeaponIndex] != null && weaponManager.WeaponIndex == 1)
                     {
-                        
-                        if (playerInteracionHUB.CanInteractCraft)
-                        {
-                            playerInteracionHUB.CraftPanel.gameObject.SetActive(true);
-                            
-                        }
-                        if (playerInteracionHUB.CanInteractShop)
-                        {
-                            playerInteracionHUB.WeaponPanel.gameObject.SetActive(true);
-                            
-                        }
-                        if(playerInteracionHUB.CanInteractTutorial)
-                        {
-                            playerInteracionHUB.Tutorial_Panel.gameObject.SetActive(true);
-                        }
-                        if (playerInteracionHUB.CanInteractLore)
-                        {
+                        player_anim.SetTrigger("TriggerAttack");
+                        common.TakeDamage(Hammer.Damage); /*-= Hammer.Damage;*/
+                    }
+                    else if (weaponManager.Weapons[weaponManager.WeaponIndex] != null && weaponManager.WeaponIndex == 2)
+                    {
+                        player_anim.SetTrigger("TriggerAttack");
+                        common.TakeDamage(Axe.Damage); /*-= Axe.Damage;*/
+                    }
 
-                            playerInteracionHUB.Lore_Panel.gameObject.SetActive(true);
-                        }
+
+                    AudioManager.Instance.PlayOneShot(FMODEvents.Instance.Punch, this.transform.position);
+
+                }
+                if (CanAttackRanger)
+                {
+
+                    //player_anim.SetBool("PlayerCanAttack", true);
+                    if (weaponManager.Weapons[weaponManager.WeaponIndex] != null && weaponManager.WeaponIndex == 0)
+                    {
+                        player_anim.SetTrigger("TriggerAttack");
+                        ranger.TakeDamage(Pickaxe.Damage);
+                    }
+                    else if (weaponManager.Weapons[weaponManager.WeaponIndex] != null && weaponManager.WeaponIndex == 1)
+                    {
+                        player_anim.SetTrigger("TriggerAttack");
+                        ranger.TakeDamage(Hammer.Damage);
+                    }
+                    else if (weaponManager.Weapons[weaponManager.WeaponIndex] != null && weaponManager.WeaponIndex == 2)
+                    {
+                        player_anim.SetTrigger("TriggerAttack");
+                        ranger.TakeDamage(Axe.Damage);
+                    }
+
+
+
+                    AudioManager.Instance.PlayOneShot(FMODEvents.Instance.Punch, this.transform.position);
+                }
+                if (CanAttackTank)
+                {
+
+                    //player_anim.SetBool("PlayerCanAttack", true);
+                    if (weaponManager.Weapons[weaponManager.WeaponIndex] != null && weaponManager.WeaponIndex == 0)
+                    {
+                        player_anim.SetTrigger("TriggerAttack");
+                        tank.TakeDamage(Pickaxe.Damage);
+                    }
+                    else if (weaponManager.Weapons[weaponManager.WeaponIndex] != null && weaponManager.WeaponIndex == 1)
+                    {
+                        player_anim.SetTrigger("TriggerAttack");
+                        tank.TakeDamage(Hammer.Damage);
+                    }
+                    else if (weaponManager.Weapons[weaponManager.WeaponIndex] != null && weaponManager.WeaponIndex == 2)
+                    {
+                        player_anim.SetTrigger("TriggerAttack");
+                        tank.TakeDamage(Axe.Damage);
+                    }
+
+
+                    AudioManager.Instance.PlayOneShot(FMODEvents.Instance.Punch, this.transform.position);
+                }
+                if (playerInteracionHUB != null)
+                {
+
+                    if (playerInteracionHUB.CanInteractCraft)
+                    {
+                        playerInteracionHUB.CraftPanel.gameObject.SetActive(true);
+
+                    }
+                    if (playerInteracionHUB.CanInteractShop)
+                    {
+                        playerInteracionHUB.WeaponPanel.gameObject.SetActive(true);
+
+                    }
+                    if (playerInteracionHUB.CanInteractTutorial)
+                    {
+                        playerInteracionHUB.Tutorial_Panel.gameObject.SetActive(true);
+                    }
+                    if (playerInteracionHUB.CanInteractLore)
+                    {
+
+                        playerInteracionHUB.Lore_Panel.gameObject.SetActive(true);
                     }
                 }
-                
+                HasAttackedThisBeat = true;
             }
-            
+
         }
         else if (Input.GetKeyDown(KeyCode.Space)  && !BlockIsActive)
         {
@@ -287,7 +301,7 @@ public class PlayerAttack : MonoBehaviour
         }
         if(blockCounter <= 0 && AttackbeatsCounter <= 0)
         {
-            AttackTimer = AttackWindow;
+            //AttackTimer = AttackWindow;
             BlockIsActive = false;
             
 
@@ -345,4 +359,5 @@ public class PlayerAttack : MonoBehaviour
         CanAttackRanger = false;
         CanAttackTank = false;
     }
+    
 }

@@ -5,10 +5,10 @@ using UnityEngine;
 public class SpawnIndicators : MonoBehaviour
 {
 
-    public RectTransform[] Indicator; // Zamiast GameObject u¿ywamy RectTransform
+    public RectTransform[] Indicator; 
     public Transform Canvas;
-    public RectTransform StartMovementPosition; // Punkt pocz¹tkowy równie¿ jako RectTransform
-    public RectTransform StartAttackPosition; // Punkt pocz¹tkowy równie¿ jako RectTransform
+    public RectTransform StartMovementPosition; 
+    public RectTransform StartAttackPosition; 
     public Movement movement;
     public PlayerAttack playerAttack;
     void Awake()
@@ -20,6 +20,10 @@ public class SpawnIndicators : MonoBehaviour
 
     
     private void OnDestroy()
+    {
+        AudioManager.BeatUpdated -= Spawn;
+    }
+    private void OnDisable()
     {
         AudioManager.BeatUpdated -= Spawn;
     }

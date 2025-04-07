@@ -13,7 +13,9 @@ public class Movement : MonoBehaviour
     public static bool CanMove;
     
     [HideInInspector] public bool KeyboardActivity;
+    public static bool HasMovedThisBeat;
 
+    private int DirectoryIndex;
     private Rigidbody rb;
     public float raycastDistance;
 
@@ -29,7 +31,7 @@ public class Movement : MonoBehaviour
         
         player_anim = GetComponent<Animator>();
         rb = GetComponent<Rigidbody>();
-        AudioManager.BeatUpdated += OnBeat; // Subskrypcja na event BeatUpdated
+        /*AudioManager.BeatUpdated += OnBeat;*/ // Subskrypcja na event BeatUpdated
     }
 
     void Update()
@@ -44,20 +46,25 @@ public class Movement : MonoBehaviour
             // Jeœli gracz jest zablokowany, zmniejsz licznik na kolejnych beatach
             return;
         }
-        
 
-        if (moveTimer > 0)
+
+        //if (moveTimer > 0)
+        //{
+        //    moveTimer -= Time.deltaTime; // Zmniejsz timer o czas miniony od ostatniej klatki
+
+        
+        
+        //}
+        if (CanMove && !BlockIsActive)
         {
-            moveTimer -= Time.deltaTime; // Zmniejsz timer o czas miniony od ostatniej klatki
-            if (CanMove && !BlockIsActive)
+
+            if(!HasMovedThisBeat)
             {
-                
-                
-                CheckOnBeat(); // Pozwalaj na ruch tylko w oknie czasowym
-                
+                CheckOnBeat();
             }
             
             
+
         }
 
         // Jeœli naciœnięto przycisk poza oknem czasowym, aktywuj blokadę
@@ -69,50 +76,58 @@ public class Movement : MonoBehaviour
 
     private void OnDestroy()
     {
-        AudioManager.BeatUpdated -= OnBeat; // Odsubskrybowanie eventu
+        /*AudioManager.BeatUpdated -= OnBeat;*/ // Odsubskrybowanie eventu
+    }
+    private void OnDisable()
+    {
+        //AudioManager.BeatUpdated -= OnBeat;
     }
 
     // Funkcja sprawdzaj¹ca możliwoœæ ruchu w oknie czasowym
     private void CheckOnBeat()
     {
+
+
+
+
+
         
-        
-        
+
+
+
+        if (Input.GetKeyDown(KeyCode.A) && canMoveLeft && KeyboardActivity )
+        {
             
-        
-        
-        
-        
-
-        if (Input.GetKeyDown(KeyCode.A) && canMoveLeft && KeyboardActivity)
-        {
-
             player_anim.SetTrigger("TriggerSwoosh");
+
+            HasMovedThisBeat = true;
+            
         }
-        else if (Input.GetKeyDown(KeyCode.D) && canMoveRight && KeyboardActivity)
+        else if (Input.GetKeyDown(KeyCode.D) && canMoveRight && KeyboardActivity )
         {
+            
             player_anim.SetTrigger("TriggerSwoosh1");
-
+            HasMovedThisBeat = true;
+            
         }
-        else if (Input.GetKeyDown(KeyCode.W) && canMoveForward && KeyboardActivity)
+        else if (Input.GetKeyDown(KeyCode.W) && canMoveForward && KeyboardActivity )
         {
+            
             player_anim.SetTrigger("TriggerSwoosh2");
-
+            HasMovedThisBeat = true;
+            
         }
-        else if (Input.GetKeyDown(KeyCode.S) && canMoveBackward && KeyboardActivity)
+        else if (Input.GetKeyDown(KeyCode.S) && canMoveBackward && KeyboardActivity )
         {
-
+            
             player_anim.SetTrigger("TriggerSwoosh3");
 
-
-
-
-
-
+            HasMovedThisBeat = true;
+            
         }
 
 
-
+        
 
 
 
@@ -156,20 +171,20 @@ public class Movement : MonoBehaviour
     }
 
     // Funkcja wywoływana na każdym beacie
-    private void OnBeat()
-    {
+    //private void OnBeat()
+    //{
         
-        //if (blockCounter > 0 && CanMove)
-        //{
-        //    blockCounter--; // Zmniejsz licznik blokady
-        //    BlockIsActive = true;
-        //}
-        if(blockCounter <= 0)
-        {
-            moveTimer = timeWindow; // Ustaw timer na nowe okno czasowe
-            BlockIsActive = false;
-        }
-    }
+    //    //if (blockCounter > 0 && CanMove)
+    //    //{
+    //    //    blockCounter--; // Zmniejsz licznik blokady
+    //    //    BlockIsActive = true;
+    //    //}
+    //    if(blockCounter <= 0)
+    //    {
+    //        moveTimer = timeWindow; // Ustaw timer na nowe okno czasowe
+    //        BlockIsActive = false;
+    //    }
+    //}
     private void RuchWDół()
     {
         Vector3 S = new Vector3(0, 0, -1); // Ruch do tyłu
@@ -177,7 +192,7 @@ public class Movement : MonoBehaviour
         gameObject.transform.position += S;
         gameObject.transform.rotation = Quaternion.Euler(0, -180, 0);
         moveTimer = 0;
-        BlockIsActive = true;
+        //BlockIsActive = true;
         KeyboardActivity = false;
         AudioManager.Instance.PlayOneShot(FMODEvents.Instance.Swoosh, this.transform.position);
     }
@@ -188,7 +203,7 @@ public class Movement : MonoBehaviour
         gameObject.transform.position += W;
         gameObject.transform.rotation = Quaternion.Euler(0, -360, 0);
         moveTimer = 0;
-        BlockIsActive = true;
+        //BlockIsActive = true;
         KeyboardActivity = false;
         AudioManager.Instance.PlayOneShot(FMODEvents.Instance.Swoosh, this.transform.position);
     }
@@ -199,7 +214,7 @@ public class Movement : MonoBehaviour
         gameObject.transform.position += A;
         gameObject.transform.rotation = Quaternion.Euler(0, -90, 0);
         moveTimer = 0; // Resetuj timer po wykonaniu ruchu
-        BlockIsActive = true;
+        //BlockIsActive = true;
         KeyboardActivity = false;
         AudioManager.Instance.PlayOneShot(FMODEvents.Instance.Swoosh, this.transform.position);
     }
@@ -210,7 +225,7 @@ public class Movement : MonoBehaviour
         gameObject.transform.position += D;
         gameObject.transform.rotation = Quaternion.Euler(0, -270, 0);
         moveTimer = 0;
-        BlockIsActive = true;
+        //BlockIsActive = true;
         KeyboardActivity = false;
         AudioManager.Instance.PlayOneShot(FMODEvents.Instance.Swoosh, this.transform.position);
     }

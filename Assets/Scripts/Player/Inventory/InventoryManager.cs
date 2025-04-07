@@ -54,6 +54,7 @@ public class InventoryManager : MonoBehaviour
         Inventory_SmallCrystalCluster_Slots.Clear();
         Inventory_LargeCrystalCLuster_Slots.Clear();
         Inventory_RedCrystalCluster_Slots.Clear();
+        Resources.UnloadUnusedAssets();
     }
 
 

@@ -164,4 +164,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawnIndicators: {fileID: 0}
-  Speed: 500
+  Speed: 450

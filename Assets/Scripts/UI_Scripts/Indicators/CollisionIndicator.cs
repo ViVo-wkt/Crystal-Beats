@@ -8,7 +8,7 @@ public class CollisionIndicator : MonoBehaviour
     private Image image;
     private RectTransform rectTransform;
     public SpawnIndicators spawnIndicators;
-    public float Speed = 500f; // Prêdkoœæ przemieszczania w jednostkach UI
+    public float Speed; // Prêdkoœæ przemieszczania w jednostkach UI
     private Rigidbody2D rb;
     public bool IsFalling;
     // Start is called before the first frame update
@@ -24,9 +24,9 @@ public class CollisionIndicator : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
         
-        
-        if ((Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.S)) && (!Movement.CanMove) && spawnIndicators.movement.moveTimer <= 0) 
+        if ((Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.S)) && (!Movement.CanMove)/* && spawnIndicators.movement.moveTimer <= 0*/) 
         {
             
             
@@ -46,7 +46,7 @@ public class CollisionIndicator : MonoBehaviour
         if (other.gameObject.CompareTag("SweetPot") && rectTransform.localPosition.y == -400)
         {
             Movement.CanMove = true;
-            
+            Movement.HasMovedThisBeat = false;
         }
         
 

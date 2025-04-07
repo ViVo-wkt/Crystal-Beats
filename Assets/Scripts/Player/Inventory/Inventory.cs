@@ -23,6 +23,7 @@ public class Inventory : MonoBehaviour
     public Texture2D CursorTexture;
     
     private CursorMode cursorMode = CursorMode.Auto;
+    private bool CursorSet;
 
     public PlayerInteracionHUB playerInteracionHUB;
     public Tutorial_Guid_Panels tutorial_Guid_Panel;
@@ -38,11 +39,17 @@ public class Inventory : MonoBehaviour
 
             Destroy(gameObject);
         }    
-        inventoryManager = GameObject.FindWithTag("Manager").GetComponent<InventoryManager>();
-        Cursor.SetCursor(CursorTexture, new Vector2(CursorTexture.width / 2, 0), cursorMode);
+        //inventoryManager = GameObject.FindWithTag("Manager").GetComponent<InventoryManager>();
+        if(!CursorSet)
+        {
+            Cursor.SetCursor(CursorTexture, new Vector2(CursorTexture.width / 2, 0), cursorMode);
+            CursorSet = true;
+        }
+        
 
         
     }
+    
 
     // Update is called once per frame
     void Update()

@@ -5,7 +5,7 @@ using UnityEngine.UI;
 public class CollisionIndicatorAttack : MonoBehaviour
 {
     public SpawnIndicators spawnIndicators;
-    public float Speed = 500f;
+    public float Speed;
     private Image image;
     private RectTransform rectTransform;
     private Rigidbody2D rb;
@@ -44,6 +44,7 @@ public class CollisionIndicatorAttack : MonoBehaviour
         {
 
             PlayerAttack.CanAttackUI = true;
+            PlayerAttack.HasAttackedThisBeat = false;
         }
 
 

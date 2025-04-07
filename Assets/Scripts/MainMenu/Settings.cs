@@ -18,7 +18,15 @@ public class Settings : MonoBehaviour
     void Start()
     {
 
-        instance = this;
+        if(instance == null)
+        {
+            instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+        
         foreach (Toggle toggle in Music)
         {
             toggle.onValueChanged.AddListener(delegate { Volume(Music,toggle); });
@@ -29,6 +37,20 @@ public class Settings : MonoBehaviour
         {
             toggle.onValueChanged.AddListener(delegate { Volume(SFX, toggle); });
             
+        }
+    }
+    private void OnDisable()
+    {
+        foreach (Toggle toggle in Music)
+        {
+            toggle.onValueChanged.RemoveListener(delegate { Volume(Music, toggle); });
+
+        }
+
+        foreach (Toggle toggle in SFX)
+        {
+            toggle.onValueChanged.RemoveListener(delegate { Volume(SFX, toggle); });
+
         }
     }
 

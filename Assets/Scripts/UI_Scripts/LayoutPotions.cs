@@ -33,7 +33,7 @@ public class LayoutPotions : MonoBehaviour
         Smallpotions.Clear();
         Mediumpotions.Clear();
         Bigpotions.Clear();
-
+        Resources.UnloadUnusedAssets();
     }
     public void ShowLayoutSmallPotions()
     {

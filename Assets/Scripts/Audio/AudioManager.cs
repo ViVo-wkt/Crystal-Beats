@@ -7,6 +7,7 @@ using Unity.VisualScripting;
 using System;
 using System.Runtime.InteropServices;
 using UnityEngine.SceneManagement;
+using Unity.Collections.LowLevel.Unsafe;
 
 public class AudioManager : MonoBehaviour
 {
@@ -156,7 +157,11 @@ public class AudioManager : MonoBehaviour
 
         CleanUp();
         musicEventInstance.setUserData(IntPtr.Zero);
-        timelineHandle.Free();
+        if(timelineHandle.IsAllocated)
+        {
+            timelineHandle.Free();
+        }
+        
     }
     private void OnGUI()
     {
