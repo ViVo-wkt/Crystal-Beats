@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using DG.Tweening;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -97,33 +98,37 @@ public class Movement : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.A) && canMoveLeft && KeyboardActivity )
         {
-            
-            player_anim.SetTrigger("TriggerSwoosh");
 
-            HasMovedThisBeat = true;
-            
+            //player_anim.SetTrigger("TriggerSwoosh");
+
+            //HasMovedThisBeat = true;
+            //RuchWLewo();
+            Move(Vector3.left);
         }
         else if (Input.GetKeyDown(KeyCode.D) && canMoveRight && KeyboardActivity )
         {
-            
-            player_anim.SetTrigger("TriggerSwoosh1");
-            HasMovedThisBeat = true;
-            
+
+            //player_anim.SetTrigger("TriggerSwoosh1");
+            //HasMovedThisBeat = true;
+            //RuchWPrawo();
+            Move(Vector3.right);
         }
         else if (Input.GetKeyDown(KeyCode.W) && canMoveForward && KeyboardActivity )
         {
-            
-            player_anim.SetTrigger("TriggerSwoosh2");
-            HasMovedThisBeat = true;
-            
+
+            //player_anim.SetTrigger("TriggerSwoosh2");
+            //HasMovedThisBeat = true;
+            //RuchWGóre();
+            Move(Vector3.forward);
         }
         else if (Input.GetKeyDown(KeyCode.S) && canMoveBackward && KeyboardActivity )
         {
-            
-            player_anim.SetTrigger("TriggerSwoosh3");
+            //RuchWDół();
+            Move(Vector3.back);
+            //player_anim.SetTrigger("TriggerSwoosh3");
 
-            HasMovedThisBeat = true;
-            
+            //HasMovedThisBeat = true;
+
         }
 
 
@@ -198,14 +203,7 @@ public class Movement : MonoBehaviour
     }
     private void RuchWGóre()
     {
-        Vector3 W = new Vector3(0, 0, 1);  // Ruch do przodu
-
-        gameObject.transform.position += W;
-        gameObject.transform.rotation = Quaternion.Euler(0, -360, 0);
-        moveTimer = 0;
-        //BlockIsActive = true;
-        KeyboardActivity = false;
-        AudioManager.Instance.PlayOneShot(FMODEvents.Instance.Swoosh, this.transform.position);
+        
     }
     private void RuchWLewo()
     {
@@ -224,6 +222,30 @@ public class Movement : MonoBehaviour
 
         gameObject.transform.position += D;
         gameObject.transform.rotation = Quaternion.Euler(0, -270, 0);
+        moveTimer = 0;
+        //BlockIsActive = true;
+        KeyboardActivity = false;
+        AudioManager.Instance.PlayOneShot(FMODEvents.Instance.Swoosh, this.transform.position);
+    }
+    private void Move(Vector3 direction)
+    {
+        
+        transform.DOMove(direction, .1f).SetRelative(true);
+        /*gameObject.transform.position += W;*/
+        if(direction == Vector3.forward) {
+            gameObject.transform.rotation = Quaternion.Euler(0, -360, 0);
+        } else if(direction == Vector3.back) {
+            gameObject.transform.rotation = Quaternion.Euler(0, -180, 0);
+        }
+        else if (direction == Vector3.left)
+        {
+            gameObject.transform.rotation = Quaternion.Euler(0, -90, 0);
+        }
+        else if (direction == Vector3.right)
+        {
+            gameObject.transform.rotation = Quaternion.Euler(0, -270, 0);
+        }
+
         moveTimer = 0;
         //BlockIsActive = true;
         KeyboardActivity = false;
