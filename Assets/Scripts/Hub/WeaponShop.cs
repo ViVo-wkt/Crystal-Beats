@@ -4,6 +4,7 @@ using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
+using static Weapon_Controller;
 
 public class WeaponShop : MonoBehaviour
 {
@@ -13,10 +14,10 @@ public class WeaponShop : MonoBehaviour
     public Crystal SmallCluster;
     public Crystal LargeCluster;
 
-    public WeaponManager weaponManager;
-    public Weapon Hammer;
-    public Weapon Axe;
-    public Weapon Gun;
+    //public WeaponManager weaponManager;
+    //public Weapon Hammer;
+    //public Weapon Axe;
+    //public Weapon Gun;
 
     [Header("Hammer")]
     public int SingleCrystalHammerCost;
@@ -38,7 +39,7 @@ public class WeaponShop : MonoBehaviour
     public GameObject[] SlotsPrefabs;
     private GameObject[] Slots;
 
-    
+
     
 
     public GameObject[] Buttons;
@@ -48,7 +49,7 @@ public class WeaponShop : MonoBehaviour
         instance = this;
         Slots = new GameObject[SlotsPrefabs.Length];
         UpdateCostText();
-        weaponManager.WeaponSwitch();
+        WeaponManager.Instance.WeaponSwitch();
     }
 
     
@@ -178,23 +179,27 @@ public class WeaponShop : MonoBehaviour
     }
     public void EquipPickaxe()
     {
-        weaponManager.WeaponIndex = 0;
-        weaponManager.WeaponSwitch();
+        WeaponManager.Instance.weaponType = WeaponType.Pickaxe;
+        
+        WeaponManager.Instance.WeaponSwitch();
     }
     public void EquipHammer()
     {
-        weaponManager.WeaponIndex = 1;
-        weaponManager.WeaponSwitch();
+        WeaponManager.Instance.weaponType = WeaponType.Hammer;
+
+        WeaponManager.Instance.WeaponSwitch();
     }
     public void EquipAxe()
     {
-        weaponManager.WeaponIndex = 2;
-        weaponManager.WeaponSwitch();
+        WeaponManager.Instance.weaponType = WeaponType.Axe;
+
+        WeaponManager.Instance.WeaponSwitch();
     }
     public void EquipGun()
     {
-        weaponManager.WeaponIndex = 3;
-        weaponManager.WeaponSwitch();
+        WeaponManager.Instance.weaponType = WeaponType.Gun;
+
+        WeaponManager.Instance.WeaponSwitch();
     }
     
     private void UpdateCostText()

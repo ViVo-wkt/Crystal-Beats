@@ -1232,6 +1232,9 @@ SkinnedMeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 3
   m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -1343,7 +1346,7 @@ GameObject:
   - component: {fileID: 5259999721745472383}
   - component: {fileID: 5447179496166228899}
   - component: {fileID: 190576280296993302}
-  - component: {fileID: 612887162435090824}
+  - component: {fileID: 1181043534024979830}
   m_Layer: 3
   m_Name: Tank
   m_TagString: Tank
@@ -1387,8 +1390,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1.2, y: 1.2, z: 1.2}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 1.1999999, y: 2.092504, z: 1.1999999}
+  m_Center: {x: 0, y: 0.44625184, z: 0}
 --- !u!95 &5447179496166228899
 Animator:
   serializedVersion: 7
@@ -1432,8 +1435,8 @@ MonoBehaviour:
   BeatsToMove: 3
   ReachDistanceToAttack: 1
   isChasingPlayer: 0
-  "k\xF3\u0142ko_Ataku_Instance": {fileID: 0}
---- !u!114 &612887162435090824
+  attackCircle: {fileID: 0}
+--- !u!114 &1181043534024979830
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1442,7 +1445,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 9208608533838382911}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7e1171c561a23ee468a67c0080e9f4cc, type: 3}
+  m_Script: {fileID: 11500000, guid: ac8afcfc54bff964fb6ee8768d5b0ffa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   enemyInfo: {fileID: 11400000, guid: 30ec9ca0d36906540ac5977f5b6074a7, type: 2}

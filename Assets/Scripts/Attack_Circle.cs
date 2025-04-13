@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class kółko_ataku_instance : MonoBehaviour
+public class Attack_Circle : MonoBehaviour
 {
-    public static kółko_ataku_instance instance;
+    public static Attack_Circle instance;
     public Animator animatorCircle;
     public AnimationClip animatorClip;
     public AnimatorStateInfo stateInfo;

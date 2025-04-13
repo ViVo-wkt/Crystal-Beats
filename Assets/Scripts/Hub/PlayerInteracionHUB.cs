@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class PlayerInteracionHUB : MonoBehaviour
@@ -14,6 +15,8 @@ public class PlayerInteracionHUB : MonoBehaviour
     public GameObject[] Lore_Pages;
     private int Page_Index;
 
+
+    public bool CanInteractInHub;
     public bool CanInteractCraft;
     public bool CanInteractShop;
     public bool CanInteractTutorial;
@@ -24,13 +27,53 @@ public class PlayerInteracionHUB : MonoBehaviour
     public Inventory inventory;
     private void OnTriggerStay(Collider other)
     {
+        
+        Lore();
+        
+        if (other.gameObject.CompareTag("CraftWorkshop"))
+        {
+            if(!inventory.PausePanel.activeSelf && !inventory.Inventory_Panel.activeSelf)
+            {
+                CanInteractCraft = true;
+            }
+            
+        }
+        else if (other.gameObject.CompareTag("WeaponWorkshop") && !inventory.PausePanel.activeSelf && !inventory.Inventory_Panel.activeSelf)
+        {
+
+            CanInteractShop = true;
+        }
+        else if (other.gameObject.CompareTag("Tutorial") && !inventory.PausePanel.activeSelf && !inventory.Inventory_Panel.activeSelf)
+        {
+            CanInteractTutorial = true;
+        }
+        else if (other.gameObject.CompareTag("Lore") && !inventory.PausePanel.activeSelf && !inventory.Inventory_Panel.activeSelf)
+        {
+            CanInteractLore = true;
+
+        }
+
+    }
+    private void OnTriggerExit(Collider other)
+    {
+
+        
+        CanInteractTutorial = false;
+        CanInteractLore = false;
+        CanInteractCraft = false;
+        CanInteractShop = false;
+        CraftPanel.SetActive(false);
+        WeaponPanel.SetActive(false);
+    }
+    private void Lore()
+    {
         switch (Page_Index)
         {
             case 0:
                 foreach (GameObject item in Lore_Pages)
                 {
                     item.SetActive(false);
-                    
+
                 }
 
                 Lore_Pages[0].SetActive(true);
@@ -39,7 +82,7 @@ public class PlayerInteracionHUB : MonoBehaviour
                 foreach (GameObject item in Lore_Pages)
                 {
                     item.SetActive(false);
-                    
+
                 }
 
                 Lore_Pages[1].SetActive(true);
@@ -48,7 +91,7 @@ public class PlayerInteracionHUB : MonoBehaviour
                 foreach (GameObject item in Lore_Pages)
                 {
                     item.SetActive(false);
-                    
+
                 }
 
                 Lore_Pages[2].SetActive(true);
@@ -65,37 +108,9 @@ public class PlayerInteracionHUB : MonoBehaviour
             default:
                 break;
         }
-
-        if (other.gameObject.CompareTag("CraftWorkshop") && !inventory.PausePanel.activeSelf && !inventory.Inventory_Panel.activeSelf)
-        {
-            CanInteractCraft = true;
-        }
-        if (other.gameObject.CompareTag("WeaponWorkshop") && !inventory.PausePanel.activeSelf && !inventory.Inventory_Panel.activeSelf)
-        {
-            
-            CanInteractShop = true;
-        }
-        if(other.gameObject.CompareTag("Tutorial") && !inventory.PausePanel.activeSelf && !inventory.Inventory_Panel.activeSelf)
-        {
-            CanInteractTutorial = true;
-        }
-        if (other.gameObject.CompareTag("Lore") && !inventory.PausePanel.activeSelf && !inventory.Inventory_Panel.activeSelf)
-        {
-            CanInteractLore = true;
-            
-        }
-
-    }
-    private void OnTriggerExit(Collider other)
-    {
-        CanInteractTutorial = false;
-        CanInteractLore = false;
-        CanInteractCraft = false;
-        CanInteractShop = false;
-        CraftPanel.SetActive(false);
-        WeaponPanel.SetActive(false);
     }
 
+    //Buttons-----------------
     public void OnClickPage1()
     {
         Page_Index = 0;
@@ -118,4 +133,5 @@ public class PlayerInteracionHUB : MonoBehaviour
         Lore_Panel.SetActive(false);
         
     }
+    //Buttons------------------------
 }

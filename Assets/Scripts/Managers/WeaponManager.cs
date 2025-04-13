@@ -2,16 +2,20 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using static Weapon_Controller;
 
 public class WeaponManager : MonoBehaviour
 {
     public static WeaponManager Instance;
     
      public int WeaponIndex = 0;
-    public GameObject[] Weapons;
-    // Start is called before the first frame update
+    public WeaponType weaponType;
+    
+    public GameObject[] Weapons = new GameObject[4];
     void Awake()
     {
+        
+        
         if(Instance == null)
         {
             Instance = this;
@@ -30,56 +34,26 @@ public class WeaponManager : MonoBehaviour
         foreach (GameObject weapon in Weapons)
         {
             weapon.SetActive(false);
-
+            
         }
-        switch (WeaponIndex)
-        {
-            case 0:
-                {
-
-
-                    Weapons[WeaponIndex].SetActive(true);
-
-                    break;
-                }
-            case 1:
-                {
-
-                    Weapons[WeaponIndex].SetActive(true);
-                    break;
-                }
-            case 2:
-                {
-
-                    Weapons[WeaponIndex].SetActive(true);
-                    break;
-                }
-            case 3:
-                {
-
-                    Weapons[WeaponIndex].SetActive(true);
-                    
-                    break;
-                }
-            default:
-                break;
-        }
+        Weapons[(int)weaponType].SetActive(true);
+        
 
         
     }
     public void Save(ref WeaponSaveData data)
     {
-        data.WeaponIndex = WeaponIndex;
+        data.WeaponIndex = weaponType;
     }
     public void Load(WeaponSaveData data)
     {
 
-        WeaponIndex = data.WeaponIndex;
+        weaponType = data.WeaponIndex;
         WeaponSwitch();
     }
     [System.Serializable]
     public struct WeaponSaveData
     {
-        public int WeaponIndex;
+        public WeaponType WeaponIndex;
     }
 }

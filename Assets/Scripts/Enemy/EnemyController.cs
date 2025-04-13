@@ -29,7 +29,7 @@ public class EnemyController : MonoBehaviour
     private Vector3 lastDirection; // Ostatni kierunek ruchu przeciwnika
     private Vector3 secondLastDirection; // Przedostatni kierunek ruchu przeciwnika
 
-    public kółko_ataku_instance kółko_Ataku_Instance;
+    public Attack_Circle attackCircle;
 
     private Animator anim;
     void Start()
@@ -57,9 +57,9 @@ public class EnemyController : MonoBehaviour
 
         if (GameManager.instance != null)
         {
-            kółko_ataku_instance.instance.CircleCommonActive(false);
-            kółko_ataku_instance.instance.CircleRangerActive(false);
-            kółko_ataku_instance.instance.CircleTankActive(false);
+            Attack_Circle.instance.CircleCommonActive(false);
+            Attack_Circle.instance.CircleRangerActive(false);
+            Attack_Circle.instance.CircleTankActive(false);
         }
         Destroy(gameObject);
     }
@@ -87,18 +87,18 @@ public class EnemyController : MonoBehaviour
 
                 if (gameObject.CompareTag("Common"))
                 {
-                    kółko_Ataku_Instance.NewCircleAnimationLength = kółko_ataku_instance.CommonCircleLenght;
-                    kółko_ataku_instance.instance.CircleCommonActive(true);
+                    attackCircle.NewCircleAnimationLength = Attack_Circle.CommonCircleLenght;
+                    Attack_Circle.instance.CircleCommonActive(true);
                 }
                 else if (gameObject.CompareTag("Ranger"))
                 {
-                    kółko_Ataku_Instance.NewCircleAnimationLength = kółko_ataku_instance.RangerCircleLenght;
-                    kółko_ataku_instance.instance.CircleRangerActive(true);
+                    attackCircle.NewCircleAnimationLength = Attack_Circle.RangerCircleLenght;
+                    Attack_Circle.instance.CircleRangerActive(true);
                 }
                 else if (gameObject.CompareTag("Tank"))
                 {
-                    kółko_Ataku_Instance.NewCircleAnimationLength = kółko_ataku_instance.TankCircleLenght;
-                    kółko_ataku_instance.instance.CircleTankActive(true);
+                    attackCircle.NewCircleAnimationLength = Attack_Circle.TankCircleLenght;
+                    Attack_Circle.instance.CircleTankActive(true);
                 }
 
                 Vector3 snappedDirection = SnapDirection(GameManager.instance.player.position - transform.position);
@@ -134,9 +134,9 @@ public class EnemyController : MonoBehaviour
 
         if (distanceToPlayer > ReachDistanceToAttack)
         {
-            kółko_ataku_instance.instance.CircleCommonActive(false);
-            kółko_ataku_instance.instance.CircleRangerActive(false);
-            kółko_ataku_instance.instance.CircleTankActive(false);
+            Attack_Circle.instance.CircleCommonActive(false);
+            Attack_Circle.instance.CircleRangerActive(false);
+            Attack_Circle.instance.CircleTankActive(false);
 
         }
     }
@@ -342,7 +342,7 @@ public class EnemyController : MonoBehaviour
         if (isChasingPlayer)
         {
 
-            if (kółko_Ataku_Instance.End && !GameManager.instance.playerMoved && IsAdjacentToPlayerWithRaycast())
+            if (attackCircle.End && !GameManager.instance.playerMoved && IsAdjacentToPlayerWithRaycast())
             {
                 if (anim != null)
                 {
@@ -351,11 +351,11 @@ public class EnemyController : MonoBehaviour
                 }
 
                 EnemyAttack();
-                kółko_Ataku_Instance.End = false;
+                attackCircle.End = false;
             }
             else if (GameManager.instance.playerMoved || !IsAdjacentToPlayerWithRaycast())
             {
-                kółko_Ataku_Instance.End = false;
+                attackCircle.End = false;
             }
         }
 

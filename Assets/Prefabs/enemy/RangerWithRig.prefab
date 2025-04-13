@@ -49,6 +49,9 @@ SkinnedMeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 3
   m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -1082,7 +1085,7 @@ GameObject:
   - component: {fileID: 1871987103281940370}
   - component: {fileID: 3657443541673130362}
   - component: {fileID: 2548402686687816275}
-  - component: {fileID: 7537984207155890738}
+  - component: {fileID: 8940180775029687096}
   m_Layer: 3
   m_Name: RangerWithRig
   m_TagString: Ranger
@@ -1171,7 +1174,8 @@ MonoBehaviour:
   BeatsToMove: 3
   ReachDistanceToAttack: 3
   isChasingPlayer: 0
---- !u!114 &7537984207155890738
+  attackCircle: {fileID: 0}
+--- !u!114 &8940180775029687096
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1180,7 +1184,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 7541596232085062946}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 26f39bf41a463a9428b1496658f14091, type: 3}
+  m_Script: {fileID: 11500000, guid: ac8afcfc54bff964fb6ee8768d5b0ffa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   enemyInfo: {fileID: 11400000, guid: 3825ab3e812583b4fac6105dabab0284, type: 2}

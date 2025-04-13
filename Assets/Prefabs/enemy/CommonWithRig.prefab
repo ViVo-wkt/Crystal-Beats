@@ -265,7 +265,7 @@ GameObject:
   - component: {fileID: 5382981021561448862}
   - component: {fileID: 6930957662921083357}
   - component: {fileID: 2374542557601302137}
-  - component: {fileID: 920876834891648254}
+  - component: {fileID: 5651017458368847209}
   m_Layer: 3
   m_Name: CommonWithRig
   m_TagString: Common
@@ -354,7 +354,8 @@ MonoBehaviour:
   BeatsToMove: 3
   ReachDistanceToAttack: 1
   isChasingPlayer: 0
---- !u!114 &920876834891648254
+  attackCircle: {fileID: 0}
+--- !u!114 &5651017458368847209
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -363,7 +364,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1397867514827808286}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 44a619d6333ac744fa38b1f2578a86c0, type: 3}
+  m_Script: {fileID: 11500000, guid: ac8afcfc54bff964fb6ee8768d5b0ffa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   enemyInfo: {fileID: 11400000, guid: 2a5f2f6bc1de7c6469183a613b1f94cb, type: 2}
@@ -899,6 +900,9 @@ SkinnedMeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 3
   m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:

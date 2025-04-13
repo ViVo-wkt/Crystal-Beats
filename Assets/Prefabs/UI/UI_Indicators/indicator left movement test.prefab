@@ -12,8 +12,10 @@ GameObject:
   - component: {fileID: 7210141229439143380}
   - component: {fileID: 5822149729788160562}
   - component: {fileID: 1276212224485858126}
+  - component: {fileID: 3113743941505644030}
   - component: {fileID: 1869264955904616164}
   - component: {fileID: 8571023340701165098}
+  - component: {fileID: 1814235570231626194}
   m_Layer: 5
   m_Name: indicator left movement test
   m_TagString: Untagged
@@ -30,14 +32,14 @@ RectTransform:
   m_GameObject: {fileID: 8449048266783873917}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 50, y: 50, z: 50}
+  m_LocalScale: {x: 60.000004, y: 60.000004, z: 60.000004}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -994, y: -400}
+  m_AnchoredPosition: {x: -1350, y: -400}
   m_SizeDelta: {x: 0.72, y: 2.62}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7210141229439143380
@@ -124,9 +126,31 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 0.72, y: 2.62}
   m_EdgeRadius: 0
+--- !u!95 &3113743941505644030
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8449048266783873917}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 7c20b55d9f8bc904cb84b5b3831a7993, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!50 &1869264955904616164
 Rigidbody2D:
-  serializedVersion: 4
+  serializedVersion: 5
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -137,8 +161,8 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 2000
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
   m_GravityScale: 100
   m_Material: {fileID: 0}
   m_IncludeLayers:
@@ -163,6 +187,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b9606ffdf470684a8034b0b26458fa2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnIndicators: {fileID: 0}
-  Speed: 450
+  Speed: 1100
   IsFalling: 0
+--- !u!114 &1814235570231626194
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8449048266783873917}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 10b85b2b5a9eae24d96267406a6707a8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

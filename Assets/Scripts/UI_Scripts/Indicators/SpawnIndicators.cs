@@ -11,9 +11,28 @@ public class SpawnIndicators : MonoBehaviour
     public RectTransform StartAttackPosition; 
     public Movement movement;
     public PlayerAttack playerAttack;
-    void Awake()
+
+    private int IndicatorsInstances = 5;
+    private List<RectTransform> PooledIndicatorsMovement = new List<RectTransform>();
+    private List<RectTransform> PooledIndicatorsAttack = new List<RectTransform>();
+    private void Awake()
     {
-        // Ustawienie poczπtkowej pozycji wskaünika
+        
+        for (int i = 0; i < IndicatorsInstances; i++)
+        {
+            RectTransform newIndicator = Instantiate(Indicator[0], Canvas);
+            RectTransform AttackIndicator = Instantiate(Indicator[1], Canvas);
+
+            newIndicator.gameObject.SetActive(false);
+            AttackIndicator.gameObject.SetActive(false);
+
+            PooledIndicatorsMovement.Add(newIndicator);
+            PooledIndicatorsAttack.Add(AttackIndicator);
+        }
+    }
+    void OnEnable()
+    {
+
 
         AudioManager.BeatUpdated += Spawn;
     }
@@ -30,17 +49,52 @@ public class SpawnIndicators : MonoBehaviour
 
     private void Spawn()
     {
-        
-        RectTransform newIndicator = Instantiate(Indicator[0], Canvas);
-        newIndicator.anchoredPosition = StartMovementPosition.anchoredPosition;
 
+        RectTransform newIndicator = GetPooledObjects(Indicator[0]);
+        RectTransform AttackIndicator = GetPooledObjects(Indicator[1]);
 
-        if (playerAttack.AttackbeatsCounter <= 0)
+        if (newIndicator != null)
         {
-            RectTransform AttackIndicator = Instantiate(Indicator[1], Canvas);
-            AttackIndicator.anchoredPosition = StartAttackPosition.anchoredPosition;
-            playerAttack.AttackbeatsCounter = playerAttack.Attackbeats;
+            newIndicator.anchoredPosition = StartMovementPosition.anchoredPosition;
+            newIndicator.gameObject.SetActive(true);
+
         }
-        
+        if (AttackIndicator != null)
+        {
+            if (playerAttack.AttackbeatsCounter <= 0)
+            {
+                AttackIndicator.anchoredPosition = StartAttackPosition.anchoredPosition;
+                AttackIndicator.gameObject.SetActive(true);
+                playerAttack.AttackbeatsCounter = playerAttack.Attackbeats;
+                
+            }
+        }
     }
+    public RectTransform GetPooledObjects(RectTransform indicatorToGet)
+    {
+        if (indicatorToGet == Indicator[0])
+        {
+
+
+            for (int i = 0; i < PooledIndicatorsMovement.Count; i++)
+            {
+                if (!PooledIndicatorsMovement[i].gameObject.activeInHierarchy)
+                {
+                    return PooledIndicatorsMovement[i];
+                }
+            }
+        }
+        else
+        {
+            for (int i = 0; i < PooledIndicatorsAttack.Count; i++)
+            {
+                if (!PooledIndicatorsAttack[i].gameObject.activeInHierarchy)
+                {
+                    return PooledIndicatorsAttack[i];
+                }
+            }
+        }
+        return null;
+    }
+    
 }

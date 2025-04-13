@@ -67,7 +67,7 @@ public class Player_Info : MonoBehaviour
 
             for (int i = 0; i < Heart_Pieces.Length; i++)
             {
-                Heart_Pieces[i].SetActive(i < Player_HP); // Aktywuj serca tylko dla zdrowia wiêkszego ni¿ i
+                Heart_Pieces[i].SetActive(i < Player_HP); // activate hearts when HP is bigger than i
 
             }
         
