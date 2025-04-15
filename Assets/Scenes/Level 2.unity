@@ -391300,7 +391300,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1387080583}
-  - component: {fileID: 1387080582}
   m_Layer: 0
   m_Name: Floor
   m_TagString: Untagged
@@ -391308,24 +391307,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1387080582
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1387080581}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1a370a29472c9734789125e2ec69edb1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  tileA: {fileID: 3172897618353241846, guid: f5bd02b36f7480144a59ccde65a5f3b5, type: 3}
-  tileB: {fileID: 1572223322457174190, guid: 4b545672bf3ec274ba760879a8ed0229, type: 3}
-  width: 75
-  height: 75
-  tileSize: 1
-  generate: 0
 --- !u!4 &1387080583
 Transform:
   m_ObjectHideFlags: 0

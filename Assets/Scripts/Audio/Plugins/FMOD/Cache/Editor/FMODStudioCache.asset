@@ -15,7 +15,7 @@ MonoBehaviour:
   Path: fm mod soundtrack/Build/Desktop/Music.bank
   Name: Music
   StudioPath: bank:/Music
-  lastModified: 638803304658732879
+  lastModified: 638803406252717627
   FileSizes:
   - Name: Desktop
     Value: 5840800
@@ -46,7 +46,7 @@ MonoBehaviour:
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
-  Length: 135000
+  Length: 135005
 --- !u!114 &-622560233282263979
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -62,7 +62,7 @@ MonoBehaviour:
   Path: fm mod soundtrack/Build/Desktop/SFX.bank
   Name: SFX
   StudioPath: bank:/SFX
-  lastModified: 638789599243649182
+  lastModified: 638803406253097185
   FileSizes:
   - Name: Desktop
     Value: 243040
@@ -100,7 +100,7 @@ MonoBehaviour:
   - {fileID: 3979666154132642495}
   StringsBanks:
   - {fileID: 4587743775815487838}
-  cacheTime: 638803304658732879
+  cacheTime: 638803406253097185
   cacheVersion: 131622
 --- !u!114 &507198958222522214
 MonoBehaviour:
@@ -144,7 +144,7 @@ MonoBehaviour:
   Path: fm mod soundtrack/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 638789599243277480
+  lastModified: 638803406251791391
   FileSizes:
   - Name: Desktop
     Value: 1340
@@ -191,7 +191,7 @@ MonoBehaviour:
   Path: fm mod soundtrack/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638789599243289767
+  lastModified: 638803406251796425
   FileSizes:
   - Name: Desktop
     Value: 1352
