@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -14,45 +15,80 @@ public class WeaponShop : MonoBehaviour
     public Crystal SmallCluster;
     public Crystal LargeCluster;
 
-    //public WeaponManager weaponManager;
-    //public Weapon Hammer;
-    //public Weapon Axe;
-    //public Weapon Gun;
+    
 
     [Header("Hammer")]
-    public int SingleCrystalHammerCost;
-    public int SmallClusterHammerCost;
-    public int LargeClusterHammerCost;
+    public int HammerCost;
+    
     [Header("Axe")]
-    public int SingleCrystalAxeCost;
-    public int SmallClusterAxeCost;
-    public int LargeClusterAxeCost;
+    public int AxeCost;
+    
     [Header("Gun")]
-    public int SingleCrystalGunCost;
-    public int SmallClusterGunCost;
-    public int LargeClusterGunCost;
+    public int GunCost;
 
+    private int Crystals_Sum;
+    
+
+    private int SingleCrystal_Value;
+    private int SmallCluster_Value;
+    private int LargeCluster_Value;
+
+    private int QuantityOfSinglesCrystals;
+    private int QuantityOfSmallsClusters;
+    private int QuantityOfLargeClusters;
+    [Header("Multiplication of Crystals")]
+    public int SingleMultiply;
+    public int SmallMultiply;
+    public int LargeMultiply;
+
+    private bool ActiveCase = false;
+
+    public TextMeshProUGUI[] SlotsInfo;
     public TextMeshProUGUI[] CostUI;
 
     public InventoryManager inventoryManager;
+    public PlayerInteracionHUB playerInteracionHUB;
 
     public GameObject[] SlotsPrefabs;
     private GameObject[] Slots;
 
-
-    
-
     public GameObject[] Buttons;
+
+
+    private enum ChoosenCrystalToPay
+    {
+        Single,
+        Small,
+        Large
+    }
+    ChoosenCrystalToPay choosenCrystalToPay;
+
     // Start is called before the first frame update
     void Start()
     {
+
+        CrystalsMultiplication();
+        
+
         instance = this;
         Slots = new GameObject[SlotsPrefabs.Length];
-        UpdateCostText();
+        
         WeaponManager.Instance.WeaponSwitch();
     }
+    private void Update()
+    {
+        
 
-    
+
+        if(playerInteracionHUB.WeaponPanel.activeSelf)
+        {
+            for (int i = 1; i > 0; i--)
+            {
+                UpdateCostText();
+            }
+        }
+    }
+
     private void RefreshInstances()
     {
         for (int i = 0; i < SlotsPrefabs.Length; i++)
@@ -66,116 +102,103 @@ public class WeaponShop : MonoBehaviour
     }
     public void BuyHammer()
     {
+
         RefreshInstances();
-        if (inventoryManager.Inventory_SingleCrystal_Slots.Count >= SingleCrystalHammerCost && inventoryManager.Inventory_SmallCrystalCluster_Slots.Count >= SmallClusterHammerCost && inventoryManager.Inventory_LargeCrystalCLuster_Slots.Count >= LargeClusterHammerCost)
+        if (Crystals_Sum >= HammerCost)
         {
-            for (int i = SingleCrystalHammerCost; i > 0; i--)
-            {
-                if (SingleCrystal != null && Slots[0] != null)
+           
+            for (int payment = HammerCost; payment > 0;)
                 {
-                    InventoryManager.Instance.Remove(SingleCrystal);
-                    InventoryManager.Instance.ListCrystals(SingleCrystal);
-        
-                }
+
+                //It turn on when one of Crystal group have more Crystals than others
+                Case_1();
+
+                //it turn on when minimum 2 group of Crystals have the same Quantity of Crystals and the case above do not turn on
+                Case_2();
+
+                // It turn on when rest of the payment for weapon is equal to value of Crystal
+                Case_3(payment);
+
+                payment = Payment(payment);
+
+                ActiveCase = false;
+                UpdateCostText();
             }
-            for (int i = SmallClusterHammerCost; i > 0; i--)
-            {
-                if (SmallCluster != null && Slots[1] != null)
-                {
-                    InventoryManager.Instance.Remove(SmallCluster);
-                    InventoryManager.Instance.ListCrystals(SmallCluster);
-                }
-            }
-            for (int i = LargeClusterHammerCost; i > 0; i--)
-            {
-                if (LargeCluster != null && Slots[2] != null)
-                {
-                    InventoryManager.Instance.Remove(LargeCluster);
-                    InventoryManager.Instance.ListCrystals(LargeCluster);
-                }
-            }
+
+
+            
+            
+
             Buttons[0].SetActive(true);
         }
         else
         {
             Debug.Log("Brakuje Kryszta³ów do zakupu");
         }
-            
         
+
     }
     public void BuyAxe()
     {
         RefreshInstances();
-        if (inventoryManager.Inventory_SingleCrystal_Slots.Count >= SingleCrystalAxeCost && inventoryManager.Inventory_SmallCrystalCluster_Slots.Count >= SmallClusterAxeCost && inventoryManager.Inventory_LargeCrystalCLuster_Slots.Count >= LargeClusterAxeCost)
+        if (Crystals_Sum >= AxeCost)
         {
-            for (int i = SingleCrystalAxeCost; i > 0; i--)
+            for (int payment = AxeCost; payment > 0;)
             {
-                if (SingleCrystal != null && Slots[0] != null)
-                {
-                    InventoryManager.Instance.Remove(SingleCrystal);
-                    InventoryManager.Instance.ListCrystals(SingleCrystal);
 
-                }
+                //It turn on when one of Crystal group have more Crystals than others
+                Case_1();
+
+                //it turn on when minimum 2 group of Crystals have the same Quantity of Crystals and the case above do not turn on starting from the smallest one
+                Case_2();
+
+                // It turn on when rest of the payment for weapon is equal to value of Crystal, starting from the biggest one
+                Case_3(payment);
+
+                payment = Payment(payment);
+
+                ActiveCase = false;
+
+                UpdateCostText();
             }
-            for (int i = SmallClusterAxeCost; i > 0; i--)
-            {
-                if (SmallCluster != null && Slots[1] != null)
-                {
-                    InventoryManager.Instance.Remove(SmallCluster);
-                    InventoryManager.Instance.ListCrystals(SmallCluster);
-                }
-            }
-            for (int i = LargeClusterAxeCost; i > 0; i--)
-            {
-                if (LargeCluster != null && Slots[2] != null)
-                {
-                    InventoryManager.Instance.Remove(LargeCluster);
-                    InventoryManager.Instance.ListCrystals(LargeCluster);
-                }
-            }
+
             Buttons[1].SetActive(true);
         }
         else
         {
             Debug.Log("Brakuje Kryszta³ów do zakupu");
         }
+        
     }
     public void BuyGun()
     {
         RefreshInstances();
-        if (inventoryManager.Inventory_SingleCrystal_Slots.Count >= SingleCrystalGunCost && inventoryManager.Inventory_SmallCrystalCluster_Slots.Count >= SmallClusterGunCost && inventoryManager.Inventory_LargeCrystalCLuster_Slots.Count >= LargeClusterGunCost)
+        if (Crystals_Sum >= GunCost)
         {
-            for (int i = SingleCrystalGunCost; i > 0; i--)
+            for (int payment = GunCost; payment > 0;)
             {
-                if (SingleCrystal != null && Slots[0] != null)
-                {
-                    InventoryManager.Instance.Remove(SingleCrystal);
-                    InventoryManager.Instance.ListCrystals(SingleCrystal);
 
-                }
+                //It turn on when one of Crystal group have more Crystals than others
+                Case_1();
+
+                //it turn on when minimum 2 group of Crystals have the same Quantity of Crystals and the case above do not turn on
+                Case_2();
+
+                // It turn on when rest of the payment for weapon is equal to value of Crystal
+                Case_3(payment);
+
+                payment = Payment(payment);
+
+                ActiveCase = false;
             }
-            for (int i = SmallClusterGunCost; i > 0; i--)
-            {
-                if (SmallCluster != null && Slots[1] != null)
-                {
-                    InventoryManager.Instance.Remove(SmallCluster);
-                    InventoryManager.Instance.ListCrystals(SmallCluster);
-                }
-            }
-            for (int i = LargeClusterGunCost; i > 0; i--)
-            {
-                if (LargeCluster != null && Slots[2] != null)
-                {
-                    InventoryManager.Instance.Remove(LargeCluster);
-                    InventoryManager.Instance.ListCrystals(LargeCluster);
-                }
-            }
+
             Buttons[2].SetActive(true);
         }
         else
         {
             Debug.Log("Brakuje Kryszta³ów do zakupu");
         }
+        UpdateCostText();
     }
     public void EquipPickaxe()
     {
@@ -204,17 +227,156 @@ public class WeaponShop : MonoBehaviour
     
     private void UpdateCostText()
     {
-        CostUI[0].text = SingleCrystalHammerCost.ToString();
-        CostUI[1].text = SmallClusterHammerCost.ToString();
-        CostUI[2].text = LargeClusterHammerCost.ToString();
-        CostUI[3].text = SingleCrystalAxeCost.ToString();
-        CostUI[4].text = SmallClusterAxeCost.ToString();
-        CostUI[5].text = LargeClusterAxeCost.ToString();
-        CostUI[6].text = SingleCrystalGunCost.ToString();
-        CostUI[7].text = SmallClusterGunCost.ToString();
-        CostUI[8].text = LargeClusterGunCost.ToString();
+        QuantityOfSinglesCrystals = inventoryManager.Inventory_SingleCrystal_Slots.Count;
+        QuantityOfSmallsClusters = inventoryManager.Inventory_SmallCrystalCluster_Slots.Count;
+        QuantityOfLargeClusters = inventoryManager.Inventory_LargeCrystalCLuster_Slots.Count;
+
+
+        CostUI[0].text = HammerCost.ToString();
+        CostUI[1].text = AxeCost.ToString();
+        CostUI[2].text = GunCost.ToString();
+
+        Crystals_Sum = QuantityOfSinglesCrystals * SingleCrystal_Value + QuantityOfSmallsClusters * SmallCluster_Value + QuantityOfLargeClusters * LargeCluster_Value;
+
+            foreach (var item in SlotsInfo)
+            {
+                SlotsInfo[0].text = inventoryManager.Inventory_SingleCrystal_Slots.Count.ToString();
+                SlotsInfo[1].text = inventoryManager.Inventory_SmallCrystalCluster_Slots.Count.ToString();
+                SlotsInfo[2].text = inventoryManager.Inventory_LargeCrystalCLuster_Slots.Count.ToString();
+                SlotsInfo[3].text = Crystals_Sum.ToString();
+
+                break;
+            }
+
+        
     }
     
+    private void Case_1()
+    {
+        if (inventoryManager.Inventory_SingleCrystal_Slots.Count > inventoryManager.Inventory_SmallCrystalCluster_Slots.Count && inventoryManager.Inventory_SingleCrystal_Slots.Count > inventoryManager.Inventory_LargeCrystalCLuster_Slots.Count)
+        {
+            choosenCrystalToPay = ChoosenCrystalToPay.Single;
+            ActiveCase = true;
+        }
+        else if (inventoryManager.Inventory_SmallCrystalCluster_Slots.Count > inventoryManager.Inventory_SingleCrystal_Slots.Count && inventoryManager.Inventory_SmallCrystalCluster_Slots.Count > inventoryManager.Inventory_LargeCrystalCLuster_Slots.Count)
+        {
+            choosenCrystalToPay = ChoosenCrystalToPay.Small;
+            
+            ActiveCase = true;
+        }
+        else if (inventoryManager.Inventory_LargeCrystalCLuster_Slots.Count > inventoryManager.Inventory_SingleCrystal_Slots.Count && inventoryManager.Inventory_LargeCrystalCLuster_Slots.Count > inventoryManager.Inventory_SmallCrystalCluster_Slots.Count)
+        {
+            choosenCrystalToPay = ChoosenCrystalToPay.Large;
+            
+            ActiveCase = true;
+        }
+    }
+    private void Case_2()
+    {
+        if (ActiveCase) return;
+
+        int singles = inventoryManager.Inventory_SingleCrystal_Slots.Count;
+        int smalls = inventoryManager.Inventory_SmallCrystalCluster_Slots.Count;
+        int larges = inventoryManager.Inventory_LargeCrystalCLuster_Slots.Count;
+
+        // Find pairs with equal count
+        if (singles == smalls)
+        {
+            choosenCrystalToPay = ChoosenCrystalToPay.Single;
+        }
+        else if (singles == larges)
+        {
+            choosenCrystalToPay = ChoosenCrystalToPay.Single;
+        }
+        else if (smalls == larges)
+        {
+            choosenCrystalToPay = ChoosenCrystalToPay.Small;
+        }
+    }
+    private void Case_3(int restOfPayment)
+    {
+        
+        if (restOfPayment <= LargeCluster_Value && QuantityOfLargeClusters > 0)
+        {
+            choosenCrystalToPay = ChoosenCrystalToPay.Large;
+        }
+        else if (restOfPayment <= SingleCrystal_Value && QuantityOfSinglesCrystals > 0)
+        {
+            choosenCrystalToPay = ChoosenCrystalToPay.Single;
+        }
+        else if (restOfPayment <= SmallCluster_Value && QuantityOfSinglesCrystals > 0)
+        {
+            choosenCrystalToPay = ChoosenCrystalToPay.Small;
+        }
+    }
+    private int Payment(int payment)
+    {
+        switch (choosenCrystalToPay)
+        {
+            case ChoosenCrystalToPay.Single:
+                if (SingleCrystal != null && Slots[0] != null)
+                {
+                    InventoryManager.Instance.Remove(SingleCrystal);
+                    InventoryManager.Instance.ListCrystals(SingleCrystal);
+                }
+
+                payment -= SingleCrystal_Value;
+                break;
+            case ChoosenCrystalToPay.Small:
+                if (SmallCluster != null && Slots[1] != null)
+                {
+                    InventoryManager.Instance.Remove(SmallCluster);
+                    InventoryManager.Instance.ListCrystals(SmallCluster);
+                }
+                payment -= SmallCluster_Value;
+                break;
+            case ChoosenCrystalToPay.Large:
+                if (LargeCluster != null && Slots[2] != null)
+                {
+                    InventoryManager.Instance.Remove(LargeCluster);
+                    InventoryManager.Instance.ListCrystals(LargeCluster);
+                }
+                payment -= LargeCluster_Value;
+                break;
+
+            default:
+                Debug.Log("Error");
+                payment = 0;
+                break;
+
+        }
+        return payment;
+    }
+    private void CrystalsMultiplication()
+    {
+        if (SingleMultiply != 0)
+        {
+            SingleCrystal_Value = 1 * SingleMultiply;
+        }
+        else
+        {
+            SingleCrystal_Value = 1;
+        }
+
+        if (SmallMultiply != 0)
+        {
+            SmallCluster_Value = 1 * SmallMultiply;
+        }
+        else
+        {
+            SmallCluster_Value = 1;
+        }
+
+        if (LargeMultiply != 0)
+        {
+            LargeCluster_Value = 1 * LargeMultiply;
+        }
+        else
+        {
+            LargeCluster_Value = 1;
+        }
+    }
+
 }
 
 

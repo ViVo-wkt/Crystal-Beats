@@ -3,11 +3,39 @@
   "WorkspaceRootPath": "C:\\Users\\smako\\Crystal-Beats\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{5407B016-B012-E4FB-E141-70D7B04D291E}|Assembly-CSharp.csproj|c:\\users\\smako\\crystal-beats\\assets\\scripts\\hub\\weaponshop.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5407B016-B012-E4FB-E141-70D7B04D291E}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\hub\\weaponshop.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5407B016-B012-E4FB-E141-70D7B04D291E}|Assembly-CSharp.csproj|c:\\users\\smako\\crystal-beats\\assets\\scripts\\managers\\weaponmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5407B016-B012-E4FB-E141-70D7B04D291E}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\managers\\weaponmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5407B016-B012-E4FB-E141-70D7B04D291E}|Assembly-CSharp.csproj|c:\\users\\smako\\crystal-beats\\assets\\scripts\\enemy\\enemycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5407B016-B012-E4FB-E141-70D7B04D291E}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\enemy\\enemycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5407B016-B012-E4FB-E141-70D7B04D291E}|Assembly-CSharp.csproj|C:\\Users\\smako\\Crystal-Beats\\assets\\scripts\\player\\inventory\\collecting.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5407B016-B012-E4FB-E141-70D7B04D291E}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\player\\inventory\\collecting.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5407B016-B012-E4FB-E141-70D7B04D291E}|Assembly-CSharp.csproj|C:\\Users\\smako\\Crystal-Beats\\assets\\scripts\\hub\\playerinteracionhub.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5407B016-B012-E4FB-E141-70D7B04D291E}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\hub\\playerinteracionhub.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5407B016-B012-E4FB-E141-70D7B04D291E}|Assembly-CSharp.csproj|C:\\Users\\smako\\Crystal-Beats\\assets\\scripts\\player\\inventory\\inventory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5407B016-B012-E4FB-E141-70D7B04D291E}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\player\\inventory\\inventory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5407B016-B012-E4FB-E141-70D7B04D291E}|Assembly-CSharp.csproj|C:\\Users\\smako\\Crystal-Beats\\assets\\scripts\\hub\\gamemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5407B016-B012-E4FB-E141-70D7B04D291E}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\hub\\gamemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{5407B016-B012-E4FB-E141-70D7B04D291E}|Assembly-CSharp.csproj|C:\\Users\\smako\\Crystal-Beats\\assets\\scripts\\ui_scripts\\indicators\\spawnindicators.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{5407B016-B012-E4FB-E141-70D7B04D291E}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\ui_scripts\\indicators\\spawnindicators.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{5407B016-B012-E4FB-E141-70D7B04D291E}|Assembly-CSharp.csproj|c:\\users\\smako\\crystal-beats\\assets\\scripts\\player\\playerattack.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{5407B016-B012-E4FB-E141-70D7B04D291E}|Assembly-CSharp.csproj|C:\\Users\\smako\\Crystal-Beats\\assets\\scripts\\player\\playerattack.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{5407B016-B012-E4FB-E141-70D7B04D291E}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\player\\playerattack.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
@@ -22,11 +50,98 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 4,
           "Children": [
             {
               "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "WeaponManager.cs",
+              "DocumentMoniker": "C:\\Users\\smako\\Crystal-Beats\\Assets\\Scripts\\Managers\\WeaponManager.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Managers\\WeaponManager.cs",
+              "ToolTip": "C:\\Users\\smako\\Crystal-Beats\\Assets\\Scripts\\Managers\\WeaponManager.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Managers\\WeaponManager.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-24T09:18:35.067Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 2,
+              "Title": "EnemyController.cs",
+              "DocumentMoniker": "C:\\Users\\smako\\Crystal-Beats\\Assets\\Scripts\\Enemy\\EnemyController.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Enemy\\EnemyController.cs",
+              "ToolTip": "C:\\Users\\smako\\Crystal-Beats\\Assets\\Scripts\\Enemy\\EnemyController.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Enemy\\EnemyController.cs",
+              "ViewState": "AgIAAI0AAAAAAAAAAAAswAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-24T07:51:46.423Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Collecting.cs",
+              "DocumentMoniker": "C:\\Users\\smako\\Crystal-Beats\\Assets\\Scripts\\Player\\Inventory\\Collecting.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Player\\Inventory\\Collecting.cs",
+              "ToolTip": "C:\\Users\\smako\\Crystal-Beats\\Assets\\Scripts\\Player\\Inventory\\Collecting.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Player\\Inventory\\Collecting.cs",
+              "ViewState": "AgIAAAQAAAAAAAAAAAASwA4AAABeAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-22T12:29:31.586Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "PlayerInteracionHUB.cs",
+              "DocumentMoniker": "C:\\Users\\smako\\Crystal-Beats\\Assets\\Scripts\\Hub\\PlayerInteracionHUB.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Hub\\PlayerInteracionHUB.cs",
+              "ToolTip": "C:\\Users\\smako\\Crystal-Beats\\Assets\\Scripts\\Hub\\PlayerInteracionHUB.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Hub\\PlayerInteracionHUB.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-22T12:23:47.141Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "WeaponShop.cs",
+              "DocumentMoniker": "C:\\Users\\smako\\Crystal-Beats\\Assets\\Scripts\\Hub\\WeaponShop.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Hub\\WeaponShop.cs",
+              "ToolTip": "C:\\Users\\smako\\Crystal-Beats\\Assets\\Scripts\\Hub\\WeaponShop.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Hub\\WeaponShop.cs",
+              "ViewState": "AgIAAMoAAAAAAAAAAAAqwCcBAAAqAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-22T11:22:22.346Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Inventory.cs",
+              "DocumentMoniker": "C:\\Users\\smako\\Crystal-Beats\\Assets\\Scripts\\Player\\Inventory\\Inventory.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Player\\Inventory\\Inventory.cs",
+              "ToolTip": "C:\\Users\\smako\\Crystal-Beats\\Assets\\Scripts\\Player\\Inventory\\Inventory.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Player\\Inventory\\Inventory.cs",
+              "ViewState": "AgIAAG0AAAAAAAAAAAAAABsAAAAzAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-22T11:00:57.419Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "GameManager.cs",
+              "DocumentMoniker": "C:\\Users\\smako\\Crystal-Beats\\Assets\\Scripts\\Hub\\GameManager.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Hub\\GameManager.cs",
+              "ToolTip": "C:\\Users\\smako\\Crystal-Beats\\Assets\\Scripts\\Hub\\GameManager.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Hub\\GameManager.cs",
+              "ViewState": "AgIAABUAAAAAAAAAAAAuwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-22T11:00:42.429Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
               "Title": "Movement.cs",
               "DocumentMoniker": "C:\\Users\\smako\\Crystal-Beats\\Assets\\Scripts\\Player\\Movement.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Player\\Movement.cs",
@@ -34,12 +149,11 @@
               "RelativeToolTip": "Assets\\Scripts\\Player\\Movement.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAKQAAAAEAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-12T08:08:17.803Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-12T08:08:17.803Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 8,
               "Title": "PlayerAttack.cs",
               "DocumentMoniker": "C:\\Users\\smako\\Crystal-Beats\\Assets\\Scripts\\Player\\PlayerAttack.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Player\\PlayerAttack.cs",
@@ -47,12 +161,11 @@
               "RelativeToolTip": "Assets\\Scripts\\Player\\PlayerAttack.cs",
               "ViewState": "AgIAAAoAAAAAAAAAAAAUwBoAAAAzAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-13T18:09:42.959Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-13T18:09:42.959Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 7,
               "Title": "SpawnIndicators.cs",
               "DocumentMoniker": "C:\\Users\\smako\\Crystal-Beats\\Assets\\Scripts\\UI_Scripts\\Indicators\\SpawnIndicators.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\UI_Scripts\\Indicators\\SpawnIndicators.cs",
@@ -60,8 +173,7 @@
               "RelativeToolTip": "Assets\\Scripts\\UI_Scripts\\Indicators\\SpawnIndicators.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAGIAAAAEAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-11T15:49:51.785Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-11T15:49:51.785Z"
             }
           ]
         }

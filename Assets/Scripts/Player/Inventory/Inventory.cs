@@ -12,7 +12,7 @@ public class Inventory : MonoBehaviour
 
     public InventoryManager inventoryManager;
     
-    public TextMeshProUGUI[] SlotsInfo;
+    
 
     public GameObject PausePanel;
 
@@ -158,20 +158,9 @@ public class Inventory : MonoBehaviour
         }
         //Tutorial
 
-        //if (Inventory_Panel.activeSelf) ////liczyd³o
-        //{
-        //    foreach (var item in SlotsInfo)
-        //    {
-        //        SlotsInfo[0].text = "Single Crystals slots left: " + inventoryManager.Inventory_SingleCrystal_Slots.Count.ToString() + "/40";
-        //        SlotsInfo[1].text = "Small Clusters slots left: " + inventoryManager.Inventory_SmallCrystalCluster_Slots.Count.ToString() + "/20";
-        //        SlotsInfo[2].text = "Large Clusters slots left: " + inventoryManager.Inventory_LargeCrystalCLuster_Slots.Count.ToString() + "/9";
-        //        SlotsInfo[3].text = "Red Clusters slots left: " + inventoryManager.Inventory_RedCrystalCluster_Slots.Count.ToString() + "/8";
-        //        break;
-        //    }
-          
-        //}
         
-        
+
+
     }
     public void CursorVisibility(bool CursorActive)
 

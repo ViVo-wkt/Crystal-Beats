@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5295996840517774327}
   - component: {fileID: 2970744335636046825}
   m_Layer: 5
-  m_Name: "Ilo\u015B\u0107 LargeClusters left_text (1)"
+  m_Name: LargeClusters left_text (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3452,7 +3452,7 @@ GameObject:
   - component: {fileID: 3525511666496792063}
   - component: {fileID: 8417630084847136347}
   m_Layer: 5
-  m_Name: "Ilo\u015B\u0107 SingleCrystal left_text"
+  m_Name: SingleCrystal left_text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5636,7 +5636,7 @@ GameObject:
   - component: {fileID: 3308978273479560449}
   - component: {fileID: 6440498163890880323}
   m_Layer: 5
-  m_Name: "Ilo\u015B\u0107 RedClusters left_text"
+  m_Name: RedClusters left_text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6256,7 +6256,7 @@ GameObject:
   - component: {fileID: 1975494292543751287}
   - component: {fileID: 8663592130956575028}
   m_Layer: 5
-  m_Name: "Ilo\u015B\u0107 SmallClusters left_text (2)"
+  m_Name: SmallClusters left_text (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

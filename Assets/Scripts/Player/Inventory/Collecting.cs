@@ -12,7 +12,7 @@ public class Collecting : MonoBehaviour
     private bool CanAddCrystal = false;
     private void Start()
     {
-        //inventoryManager = GameObject.FindWithTag("Manager").GetComponent<InventoryManager>();
+        inventoryManager = GameObject.FindWithTag("Manager").GetComponent<InventoryManager>();
     }
     void PickUpCrystal()
     {
