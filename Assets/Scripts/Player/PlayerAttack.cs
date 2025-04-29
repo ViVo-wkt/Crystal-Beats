@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Runtime.Serialization.Json;
 using Unity.Burst.Intrinsics;
 using Unity.VisualScripting;
-using UnityEditor.SceneManagement;
+
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using static Weapon_Controller;
@@ -25,7 +25,7 @@ public class PlayerAttack : MonoBehaviour
     public float AttackWindow;
     public int BlockDuration; // number of beats when Block is active
     [HideInInspector] public int blockCounter = 0; // Block counter (measure: number of beats)
-    private bool BlockIsActive = false;
+    //private bool BlockIsActive = false;
     [HideInInspector] public static bool CanAttackUI;
     
     public int Attackbeats = 2; // Beats to attack

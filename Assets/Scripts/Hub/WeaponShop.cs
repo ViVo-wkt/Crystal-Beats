@@ -300,13 +300,14 @@ public class WeaponShop : MonoBehaviour
         {
             choosenCrystalToPay = ChoosenCrystalToPay.Large;
         }
-        else if (restOfPayment <= SingleCrystal_Value && QuantityOfSinglesCrystals > 0)
-        {
-            choosenCrystalToPay = ChoosenCrystalToPay.Single;
-        }
+        
         else if (restOfPayment <= SmallCluster_Value && QuantityOfSinglesCrystals > 0)
         {
             choosenCrystalToPay = ChoosenCrystalToPay.Small;
+        }
+        else if (restOfPayment <= SingleCrystal_Value && QuantityOfSinglesCrystals > 0)
+        {
+            choosenCrystalToPay = ChoosenCrystalToPay.Single;
         }
     }
     private int Payment(int payment)

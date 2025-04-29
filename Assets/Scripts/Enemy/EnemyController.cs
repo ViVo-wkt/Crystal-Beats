@@ -257,7 +257,7 @@ public class EnemyController : MonoBehaviour
         }
         else
         {
-            if (!IsAdjacentToPlayerWithRaycast() && distance > 1.5f)
+            if (!IsAdjacentToPlayerWithRaycast() && distance > 3.1f)
             {
                 Vector3 NewChasingPosition;
                 Vector3 positionNew;
