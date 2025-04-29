@@ -12,6 +12,9 @@ public class CollisionIndicatorAttack : MonoBehaviour
     private Rigidbody2D rb;
 
     private float rotation;
+
+    private Tween rotateTween;
+    private bool isFalling;
     // Start is called before the first frame update
     void Start()
     {
@@ -28,13 +31,14 @@ public class CollisionIndicatorAttack : MonoBehaviour
         
         if (Input.GetKeyDown(KeyCode.Space) && (!PlayerAttack.CanAttackUI))
         {
-            rotation = Random.Range(50f, 750f);
+            rotation = Random.Range(50f, 400f);
 
-            if(gameObject != null)
+            if(gameObject.activeSelf)
             {
                 rb.bodyType = RigidbodyType2D.Dynamic;
 
-                rb.DORotate(rotation, 0.5f);
+               rotateTween = rb.DORotate(rotation, 0.5f);
+                isFalling = true;
             }
             
 
@@ -46,7 +50,7 @@ public class CollisionIndicatorAttack : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.CompareTag("SweetPotAttack") && rectTransform.localPosition.y == -400)
+        if (other.gameObject.CompareTag("SweetPotAttack") && !isFalling)
         {
 
             PlayerAttack.CanAttackUI = true;
@@ -67,7 +71,7 @@ public class CollisionIndicatorAttack : MonoBehaviour
     }
     private void OnTriggerStay2D(Collider2D other)
     {
-        if (other.gameObject.CompareTag("SweetPotAttack") && rectTransform.localPosition.y == -400)
+        if (other.gameObject.CompareTag("SweetPotAttack") && !isFalling)
         {
             
             PlayerAttack.CanAttackUI = true;
@@ -89,8 +93,11 @@ public class CollisionIndicatorAttack : MonoBehaviour
     }
     private void ResetIndicator()
     {
+        isFalling = false;
+        rotateTween.Kill();
+
         rb.bodyType = RigidbodyType2D.Kinematic;
         gameObject.transform.rotation = Quaternion.identity;
-        rectTransform.localScale = new Vector3(50, 50, 50);
+        rectTransform.localScale = new Vector3(60, 60, 60);
     }
 }

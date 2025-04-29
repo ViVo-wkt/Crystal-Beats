@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+//using Unity.Mathematics;
 using Unity.VisualScripting;
 
 using UnityEngine;
@@ -9,32 +10,34 @@ public class EnemyController : MonoBehaviour
 {
     public Player_Info player_info;
 
-    public float tileSize = 1f; // Rozmiar pojedynczego pola
-    public int gridSizeX = 3; // Rozmiar siatki w osi X
-    public int gridSizeZ = 3; // Rozmiar siatki w osi Z
-    //public Vector2Int gridSize = new Vector2Int(3,3); // Rozmiar siatki (3x3)
-    /*private float moveDelay;*/ // Opóźnienie między ruchami
-    public Transform Player; // Obiekt gracza
-    public float detectionRadius = 3f; // Promieñ wykrywania gracza
+    public float tileSize = 1f; 
+    public int gridSizeX = 3; // Grid size in X Axis
+    public int gridSizeZ = 3; // Grid size in Z Axis
+    
+    public Transform Player; 
+    public float detectionRadius = 3f; // Radius of Player detection
     private int BeatsCollection;
     public int BeatsToMove;
     //private bool CanMove;
     public float ReachDistanceToAttack = 0.6f;
 
-    private Vector3 gridCenter; // Stały œrodek siatki
-    private Vector3 CurrentGridPosition; // Aktualna pozycja przeciwnika
-    public bool isChasingPlayer; // Czy przeciwnik œciga gracza?
-    private Vector3 lastPlayerPosition; // Ostatnia pozycja gracza
-    /*private bool playerMoved = true;*/ // Czy gracz się poruszył?
-    private Vector3 lastDirection; // Ostatni kierunek ruchu przeciwnika
-    private Vector3 secondLastDirection; // Przedostatni kierunek ruchu przeciwnika
+    private Vector3 gridCenter; 
+    private Vector3 CurrentGridPosition; //Actual Enemy Position
+    public bool isChasingPlayer; 
+    private Vector3 lastPlayerPosition; 
+    
+    private Vector3 lastDirection; 
+    private Vector3 secondLastDirection;
+
+
+    
 
     public Attack_Circle attackCircle;
 
     private Animator anim;
     void Start()
     {
-        // Ustaw aktualną pozycję przeciwnika jako pozycję startową siatki
+        // Grid Center as a start enemy position
         gridCenter = transform.position;
         CurrentGridPosition = transform.position;
         //CurrentGridPosition = transform.position;
@@ -118,7 +121,7 @@ public class EnemyController : MonoBehaviour
     private void FixedUpdate()
     {
         float distanceToPlayer = Vector3.Distance(transform.position, GameManager.instance.player.position);
-
+        
         if (distanceToPlayer <= detectionRadius /*&& IsPositionValid(Player.position)*/)
         {
             isChasingPlayer = true;
@@ -143,14 +146,14 @@ public class EnemyController : MonoBehaviour
 
 
 
-    // Generowanie losowego kierunku z uwzględnieniem ostatnich ruchów
+    
     private Vector3 GenerateRandomDirection()
     {
         Vector3[] directions = {
-            new Vector3(0, 0, tileSize),  // Góra (Z+)
-            new Vector3(0, 0, -tileSize), // Dół (Z-)
-            new Vector3(tileSize, 0, 0),  // Prawo (X+)
-            new Vector3(-tileSize, 0, 0) // Lewo (X-)
+            new Vector3(0, 0, tileSize),  // Up (Z+)
+            new Vector3(0, 0, -tileSize), // Down (Z-)
+            new Vector3(tileSize, 0, 0),  // Right (X+)
+            new Vector3(-tileSize, 0, 0) // Left (X-)
         };
 
         Vector3 chosenDirection;
@@ -171,7 +174,7 @@ public class EnemyController : MonoBehaviour
         lastDirection = newDirection;
     }
 
-    // Sprawdzenie, czy w danym kierunku znajduje się œciana
+    // Wall Checker
     private bool IsWallBlocking(Vector3 direction)
     {
         if (Physics.Raycast(transform.position, direction.normalized, out RaycastHit hit, tileSize))
@@ -184,14 +187,14 @@ public class EnemyController : MonoBehaviour
         return false;
     }
 
-    //Ruch w kierunku gracza
+    //Move in Player Direction
     private void MoveTowardsPlayer()
     {
 
         Vector3 playerGridPosition = WorldToGrid(Player.position);
         Vector3 direction = playerGridPosition - CurrentGridPosition;
 
-        // Normalizacja kierunku ruchu
+        //Move Normalization
         if (Mathf.Abs(direction.x) > Mathf.Abs(direction.z))
         {
             direction = new Vector3(Mathf.Sign(direction.x), 0, 0);
@@ -204,40 +207,87 @@ public class EnemyController : MonoBehaviour
         Vector3 newPosition = CurrentGridPosition + direction * tileSize;
 
 
+        Vector3 RangerNewPostion = CurrentGridPosition - direction * tileSize;
+        
 
+        float distance = Vector3.Distance(transform.position, GameManager.instance.player.position);
 
-
-        if (/*IsPositionValid(newPosition) &&*/ !IsWallBlocking(direction))
+        
+        if(gameObject.CompareTag("Common") || gameObject.CompareTag("Tank"))
         {
-
-            CurrentGridPosition = newPosition;
-            transform.position = CurrentGridPosition;
-            if (!IsAdjacentToPlayerWithRaycast())
+            if ( !IsWallBlocking(direction))
             {
-                Quaternion targetRotation = Quaternion.LookRotation(direction, Vector3.up);
-                transform.rotation = targetRotation;
-            }
 
+
+
+                CurrentGridPosition = newPosition;
+                transform.position = CurrentGridPosition;
+
+
+                if (!IsAdjacentToPlayerWithRaycast())
+                {
+                    Quaternion targetRotation = Quaternion.LookRotation(direction, Vector3.up);
+                    transform.rotation = targetRotation;
+                }
+
+            }
+            else
+            {
+
+
+
+                Vector3 NewChasingPosition;
+                Vector3 positionNew;
+
+                do
+                {
+                    NewChasingPosition = GenerateRandomDirection();
+
+                    positionNew = CurrentGridPosition + NewChasingPosition * tileSize;
+                }
+                while (Vector3.Distance(positionNew, GameManager.instance.player.position) > detectionRadius
+                 || IsWallBlocking(NewChasingPosition));
+
+                CurrentGridPosition = positionNew;
+                transform.position = CurrentGridPosition;
+
+
+
+            }
         }
         else
         {
-
-            Vector3 NewChasingPosition;
-            Vector3 positionNew;
-
-            do
+            if (!IsAdjacentToPlayerWithRaycast() && distance > 1.5f)
             {
-                NewChasingPosition = GenerateRandomDirection();
+                Vector3 NewChasingPosition;
+                Vector3 positionNew;
+                
+                
+                do
+                {
+                    NewChasingPosition = GenerateDirectionToRanger();
 
-                positionNew = CurrentGridPosition + NewChasingPosition * tileSize;
+                    positionNew = CurrentGridPosition + NewChasingPosition * tileSize;
+                }
+                while (Vector3.Distance(positionNew, GameManager.instance.player.position) > detectionRadius
+                 /*|| IsWallBlocking(NewChasingPosition)*/ || !IsAdjacentToPlayerWithRaycast() && !IsPositionValid(positionNew));
+
+
+
+
+                CurrentGridPosition = positionNew;
+                transform.position = CurrentGridPosition;
+
+
             }
-            while (Vector3.Distance(positionNew, GameManager.instance.player.position) > detectionRadius
-             || IsWallBlocking(NewChasingPosition));
-
-            CurrentGridPosition = positionNew;
-            transform.position = CurrentGridPosition;
+            else if (!IsAdjacentToPlayerWithRaycast() && IsPositionValid(RangerNewPostion))
+            {
+                CurrentGridPosition = RangerNewPostion;
+                transform.position = CurrentGridPosition;
+            }
 
         }
+
 
 
     }
@@ -247,7 +297,7 @@ public class EnemyController : MonoBehaviour
     {
         Vector3 directionToPlayer = GameManager.instance.player.position - transform.position;
 
-        // Sprawdzenie dominującego kierunku: X lub Z
+
         if (Mathf.Abs(directionToPlayer.x) > Mathf.Abs(directionToPlayer.z))
         {
             directionToPlayer = new Vector3(Mathf.Sign(directionToPlayer.x), 0, 0); // Ruch w osi X
@@ -256,13 +306,15 @@ public class EnemyController : MonoBehaviour
         {
             directionToPlayer = new Vector3(0, 0, Mathf.Sign(directionToPlayer.z)); // Ruch w osi Z
         }
-
-        // Raycast w kierunku gracza w wybranej osi
+        
+        
         if (Physics.Raycast(transform.position, directionToPlayer, out RaycastHit hit, ReachDistanceToAttack))
         {
 
             if (hit.collider != null && hit.collider.transform == Player && !hit.collider.isTrigger)
             {
+
+                
                 return true;
 
             }
@@ -290,7 +342,7 @@ public class EnemyController : MonoBehaviour
     }
 
 
-    private void OnDrawGizmosSelected()// Rysuje linie poruszania się
+    private void OnDrawGizmosSelected()
     {
 
         if (!Application.isPlaying)
@@ -364,7 +416,7 @@ public class EnemyController : MonoBehaviour
         {
             if (isChasingPlayer)
             {
-                // Podążanie za graczem
+                
                 if (GameManager.instance.playerMoved || !IsAdjacentToPlayerWithRaycast())
                 {
                     anim.SetTrigger("EnemyWalk");
@@ -389,7 +441,7 @@ public class EnemyController : MonoBehaviour
 
     private Vector3 SnapDirection(Vector3 direction)
     {
-        // Zaokrąglanie kierunku do osi głównych (X lub Z)
+        
         if (Mathf.Abs(direction.x) > Mathf.Abs(direction.z))
         {
             return new Vector3(Mathf.Sign(direction.x), 0, 0); // Wektor w osi X
@@ -413,7 +465,7 @@ public class EnemyController : MonoBehaviour
         while (!IsPositionValid(newPosition) || IsWallBlocking(chosenDirection));
 
 
-        // Aktualizacja pozycji przeciwnika
+        // Position Update
         UpdateMovementHistory(chosenDirection);
         CurrentGridPosition = newPosition;
         transform.position = CurrentGridPosition;
@@ -421,10 +473,31 @@ public class EnemyController : MonoBehaviour
         //Vector3 snappedDirection = SnapDirection(EnemyFront);
         Quaternion targetRotation = Quaternion.LookRotation(chosenDirection, Vector3.up);
         transform.rotation = targetRotation;
-        // Losowy ruch
+        
     }
 
+    private Vector3 GenerateDirectionToRanger()
+    {
+        Vector3[] directions = {
+            new Vector3(0, 0, tileSize),  // Up (Z+)
+            new Vector3(0, 0, -tileSize), // Down (Z-)
+            new Vector3(tileSize, 0, 0),  // Right (X+)
+            new Vector3(-tileSize, 0, 0) // Left (X-)
+        };
 
+        Vector3 chosenDirection;
+        
+
+        
+        
+        
+            chosenDirection = directions[Random.Range(0, directions.Length)];
+            
+        
+        
+        
+        return chosenDirection;
+    }
 }
 
 

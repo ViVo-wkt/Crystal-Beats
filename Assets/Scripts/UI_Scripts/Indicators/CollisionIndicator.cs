@@ -16,6 +16,9 @@ public class CollisionIndicator : MonoBehaviour
     public bool IsFalling;
 
     private float rotation;
+
+    private Tween rotateTween;
+    private bool isFalling;
     
     // Start is called before the first frame update
     void Start()
@@ -24,7 +27,7 @@ public class CollisionIndicator : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         rectTransform = GetComponent<RectTransform>();
         //spawnIndicators = FindAnyObjectByType<SpawnIndicators>();
-        //Destroy(gameObject, 5f);
+        
     }
 
     // Update is called once per frame
@@ -34,13 +37,14 @@ public class CollisionIndicator : MonoBehaviour
 
         if ((Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.S)) && (!Movement.CanMove)/* && spawnIndicators.movement.moveTimer <= 0*/) 
         {
-            rotation = Random.Range(50f, 750f);
-            if(gameObject != null)
+            rotation = Random.Range(50f, 400f);
+            if(gameObject.activeSelf)
             {
+
                 rb.bodyType = RigidbodyType2D.Dynamic;
 
-                rb.DORotate(rotation, 0.5f);
-                rb.mass = 1000f;
+               rotateTween = rb.DORotate(rotation, 0.5f);
+                isFalling = true;
             }
             
             
@@ -55,7 +59,7 @@ public class CollisionIndicator : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.CompareTag("SweetPot") && rectTransform.localPosition.y == -400)
+        if (other.gameObject.CompareTag("SweetPot") && !isFalling)
         {
             Movement.CanMove = true;
             Movement.HasMovedThisBeat = false;
@@ -71,7 +75,7 @@ public class CollisionIndicator : MonoBehaviour
             //Destroy(gameObject);
             gameObject.SetActive(false);
 
-
+            
 
             ResetIndicator();
             
@@ -79,7 +83,7 @@ public class CollisionIndicator : MonoBehaviour
     }
     private void OnTriggerStay2D(Collider2D other)
     {
-        if (other.gameObject.CompareTag("SweetPot") && rectTransform.localPosition.y == -400)
+        if (other.gameObject.CompareTag("SweetPot") && isFalling)
         {
             Movement.CanMove = true;
             
@@ -100,10 +104,14 @@ public class CollisionIndicator : MonoBehaviour
     }
     private void ResetIndicator()
     {
+        isFalling = false;
+        rotateTween?.Kill();
+
         rb.bodyType = RigidbodyType2D.Kinematic;
+        
         gameObject.transform.rotation = Quaternion.identity;
         rectTransform.localScale = new Vector3(60, 60, 60);
-        rb.mass = 1f;
+        
     }
 
 }
