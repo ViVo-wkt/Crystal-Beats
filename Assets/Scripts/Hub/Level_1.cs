@@ -19,7 +19,7 @@ public class Level_1 : MonoBehaviour
             Resources.UnloadUnusedAssets();
             System.GC.Collect();
 
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+            SceneManager.LoadScene("Level 1");
         }
     }
     private void OnDestroy()

@@ -30,7 +30,7 @@ public class EnemyController : MonoBehaviour
     private Vector3 secondLastDirection;
 
 
-    
+    public Transform[] RangerPositionsToAttack;
 
     public Attack_Circle attackCircle;
 
@@ -208,14 +208,14 @@ public class EnemyController : MonoBehaviour
 
 
         Vector3 RangerNewPostion = CurrentGridPosition - direction * tileSize;
-        
 
-        float distance = Vector3.Distance(transform.position, GameManager.instance.player.position);
 
-        
-        if(gameObject.CompareTag("Common") || gameObject.CompareTag("Tank"))
+
+
+
+        if (gameObject.CompareTag("Common") || gameObject.CompareTag("Tank"))
         {
-            if ( !IsWallBlocking(direction))
+            if (!IsWallBlocking(direction))
             {
 
 
@@ -257,37 +257,66 @@ public class EnemyController : MonoBehaviour
         }
         else
         {
-            if (!IsAdjacentToPlayerWithRaycast() && distance > 3.1f)
+            float distance = Vector3.Distance(transform.position, GameManager.instance.player.position);
+
+            if (gameObject.CompareTag("Ranger"))
             {
-                Vector3 NewChasingPosition;
-                Vector3 positionNew;
-                
-                
-                do
+                bool hasLineOfSight = IsAdjacentToPlayerWithRaycast();
+
+                // Ranger ma możliwość strzału – nie rusza się
+                if (hasLineOfSight)
+                    return;
+
+                // Gracz jest za blisko – Ranger ucieka
+                if (distance < 2.9f)
                 {
-                    NewChasingPosition = GenerateDirectionToRanger();
+                    Vector3 directionAway = (transform.position - GameManager.instance.player.position).normalized;
+                    Vector3 bestEscapeDir = Vector3.zero;
+                    float maxDistance = 0f;
 
-                    positionNew = CurrentGridPosition + NewChasingPosition * tileSize;
+                    Vector3[] directions = {
+                new Vector3(0, 0, tileSize),  // Up
+                new Vector3(0, 0, -tileSize), // Down
+                new Vector3(tileSize, 0, 0),  // Right
+                new Vector3(-tileSize, 0, 0)  // Left
+            };
+
+                    foreach (var dir in directions)
+                    {
+                        Vector3 testPos = CurrentGridPosition + dir * tileSize;
+                        if (/*IsPositionValid(testPos) &&*/ !IsWallBlocking(dir))
+                        {
+                            float testDist = Vector3.Distance(testPos, GameManager.instance.player.position);
+                            if (testDist > maxDistance)
+                            {
+                                maxDistance = testDist;
+                                bestEscapeDir = dir;
+                            }
+                        }
+                    }
+
+                    if (bestEscapeDir != Vector3.zero)
+                    {
+                        CurrentGridPosition += bestEscapeDir * tileSize;
+                        transform.position = CurrentGridPosition;
+                    }
                 }
-                while (Vector3.Distance(positionNew, GameManager.instance.player.position) > detectionRadius
-                 /*|| IsWallBlocking(NewChasingPosition)*/ || !IsAdjacentToPlayerWithRaycast() && !IsPositionValid(positionNew));
+                else
+                {
+                    // Gracz jest w zasięgu, ale nie ma pozycji do strzału – próbuj się ustawić
+                    Vector3 moveDir = GenerateDirectionToRanger();
+                    Vector3 potentialPosition = CurrentGridPosition + moveDir * tileSize;
 
-
-
-
-                CurrentGridPosition = positionNew;
-                transform.position = CurrentGridPosition;
+                    if (/*IsPositionValid(potentialPosition) &&*/ !IsWallBlocking(moveDir))
+                    {
+                        CurrentGridPosition = potentialPosition;
+                        transform.position = CurrentGridPosition;
+                    }
+                }
 
 
             }
-            else if (!IsAdjacentToPlayerWithRaycast() && IsPositionValid(RangerNewPostion))
-            {
-                CurrentGridPosition = RangerNewPostion;
-                transform.position = CurrentGridPosition;
-            }
-
         }
-
 
 
     }
@@ -424,15 +453,12 @@ public class EnemyController : MonoBehaviour
 
 
                 }
-                //else if (!GameManager.instance.playerMoved && IsAdjacentToPlayerWithRaycast())
-                //{
-
-                //}
+                
 
             }
             else
             {
-                anim.SetTrigger("EnemyWalk");
+                //anim.SetTrigger("EnemyWalk");
                 NewEnemyPosition();
             }
             BeatsCollection = 0;
@@ -473,31 +499,55 @@ public class EnemyController : MonoBehaviour
         //Vector3 snappedDirection = SnapDirection(EnemyFront);
         Quaternion targetRotation = Quaternion.LookRotation(chosenDirection, Vector3.up);
         transform.rotation = targetRotation;
-        
+
     }
 
     private Vector3 GenerateDirectionToRanger()
     {
         Vector3[] directions = {
-            new Vector3(0, 0, tileSize),  // Up (Z+)
-            new Vector3(0, 0, -tileSize), // Down (Z-)
-            new Vector3(tileSize, 0, 0),  // Right (X+)
-            new Vector3(-tileSize, 0, 0) // Left (X-)
-        };
+        new Vector3(0, 0, tileSize),  // Up (Z+)
+        new Vector3(0, 0, -tileSize), // Down (Z-)
+        new Vector3(tileSize, 0, 0),  // Right (X+)
+        new Vector3(-tileSize, 0, 0)  // Left (X-)
+    };
 
-        Vector3 chosenDirection;
-        
+        // 1. Znajdź najbliższą pozycję z tablicy RangerPositionsToAttack
+        Transform bestTarget = null;
+        float shortestTargetDistance = float.MaxValue;
 
-        
-        
-        
-            chosenDirection = directions[Random.Range(0, directions.Length)];
-            
-        
-        
-        
-        return chosenDirection;
+        foreach (Transform t in RangerPositionsToAttack)
+        {
+            float dist = Vector3.Distance(CurrentGridPosition, t.position);
+            if (dist < shortestTargetDistance)
+            {
+                shortestTargetDistance = dist;
+                bestTarget = t;
+            }
+        }
+
+        // 2. Jeśli nie ma żadnej pozycji, zwróć zero
+        if (bestTarget == null)
+            return Vector3.zero;
+
+        // 3. Znajdź kierunek, który najbardziej przybliża do najlepszej pozycji
+        Vector3 bestDirection = Vector3.zero;
+        float shortestStepDistance = float.MaxValue;
+
+        foreach (Vector3 dir in directions)
+        {
+            Vector3 newPos = CurrentGridPosition + dir;
+            float dist = Vector3.Distance(newPos, bestTarget.position);
+            if (dist < shortestStepDistance)
+            {
+                shortestStepDistance = dist;
+                bestDirection = dir;
+            }
+        }
+
+        return bestDirection;
     }
+
+    
 }
 
 

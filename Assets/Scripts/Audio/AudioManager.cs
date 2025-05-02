@@ -82,6 +82,10 @@ public class AudioManager : MonoBehaviour
         {
             InitializeMusic(FMODEvents.Instance.MusicTutorial);
         }
+        else if (SceneManager.GetActiveScene().name == "Level 2")
+        {
+            InitializeMusic(FMODEvents.Instance.MusicLevel1);
+        }
         else
         {
             Debug.Log("B³¹d nie wyczytuje Sceny");
