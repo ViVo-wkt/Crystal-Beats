@@ -1,6 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
-
+using TMPro;
 using UnityEngine;
 
 public class CraftArea : MonoBehaviour
@@ -18,14 +18,55 @@ public class CraftArea : MonoBehaviour
 
     public GameObject[] SlotsPrefabs;
     private GameObject[] Slots;
+
+    public TextMeshProUGUI[] PotionCounter;
+    public TextMeshProUGUI[] CrystalCounter;
+    
+    public GameObject[] PotionImages;
+    public GameObject[] CrystalImages;
+    public GameObject[] CrystalSlotsInCraft;
+    public  Transform[] Canvas;
+
+    public bool IsSingle;
+    public bool IsSmall;
+    public bool IsLarge;
+
+    public PlayerInteracionHUB playerInteracionHUB;
     // Start is called before the first frame update
+    private void Awake()
+    {
+        PotionImagesRestart();
+    }
     void Start()
     {
         Slots = new GameObject[SlotsPrefabs.Length];
         
     }
 
-    
+    public void Update()
+    {
+        CrystalSlotsChecker();
+        if (IsSmall && IsSingle && IsLarge)
+        {
+            PotionImages[2].SetActive(true);
+        }
+        else if (IsSmall && IsSingle)
+        {
+            PotionImages[1].SetActive(true);
+        }
+        else if (IsSingle)
+        {
+            PotionImages[0].SetActive(true);
+        }
+
+        if (playerInteracionHUB.CraftPanel.activeSelf)
+        {
+            for (int i = 1; i > 0; i--)
+            {
+                RefreshCounters();
+            }
+        }
+    }
 
     public void CreateSmallPotion()
     {
@@ -50,7 +91,8 @@ public class CraftArea : MonoBehaviour
                     layoutPotions.ShowLayoutSmallPotions();
 
                     AudioManager.Instance.PlayOneShot(FMODEvents.Instance.CraftPotion, this.transform.position);
-                    
+                    RefreshCounters();
+                    CrystalImages[0].transform.SetParent(Canvas[0].parent);
                 }
                 else
                 {
@@ -87,6 +129,9 @@ public class CraftArea : MonoBehaviour
                     LayoutPotions.Instance.AddPotion(MediumPotion);
                     layoutPotions.ShowLayoutMediumPotions();
                     AudioManager.Instance.PlayOneShot(FMODEvents.Instance.CraftPotion, this.transform.position);
+                    RefreshCounters();
+                    CrystalImages[0].transform.SetParent(Canvas[0].parent);
+                    CrystalImages[1].transform.SetParent(Canvas[1].parent);
                 }
                 else
                 {
@@ -126,6 +171,11 @@ public class CraftArea : MonoBehaviour
                     LayoutPotions.Instance.AddPotion(BigPotion);
                     layoutPotions.ShowLayoutBigPotions();
                     AudioManager.Instance.PlayOneShot(FMODEvents.Instance.CraftPotion, this.transform.position);
+                    RefreshCounters();
+                    CrystalImages[0].transform.SetParent(Canvas[0].parent);
+                    CrystalImages[1].transform.SetParent(Canvas[1].parent);
+                    CrystalImages[2].transform.SetParent(Canvas[2].parent);
+                    
                 }
                 else
                 {
@@ -149,5 +199,86 @@ public class CraftArea : MonoBehaviour
             }
         }
     }
-    
+    public void PotionImagesRestart()
+    {
+        foreach (GameObject item in PotionImages)
+        {
+            item.SetActive(false);
+        }
+    }
+    public void CrystalSlotsChecker(/*ImageCrystal crystal*/)
+    {
+        IsSingle = false;
+        IsSmall = false;
+        IsLarge = false;
+
+        PotionImagesRestart();
+        foreach (GameObject item in CrystalSlotsInCraft)
+        {
+            foreach (Transform child in item.transform)
+            {
+                GameObject childObject = child.gameObject;
+
+                
+                if (childObject.CompareTag("SingleCrystal"))
+                {
+                    IsSingle = true;
+                }
+
+
+                if (childObject.CompareTag("SmallCluster"))
+                {
+                    IsSmall = true;
+                }
+
+                if (childObject.CompareTag("LargeCluster"))
+                {
+                    IsLarge = true;
+                }
+            }
+        }
+
+
+
+
+
+
+    }
+    private void RefreshCounters()
+    {
+        PotionCounter[0].text = layoutPotions.Smallpotions.Count.ToString();
+        PotionCounter[1].text = layoutPotions.Mediumpotions.Count.ToString();
+        PotionCounter[2].text = layoutPotions.Bigpotions.Count.ToString();
+
+        CrystalCounter[0].text = inventoryManager.Inventory_SingleCrystal_Slots.Count.ToString();
+        CrystalCounter[1].text = inventoryManager.Inventory_SmallCrystalCluster_Slots.Count.ToString();
+        CrystalCounter[2].text = inventoryManager.Inventory_LargeCrystalCLuster_Slots.Count.ToString();
+        CrystalCounter[3].text = inventoryManager.Inventory_RedCrystalCluster_Slots.Count.ToString();
+
+        CrystalImages[0].SetActive(true);
+        CrystalImages[1].SetActive(true);
+        CrystalImages[2].SetActive(true);
+        CrystalImages[3].SetActive(true);
+
+
+        if (inventoryManager.Inventory_SingleCrystal_Slots.Count <= 0)
+        {
+            
+            CrystalImages[0].SetActive(false);
+
+           
+        }
+        if (inventoryManager.Inventory_SmallCrystalCluster_Slots.Count <= 0)
+        {
+            CrystalImages[1].SetActive(false);
+        }
+        if (inventoryManager.Inventory_LargeCrystalCLuster_Slots.Count <= 0)
+        {
+            CrystalImages[2].SetActive(false);
+        }
+        if (inventoryManager.Inventory_RedCrystalCluster_Slots.Count <= 0)
+        {
+            CrystalImages[3].SetActive(false);
+        }
+    }
 }

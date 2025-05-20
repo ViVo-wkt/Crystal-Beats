@@ -13737,7 +13737,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 314709382512144063, guid: 1a1137fb1e08a3d44aea3532b74fa75d, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 36
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 314709382512144063, guid: 1a1137fb1e08a3d44aea3532b74fa75d, type: 3}
       propertyPath: m_LocalPosition.y
@@ -13745,7 +13745,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 314709382512144063, guid: 1a1137fb1e08a3d44aea3532b74fa75d, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 15
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 314709382512144063, guid: 1a1137fb1e08a3d44aea3532b74fa75d, type: 3}
       propertyPath: m_LocalRotation.w
@@ -85089,7 +85089,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1528637629011822707, guid: 20352066aa004f44399fff42ded7e974, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 36
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1528637629011822707, guid: 20352066aa004f44399fff42ded7e974, type: 3}
       propertyPath: m_LocalPosition.y
@@ -85097,7 +85097,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1528637629011822707, guid: 20352066aa004f44399fff42ded7e974, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 5
+      value: -7
       objectReference: {fileID: 0}
     - target: {fileID: 1528637629011822707, guid: 20352066aa004f44399fff42ded7e974, type: 3}
       propertyPath: m_LocalRotation.w
@@ -112817,6 +112817,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6243854070054001965, guid: 1f8e8e31d82ff2a48b38c6db457c695a, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -1250
+      objectReference: {fileID: 0}
     - target: {fileID: 6246565816457529218, guid: 1f8e8e31d82ff2a48b38c6db457c695a, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -112984,6 +112988,10 @@ PrefabInstance:
     - target: {fileID: 8638061126611062241, guid: 1f8e8e31d82ff2a48b38c6db457c695a, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8872318965857038758, guid: 1f8e8e31d82ff2a48b38c6db457c695a, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 1250
       objectReference: {fileID: 0}
     - target: {fileID: 8956459150013492283, guid: 1f8e8e31d82ff2a48b38c6db457c695a, type: 3}
       propertyPath: m_IsActive

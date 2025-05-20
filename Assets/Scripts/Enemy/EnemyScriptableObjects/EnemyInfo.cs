@@ -15,6 +15,7 @@ public class EnemyInfo : ScriptableObject
     {
         common,
         ranger,
-        tank
+        tank,
+        boss
     }
 }

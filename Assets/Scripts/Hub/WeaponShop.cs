@@ -253,22 +253,32 @@ public class WeaponShop : MonoBehaviour
     
     private void Case_1()
     {
-        if (inventoryManager.Inventory_SingleCrystal_Slots.Count > inventoryManager.Inventory_SmallCrystalCluster_Slots.Count && inventoryManager.Inventory_SingleCrystal_Slots.Count > inventoryManager.Inventory_LargeCrystalCLuster_Slots.Count)
+        if (inventoryManager.Inventory_SingleCrystal_Slots.Count > inventoryManager.Inventory_SmallCrystalCluster_Slots.Count )
         {
-            choosenCrystalToPay = ChoosenCrystalToPay.Single;
-            ActiveCase = true;
-        }
-        else if (inventoryManager.Inventory_SmallCrystalCluster_Slots.Count > inventoryManager.Inventory_SingleCrystal_Slots.Count && inventoryManager.Inventory_SmallCrystalCluster_Slots.Count > inventoryManager.Inventory_LargeCrystalCLuster_Slots.Count)
-        {
-            choosenCrystalToPay = ChoosenCrystalToPay.Small;
+            if(inventoryManager.Inventory_SingleCrystal_Slots.Count > inventoryManager.Inventory_LargeCrystalCLuster_Slots.Count)
+            {
+                choosenCrystalToPay = ChoosenCrystalToPay.Single;
+                ActiveCase = true;
+            }
             
-            ActiveCase = true;
         }
-        else if (inventoryManager.Inventory_LargeCrystalCLuster_Slots.Count > inventoryManager.Inventory_SingleCrystal_Slots.Count && inventoryManager.Inventory_LargeCrystalCLuster_Slots.Count > inventoryManager.Inventory_SmallCrystalCluster_Slots.Count)
+        else if (inventoryManager.Inventory_SmallCrystalCluster_Slots.Count > inventoryManager.Inventory_SingleCrystal_Slots.Count)
         {
-            choosenCrystalToPay = ChoosenCrystalToPay.Large;
+            if(inventoryManager.Inventory_SmallCrystalCluster_Slots.Count > inventoryManager.Inventory_LargeCrystalCLuster_Slots.Count)
+            {
+                choosenCrystalToPay = ChoosenCrystalToPay.Small;
+                ActiveCase = true;
+            }
             
-            ActiveCase = true;
+        }
+        else if (inventoryManager.Inventory_LargeCrystalCLuster_Slots.Count > inventoryManager.Inventory_SingleCrystal_Slots.Count)
+        {
+            if(inventoryManager.Inventory_LargeCrystalCLuster_Slots.Count > inventoryManager.Inventory_SmallCrystalCluster_Slots.Count)
+            {
+                choosenCrystalToPay = ChoosenCrystalToPay.Large;
+                ActiveCase = true;
+            }
+            
         }
     }
     private void Case_2()

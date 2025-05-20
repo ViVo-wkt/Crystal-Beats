@@ -25,6 +25,9 @@ TagManager:
   - Trap
   - Tutorial
   - Lore
+  - SmallPotion
+  - MediumPotion
+  - BigPotion
   layers:
   - Default
   - TransparentFX

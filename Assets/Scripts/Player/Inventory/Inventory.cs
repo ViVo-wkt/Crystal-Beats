@@ -132,6 +132,7 @@ public class Inventory : MonoBehaviour
             {
                 PausePanel.SetActive(false);
                 Inventory_Panel.SetActive(false);
+                
             }
         }
         //HUB

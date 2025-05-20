@@ -17,6 +17,7 @@ public class LayoutPotions : MonoBehaviour
 
     public TextMeshProUGUI[] PotionCounter;
 
+    
     private void Awake()
     {
         if(Instance == null)

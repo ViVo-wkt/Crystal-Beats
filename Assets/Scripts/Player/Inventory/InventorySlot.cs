@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.SceneManagement;
 
 public class InventorySlot : MonoBehaviour, IDropHandler, IPointerClickHandler
 {
@@ -11,13 +12,25 @@ public class InventorySlot : MonoBehaviour, IDropHandler, IPointerClickHandler
      public InventoryManager inventoryManager;
     public ImageCrystal imageCrystal;
 
-
+    public CraftArea craftArea;
     public InventoryCrystalController inventoryCrystalController;
     public InventoryCrumbleController inventoryCrumbleController;
+
+    
     public void Start()
     {
         
         inventoryManager = GameObject.FindWithTag("Manager").GetComponent<InventoryManager>();
+
+        
+        if(SceneManager.GetActiveScene().name == "HUB")
+        {
+            craftArea = GameObject.Find("CraftWorkshop").GetComponent<CraftArea>();
+        }
+            
+        
+        
+        
     }
     public void OnDrop(PointerEventData eventData)
     {
@@ -28,7 +41,8 @@ public class InventorySlot : MonoBehaviour, IDropHandler, IPointerClickHandler
             imagecrystal.parentAfterDrag = transform;
             
         }
-        if (transform.childCount == 1 && inventoryManager.Inventory_SmallCrystalCluster_Slots.Count < inventoryManager.SmallClusters_slots && imageCrystal.CompareTag("SingleCrystal")&& draggedCrystal.CompareTag("SingleCrystal"))
+        
+        if (transform.childCount == 1 && inventoryManager.Inventory_SmallCrystalCluster_Slots.Count < inventoryManager.SmallClusters_slots && imageCrystal.CompareTag("SingleCrystal")&& draggedCrystal.CompareTag("SingleCrystal") && !gameObject.CompareTag("CraftWorkshop"))
         {
             if(inventoryManager.Inventory_SingleCrystal_Slots.Count >= inventoryManager.NumberOfMergedSingleCrystals && Input.GetMouseButtonUp(0) && inventoryManager.Inventory_SingleCrystal_Slots != null)
             {
@@ -48,7 +62,7 @@ public class InventorySlot : MonoBehaviour, IDropHandler, IPointerClickHandler
         }
         
 
-        if (transform.childCount == 1 && inventoryManager.Inventory_LargeCrystalCLuster_Slots.Count < inventoryManager.LargeClusters_slots && imageCrystal.CompareTag("SmallCluster")&& draggedCrystal.CompareTag("SmallCluster"))
+        if (transform.childCount == 1 && inventoryManager.Inventory_LargeCrystalCLuster_Slots.Count < inventoryManager.LargeClusters_slots && imageCrystal.CompareTag("SmallCluster")&& draggedCrystal.CompareTag("SmallCluster") && !gameObject.CompareTag("CraftWorkshop"))
         {
 
             if (inventoryManager.Inventory_SmallCrystalCluster_Slots.Count >= inventoryManager.NumberOfMergedSmallCLusters && Input.GetMouseButtonUp(0) && inventoryManager.Inventory_SmallCrystalCluster_Slots != null)
@@ -66,13 +80,25 @@ public class InventorySlot : MonoBehaviour, IDropHandler, IPointerClickHandler
             
         }
         
+        if(gameObject.CompareTag("CraftWorkshop") && transform.childCount == 0 /*&& draggedCrystal.CompareTag("SingleCrystal")*/)
+        {
+            craftArea.PotionImagesRestart();
+            
+            
+        }
+        else if(gameObject.CompareTag("CraftWorkshop") && transform.childCount == 1)
+        {
+            ImageCrystal imagecrystal = eventData.pointerDrag.GetComponent<ImageCrystal>();
+            imagecrystal.parentAfterDrag = transform;
+        }
+        
         
 
     }
     public void OnPointerClick(PointerEventData eventData)
     {
         
-        if (eventData.button == PointerEventData.InputButton.Right)
+        if (eventData.button == PointerEventData.InputButton.Right && !gameObject.CompareTag("CraftWorkshop"))
         {
             InventoryCrystalController clickedCrystal = eventData.pointerClick.GetComponent<InventoryCrystalController>();
             
@@ -130,6 +156,7 @@ public class InventorySlot : MonoBehaviour, IDropHandler, IPointerClickHandler
             //}
 
         }
+
     }
     
 }
