@@ -67,3 +67,6 @@ fmod_editor.log
 .vs/Dungeon Crawler/FileContentIndex/283c4d9b-11df-4b0c-a525-3829acdb9aa2.vsidx
 /UserSettings
 /Temp
+/UserSettings
+*.dwlt
+UserSettings/Layouts/default-6000.dwlt
