@@ -69,7 +69,7 @@ public class AudioManager : MonoBehaviour
     
     private void Start()
     {
-        if(SceneManager.GetActiveScene().name == "Level 1")
+        if(SceneManager.GetActiveScene().name == "Level 1" || SceneManager.GetActiveScene().name == "Level 2" || SceneManager.GetActiveScene().name == "Level 3")
         {
             InitializeMusic(FMODEvents.Instance.MusicLevel1);
         }
@@ -82,10 +82,10 @@ public class AudioManager : MonoBehaviour
         {
             InitializeMusic(FMODEvents.Instance.MusicTutorial);
         }
-        else if (SceneManager.GetActiveScene().name == "Level 2")
-        {
-            InitializeMusic(FMODEvents.Instance.MusicLevel1);
-        }
+        //else if ()
+        //{
+        //    InitializeMusic(FMODEvents.Instance.MusicLevel1);
+        //}
         else
         {
             Debug.Log("B³¹d nie wyczytuje Sceny");

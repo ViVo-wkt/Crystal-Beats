@@ -89,6 +89,7 @@
     <Compile Include="Assets\Scripts\Player\Inventory\Weapons\Weapon_Controller.cs" />
     <Compile Include="Assets\Scripts\Level\LightAnimationsScrips\LightOnBeat.cs" />
     <Compile Include="Assets\Scripts\UI_Scripts\Slots\SlotsOutlineColor.cs" />
+    <Compile Include="Assets\Scripts\Hub\Level_4.cs" />
     <Compile Include="Assets\Scripts\Player\Inventory\InventoryCrumbleController.cs" />
     <Compile Include="Assets\Scripts\Player\Player_Info.cs" />
     <Compile Include="Assets\UnityAssets\Matthew Guz\Spell Area of Effect FREE\Scripts\CameraRotation.cs" />
