@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using static SaveScript;
 
 public class MainMenuButtons : MonoBehaviour
 {
@@ -14,17 +15,22 @@ public class MainMenuButtons : MonoBehaviour
     }
     public void NewGame()
     {
-
+        AudioManager.Instance.PlayOneShot(FMODEvents.Instance.MouseClick, this.transform.position);
         SaveScript.ClearJsonData();
-        SceneManager.LoadScene("Tutorial");
+        AudioManager.Instance.Save(ref saveValues.saveVolumes);
+        Settings.instance.Save(ref saveValues.saveToggles);
+        
+        SceneManager.LoadScene("HUB");
         
     }
-    public void Settings()
+    public void Settingss()
     {
+        AudioManager.Instance.PlayOneShot(FMODEvents.Instance.MouseClick, this.transform.position);
         settings.SetActive(true);
     }
     public void Quit()
     {
+        AudioManager.Instance.PlayOneShot(FMODEvents.Instance.MouseClick, this.transform.position);
         Application.Quit();
     }
 }

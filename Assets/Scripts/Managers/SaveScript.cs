@@ -27,7 +27,7 @@ public class SaveScript : MonoBehaviour
 
         InventoryManager.Instance.Save(ref saveValues.inventorySavedData);
         LayoutPotions.Instance.Save(ref saveValues.potionSaveData);
-        Player_Info.Instance.Save(ref saveValues.playerHpData);
+        Player_Info.instance.Save(ref saveValues.playerHpData);
         WeaponManager.Instance.Save(ref saveValues.weaponSaveData);
         AudioManager.Instance.Save(ref saveValues.saveVolumes);
         Settings.instance.Save(ref saveValues.saveToggles);
@@ -51,7 +51,7 @@ public class SaveScript : MonoBehaviour
 
             InventoryManager.Instance.Load(saveValues.inventorySavedData);
             LayoutPotions.Instance.Load(saveValues.potionSaveData);
-            Player_Info.Instance.Load(saveValues.playerHpData);
+            Player_Info.instance.Load(saveValues.playerHpData);
             WeaponManager.Instance.Load(saveValues.weaponSaveData);
             AudioManager.Instance.Load(saveValues.saveVolumes);
             Settings.instance.Load(saveValues.saveToggles);
@@ -74,48 +74,7 @@ public class SaveScript : MonoBehaviour
         }
         
     }
-    // ³adowanie ustawieñ z Menu
-    //public static void LoadFromJsonMenu()
-    //{
-    //    string FilePath = Application.persistentDataPath + "/SaveValuesDataMenu.json";
-    //    if (System.IO.File.Exists(FilePath))
-    //    {
-
-    //        string SaveValuesData = System.IO.File.ReadAllText(FilePath);
-
-    //        saveValues = JsonUtility.FromJson<SaveValues>(SaveValuesData);
-    //        ToggleVolume.Instance.Load(saveValues.saveVolumes);
-    //    }
-    //    else
-    //    {
-    //        Debug.Log("Wczytane dane z Menu LOad");
-    //    }
-    //}
-    //public static void SaveToJsonFromMenu()
-    //{
-    //    ToggleVolume.Instance.Save(ref saveValues.saveVolumes);
-
-    //    string SaveValuesData = JsonUtility.ToJson(saveValues, true);
-    //    string FilePath = Application.persistentDataPath + "/SaveValuesDataMenu.json";
-    //    Debug.Log(FilePath);
-    //    System.IO.File.WriteAllText(FilePath, SaveValuesData);
-    //    Debug.Log("savedMenu");
-    //}
-    //public static void ClearJsonDataMenu()
-    //{
-    //    string FilePath = Application.persistentDataPath + "/SaveValuesDataMenu.json";
-    //    if (System.IO.File.Exists(FilePath))
-    //    {
-
-    //        System.IO.File.Delete(FilePath);
-    //    }
-    //    else
-    //    {
-    //        Debug.Log("nie istniejeMenu");
-    //    }
-
-    //}
-    // ³adowanie ustawieñ z Menu
+    
 }
 
 

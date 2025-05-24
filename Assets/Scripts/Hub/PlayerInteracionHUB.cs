@@ -8,6 +8,7 @@ public class PlayerInteracionHUB : MonoBehaviour
     public CraftArea craftArea;
     public WeaponShop weaponShop;
 
+    public GameObject StartPanel;
     public GameObject WeaponPanel;
     public GameObject CraftPanel;
     public GameObject Tutorial_Panel;
@@ -25,6 +26,20 @@ public class PlayerInteracionHUB : MonoBehaviour
 
 
     public Inventory inventory;
+
+    private void Awake()
+    {
+        if (!GameManager.asd)
+        {
+            StartPanel.SetActive(true);
+            
+        }
+        else if(GameManager.asd)
+        {
+            StartPanel.SetActive(false);
+        }
+        GameManager.asd = true;
+    }
     private void OnTriggerStay(Collider other)
     {
         
@@ -114,21 +129,26 @@ public class PlayerInteracionHUB : MonoBehaviour
     public void OnClickPage1()
     {
         Page_Index = 0;
+        AudioManager.Instance.PlayOneShot(FMODEvents.Instance.BookPage, this.transform.position);
     }
     public void OnClickPage2()
     {
         Page_Index = 1;
+        AudioManager.Instance.PlayOneShot(FMODEvents.Instance.BookPage, this.transform.position);
     }
     public void OnClickPage3()
     {
         Page_Index = 2;
+        AudioManager.Instance.PlayOneShot(FMODEvents.Instance.BookPage, this.transform.position);
     }
     public void OnClickPage4()
     {
         Page_Index = 3;
+        AudioManager.Instance.PlayOneShot(FMODEvents.Instance.BookPage, this.transform.position);
     }
     public void OnClickExit_Lore()
     {
+        AudioManager.Instance.PlayOneShot(FMODEvents.Instance.MouseClick, this.transform.position);
         Page_Index = 0;
         Lore_Panel.SetActive(false);
         

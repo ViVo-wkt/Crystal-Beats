@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class Player_Info : MonoBehaviour
 {
-    public static Player_Info Instance;
+    public static Player_Info instance;
 
     public Potion smallPotion;
     public Potion mediumPotion;
@@ -19,11 +19,15 @@ public class Player_Info : MonoBehaviour
     private GameObject Player;
     
     public Inventory inventory;
+
+    public bool playerMoved;
+    private Vector3 lastPlayerPosition;
+    public Transform player;
     private void Awake()
     {
-        if(Instance == null)
+        if(instance == null)
         {
-            Instance = this;
+           instance = this;
         }
         else
         {
@@ -34,10 +38,13 @@ public class Player_Info : MonoBehaviour
         PlayerHpUpdate();
     }
 
-    private void Update()
+    public void Update()
     {
-        
-        if(Input.GetKeyDown(KeyCode.Alpha1) && layoutPotions.Smallpotions.Count > 0 && Player_HP < 4)
+
+        playerMoved = Vector3.Distance(lastPlayerPosition, player.position) > 0.2f;
+        lastPlayerPosition = player.position;
+
+        if (Input.GetKeyDown(KeyCode.Alpha1) && layoutPotions.Smallpotions.Count > 0 && Player_HP < 4)
         {
             UsesmallPotion();
             AudioManager.Instance.PlayOneShot(FMODEvents.Instance.Healing, this.transform.position);
@@ -143,6 +150,7 @@ public class Player_Info : MonoBehaviour
     {
         if (Player_HP <= 0)
         {
+            AudioManager.Instance.PlayOneShot(FMODEvents.Instance.DeathSound, this.transform.position);
             inventory.DeathPanel.SetActive(true);
             Player.SetActive(false);
             

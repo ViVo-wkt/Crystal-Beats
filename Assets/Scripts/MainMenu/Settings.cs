@@ -13,12 +13,13 @@ public class Settings : MonoBehaviour
     public Toggle[] SFX;   // Lista Toggle dla efektów
 
 
-    public Toggle ResolutionToggle;
+    
     
     void Start()
     {
 
-        if(instance == null)
+
+        if (instance == null)
         {
             instance = this;
         }
@@ -81,19 +82,16 @@ public class Settings : MonoBehaviour
 
         
     }
+
     
-    
-    public void ScreenSet()
+
+    public void ToggleUpdate()
     {
-        if(ResolutionToggle.isOn)
-        {
-            
-            Screen.SetResolution(1920, 1080, true);
-        }
-        else
-        {
-            Screen.SetResolution(1920, 1080, false);
-        }
+        for (int i = 0; i < Music.Length; i++)
+            Music[i].isOn = true;
+
+        for (int i = 0; i < SFX.Length; i++)
+            SFX[i].isOn = true;
     }
     public void Save(ref SaveToggles data)
     {
@@ -119,7 +117,7 @@ public class Settings : MonoBehaviour
         for (int i = 0; i < SFX.Length; i++)
             SFX[i].isOn = data.SFX[i];
     }
-
+    
 }
 [System.Serializable]
 public struct SaveToggles

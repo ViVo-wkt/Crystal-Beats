@@ -323,7 +323,15 @@ public class InventoryManager : MonoBehaviour
             ListCrystals(crystal);
         }
     }
-    
+    public void CrystalCleanUp()
+    {
+        Inventory_SingleCrystal_Slots.Clear();
+        Inventory_SmallCrystalCluster_Slots.Clear();
+        Inventory_LargeCrystalCLuster_Slots.Clear();
+        Inventory_RedCrystalCluster_Slots.Clear();
+        
+
+    }
 }
 [System.Serializable]
 public struct InventorySavedData

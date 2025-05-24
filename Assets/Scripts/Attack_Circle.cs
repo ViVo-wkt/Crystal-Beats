@@ -10,9 +10,10 @@ public class Attack_Circle : MonoBehaviour
     public AnimatorStateInfo stateInfo;
     [HideInInspector] public float NewCircleAnimationLength;
 
-    public static float CommonCircleLenght = 3f;
-    public static float RangerCircleLenght = 2f;
-    public static float TankCircleLenght = 3f;
+    public  float CommonCircleLenght;
+    public  float RangerCircleLenght;
+    public  float TankCircleLenght;
+    public float BossCircleLenght  = 4.5f;
 
     public bool End;
     private void Awake()
@@ -44,6 +45,15 @@ public class Attack_Circle : MonoBehaviour
 
         if (active && animatorCircle != null)
         {
+            float originalLength = animatorClip.length; // np. 2.0 sek
+
+            // Obliczamy nową prędkość tak, aby animacja trwała `newLength` sekund
+            float speed = originalLength / NewCircleAnimationLength;
+
+            // Ustawiamy prędkość Animatora
+            animatorCircle.speed = speed;
+
+
             animatorCircle.SetBool("CommonCircle", true);
 
 
@@ -61,6 +71,15 @@ public class Attack_Circle : MonoBehaviour
 
         if (active && animatorCircle != null)
         {
+            float originalLength = animatorClip.length; // np. 2.0 sek
+
+            // Obliczamy nową prędkość tak, aby animacja trwała `newLength` sekund
+            float speed = originalLength / NewCircleAnimationLength;
+
+            // Ustawiamy prędkość Animatora
+            animatorCircle.speed = speed;
+
+
             animatorCircle.SetBool("RangerCircle", true);
 
 
@@ -78,6 +97,16 @@ public class Attack_Circle : MonoBehaviour
 
         if (active && animatorCircle != null)
         {
+            float originalLength = animatorClip.length; // np. 2.0 sek
+
+            // Obliczamy nową prędkość tak, aby animacja trwała `newLength` sekund
+            float speed = originalLength / NewCircleAnimationLength;
+
+            // Ustawiamy prędkość Animatora
+            animatorCircle.speed = speed;
+
+
+
             animatorCircle.SetBool("TankCircle", true);
 
 
@@ -85,6 +114,33 @@ public class Attack_Circle : MonoBehaviour
         else if (!active && animatorCircle != null)
         {
             animatorCircle.SetBool("TankCircle", false);
+        }
+
+
+
+    }
+    public void CircleBossActive(bool active)
+    {
+
+        if (active && animatorCircle != null)
+        {
+            float originalLength = animatorClip.length; // np. 2.0 sek
+
+            // Obliczamy nową prędkość tak, aby animacja trwała `newLength` sekund
+            float speed = originalLength / NewCircleAnimationLength;
+
+            // Ustawiamy prędkość Animatora
+            animatorCircle.speed = speed;
+
+
+
+            animatorCircle.SetBool("BossCircle", true);
+
+
+        }
+        else if (!active && animatorCircle != null)
+        {
+            animatorCircle.SetBool("BossCircle", false);
         }
 
 

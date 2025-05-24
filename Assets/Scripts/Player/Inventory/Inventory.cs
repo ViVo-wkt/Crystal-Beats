@@ -75,7 +75,7 @@ public class Inventory : MonoBehaviour
         if (playerInteracionHUB != null)// scena HUB
         {
             
-            if (playerInteracionHUB.WeaponPanel.activeSelf || playerInteracionHUB.CraftPanel.activeSelf || Inventory_Panel.activeSelf || PausePanel.activeSelf || DeathPanel.activeSelf || playerInteracionHUB.Tutorial_Panel.activeSelf || playerInteracionHUB.Lore_Panel.activeSelf)
+            if (playerInteracionHUB.WeaponPanel.activeSelf || playerInteracionHUB.CraftPanel.activeSelf || Inventory_Panel.activeSelf || PausePanel.activeSelf || DeathPanel.activeSelf || playerInteracionHUB.Tutorial_Panel.activeSelf || playerInteracionHUB.Lore_Panel.activeSelf || playerInteracionHUB.StartPanel.activeSelf)
             {
                 Cursor.lockState = CursorLockMode.None;
                 CursorVisibility(true);

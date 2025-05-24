@@ -31,15 +31,15 @@ public class CollisionIndicatorAttack : MonoBehaviour
         
         if (Input.GetKeyDown(KeyCode.Space) && (!PlayerAttack.CanAttackUI))
         {
-            rotation = Random.Range(50f, 400f);
+            //rotation = Random.Range(50f, 400f);
 
-            if(gameObject.activeSelf)
-            {
-                rb.bodyType = RigidbodyType2D.Dynamic;
+            //if(gameObject.activeSelf)
+            //{
+            //    rb.bodyType = RigidbodyType2D.Dynamic;
 
-               rotateTween = rb.DORotate(rotation, 0.5f);
-                isFalling = true;
-            }
+            //   rotateTween = rb.DORotate(rotation, 0.5f);
+            //    isFalling = true;
+            //}
             
 
         }

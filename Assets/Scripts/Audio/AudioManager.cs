@@ -8,6 +8,7 @@ using System;
 using System.Runtime.InteropServices;
 using UnityEngine.SceneManagement;
 using Unity.Collections.LowLevel.Unsafe;
+using System.Runtime.CompilerServices;
 
 public class AudioManager : MonoBehaviour
 {
@@ -15,9 +16,9 @@ public class AudioManager : MonoBehaviour
 
     [Header("Volume")]
     [Range(0, 1)]
-    public float MusicVolume = 1;
+    public float MusicVolume ;
     [Range(0, 1)]
-    public float SFXVolume = 1;
+    public float SFXVolume ;
 
     private Bus MusicBus;
     private Bus SFXBus;
@@ -65,31 +66,14 @@ public class AudioManager : MonoBehaviour
 
         MusicBus = RuntimeManager.GetBus("bus:/Music");
         SFXBus = RuntimeManager.GetBus("bus:/SFX");
+
+
     }
     
     private void Start()
     {
-        if(SceneManager.GetActiveScene().name == "Level 1" || SceneManager.GetActiveScene().name == "Level 2" || SceneManager.GetActiveScene().name == "Level 3")
-        {
-            InitializeMusic(FMODEvents.Instance.MusicLevel1);
-        }
-        else if(SceneManager.GetActiveScene().name == "HUB")
-        {
-            InitializeMusic(FMODEvents.Instance.MusicHUB);
-            
-        }
-        else if(SceneManager.GetActiveScene().name == "Tutorial")
-        {
-            InitializeMusic(FMODEvents.Instance.MusicTutorial);
-        }
-        //else if ()
-        //{
-        //    InitializeMusic(FMODEvents.Instance.MusicLevel1);
-        //}
-        else
-        {
-            Debug.Log("B³¹d nie wyczytuje Sceny");
-        }
+        LoadMusic();
+
         if(FMODEvents.Instance != null)
         {
             timelineinfo = new TimeLineInfo();
@@ -167,10 +151,10 @@ public class AudioManager : MonoBehaviour
         }
         
     }
-    //private void OnGUI()
-    //{
-    //    GUILayout.Box($"Current Beat = {timelineinfo.currentBeat},LastMarker = {(string)timelineinfo.lastMarker}");
-    //}
+    private void OnGUI()
+    {
+        GUILayout.Box($"Current Beat = {timelineinfo.currentBeat},LastMarker = {(string)timelineinfo.lastMarker}");
+    }
     [AOT.MonoPInvokeCallback(typeof(FMOD.Studio.EVENT_CALLBACK))]
     static FMOD.RESULT BeatEventCallback(FMOD.Studio.EVENT_CALLBACK_TYPE type, IntPtr instancePtr, IntPtr parameterPtr)
     {
@@ -209,6 +193,40 @@ public class AudioManager : MonoBehaviour
             }
         }
         return FMOD.RESULT.OK;
+
+        
+    }
+    private void LoadMusic()
+    {
+        if (SceneManager.GetActiveScene().name == "Level 1")
+        {
+            InitializeMusic(FMODEvents.Instance.MusicLevel1);
+        }
+        else if (SceneManager.GetActiveScene().name == "Level 2")
+        {
+            InitializeMusic(FMODEvents.Instance.MusicLevel2);
+        }
+        else if (SceneManager.GetActiveScene().name == "Level 4")
+        {
+            InitializeMusic(FMODEvents.Instance.MusicLevel4);
+        }
+        else if (SceneManager.GetActiveScene().name == "HUB")
+        {
+            InitializeMusic(FMODEvents.Instance.MusicHUB);
+
+        }
+        else if (SceneManager.GetActiveScene().name == "Tutorial")
+        {
+            InitializeMusic(FMODEvents.Instance.MusicTutorial);
+        }
+        else if (SceneManager.GetActiveScene().name == "MainMenu")
+        {
+            InitializeMusic(FMODEvents.Instance.MusicTutorial);
+        }
+        else
+        {
+            Debug.Log("B³¹d nie wyczytuje Sceny");
+        }
     }
     public void Save(ref SaveVolumes data)
     {

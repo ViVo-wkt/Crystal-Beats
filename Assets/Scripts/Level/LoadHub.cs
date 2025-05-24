@@ -4,6 +4,7 @@ using Unity.VisualScripting;
 
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using static SaveScript;
 
 public class LoadHub : MonoBehaviour
 {
@@ -31,6 +32,8 @@ public class LoadHub : MonoBehaviour
             {
                 Resources.UnloadUnusedAssets();
                 System.GC.Collect();
+
+                AudioManager.Instance.Load(saveValues.saveVolumes);
                 SceneManager.LoadScene("HUB");
             }
         }

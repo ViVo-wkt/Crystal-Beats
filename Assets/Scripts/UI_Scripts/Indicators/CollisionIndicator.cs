@@ -16,6 +16,7 @@ public class CollisionIndicator : MonoBehaviour
     public bool IsFalling;
 
     private float rotation;
+    
 
     private Tween rotateTween;
     private bool isFalling;
@@ -33,19 +34,22 @@ public class CollisionIndicator : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
 
+        
         if ((Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.S)) && (!Movement.CanMove)/* && spawnIndicators.movement.moveTimer <= 0*/) 
         {
-            rotation = Random.Range(50f, 400f);
-            if(gameObject.activeSelf)
-            {
+            //rotation = Random.Range(50f, 400f);
+            //float distance = Vector2.Distance(gameObject.transform.position, Vector2.zero);
+            
+            //if (gameObject.activeSelf)
+            //{
+                
+            //    rb.bodyType = RigidbodyType2D.Dynamic;
 
-                rb.bodyType = RigidbodyType2D.Dynamic;
-
-               rotateTween = rb.DORotate(rotation, 0.5f);
-                isFalling = true;
-            }
+            //   rotateTween = rb.DORotate(rotation, 0.5f);
+            //    isFalling = true;
+                
+            //}
             
             
         }

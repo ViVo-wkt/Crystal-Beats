@@ -4,6 +4,9 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
+using static SaveScript;
+
+
 public class ToggleVolume : MonoBehaviour
 {
     //public static ToggleVolume Instance;
@@ -20,10 +23,13 @@ public class ToggleVolume : MonoBehaviour
 
     private void Awake()
     {
-        
-        //Instance = this;
-        //ToggleCounter();
         //VolumUpdate();
+        if(GameManager.asd)
+        {
+            Settings.instance.Load(saveValues.saveToggles);
+        }
+        
+
     }
 
 
@@ -63,7 +69,7 @@ public class ToggleVolume : MonoBehaviour
     }
     public void ToggleCounter()
     {
-
+        
         activeToggles = 0;
         // Pobieramy wszystkie Toggle w obiekcie i jego childach
         Toggle[] toggles = GetComponentsInChildren<Toggle>();
@@ -75,7 +81,9 @@ public class ToggleVolume : MonoBehaviour
             {
                 activeToggles++;
             }
+            
         }
+        
     }
     public void VolumUpdate()
     {
@@ -83,8 +91,21 @@ public class ToggleVolume : MonoBehaviour
         
 
     }
-    
-    
-    
+
+    public void DecreaseButton()
+    {
+        Toggle[] toggles = GetComponentsInChildren<Toggle>();
+
+        toggles[activeToggles -1].isOn = false;
+        OnToggleValueChanged();
+    }
+    public void IncreaseButton()
+    {
+        Toggle[] toggles = GetComponentsInChildren<Toggle>();
+
+        toggles[activeToggles].isOn = true;
+        OnToggleValueChanged();
+    }
+
 }
 

@@ -28,6 +28,7 @@ TagManager:
   - SmallPotion
   - MediumPotion
   - BigPotion
+  - Boss
   layers:
   - Default
   - TransparentFX

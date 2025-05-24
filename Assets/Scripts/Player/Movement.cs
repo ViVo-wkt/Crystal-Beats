@@ -50,13 +50,16 @@ public class Movement : MonoBehaviour
             return;
         }
 
-
         
+
+
+
         if (CanMove && !BlockIsActive)
         {
 
             if(!HasMovedThisBeat)
             {
+                RotationCharacter();
                 CheckOnBeat();
             }
             
@@ -186,24 +189,43 @@ public class Movement : MonoBehaviour
         }
         
         
-        if(direction == Vector3.forward) {
-            gameObject.transform.rotation = Quaternion.Euler(0, -360, 0);
-        } else if(direction == Vector3.back) {
-            gameObject.transform.rotation = Quaternion.Euler(0, -180, 0);
-        }
-        else if (direction == Vector3.left)
-        {
-            gameObject.transform.rotation = Quaternion.Euler(0, -90, 0);
-        }
-        else if (direction == Vector3.right)
-        {
-            gameObject.transform.rotation = Quaternion.Euler(0, -270, 0);
-        }
+        //if(direction == Vector3.forward) {
+        //    gameObject.transform.rotation = Quaternion.Euler(0, -360, 0);
+        //} else if(direction == Vector3.back) {
+        //    gameObject.transform.rotation = Quaternion.Euler(0, -180, 0);
+        //}
+        //else if (direction == Vector3.left)
+        //{
+        //    gameObject.transform.rotation = Quaternion.Euler(0, -90, 0);
+        //}
+        //else if (direction == Vector3.right)
+        //{
+        //    gameObject.transform.rotation = Quaternion.Euler(0, -270, 0);
+        //}
 
         moveTimer = 0;
         //BlockIsActive = true;
         KeyboardActivity = false;
         AudioManager.Instance.PlayOneShot(FMODEvents.Instance.Swoosh, this.transform.position);
+    }
+    private void RotationCharacter()
+    {
+        if (Input.GetKeyDown(KeyCode.A) && KeyboardActivity && !HasMovedThisBeat)
+        {
+            gameObject.transform.rotation = Quaternion.Euler(0, -90, 0);
+        }
+        else if (Input.GetKeyDown(KeyCode.D) && KeyboardActivity && !HasMovedThisBeat)
+        {
+            gameObject.transform.rotation = Quaternion.Euler(0, -270, 0);
+        }
+        else if (Input.GetKeyDown(KeyCode.W) && KeyboardActivity && !HasMovedThisBeat)
+        {
+            gameObject.transform.rotation = Quaternion.Euler(0, -360, 0);
+        }
+        else if (Input.GetKeyDown(KeyCode.S) && KeyboardActivity && !HasMovedThisBeat)
+        {
+            gameObject.transform.rotation = Quaternion.Euler(0, -180, 0);
+        }
     }
 }
 

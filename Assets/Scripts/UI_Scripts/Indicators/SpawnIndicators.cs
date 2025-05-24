@@ -12,7 +12,7 @@ public class SpawnIndicators : MonoBehaviour
     public Movement movement;
     public PlayerAttack playerAttack;
 
-    private int IndicatorsInstances = 5;
+    private int IndicatorsInstances = 7;
     private List<RectTransform> PooledIndicatorsMovement = new List<RectTransform>();
     private List<RectTransform> PooledIndicatorsAttack = new List<RectTransform>();
     private void Awake()

@@ -29,6 +29,7 @@ public class EnemyController : MonoBehaviour
     private Vector3 lastDirection; 
     private Vector3 secondLastDirection;
 
+    private Vector3 LastEnemyChasingPosition;
 
     public Transform[] RangerPositionsToAttack;
 
@@ -63,6 +64,7 @@ public class EnemyController : MonoBehaviour
             Attack_Circle.instance.CircleCommonActive(false);
             Attack_Circle.instance.CircleRangerActive(false);
             Attack_Circle.instance.CircleTankActive(false);
+            Attack_Circle.instance.CircleBossActive(false);
         }
         Destroy(gameObject);
     }
@@ -76,6 +78,11 @@ public class EnemyController : MonoBehaviour
     }
     private void Update()
     {
+        
+        
+
+
+
         if (!IsPositionValid(CurrentGridPosition))
         {
             gridCenter = transform.position;
@@ -84,43 +91,67 @@ public class EnemyController : MonoBehaviour
         {
 
 
-            if (IsAdjacentToPlayerWithRaycast() && !GameManager.instance.playerMoved)
+            if (IsAdjacentToPlayerWithRaycast() && !Player_Info.instance.playerMoved)
             {
 
 
                 if (gameObject.CompareTag("Common"))
                 {
-                    attackCircle.NewCircleAnimationLength = Attack_Circle.CommonCircleLenght;
+                    attackCircle.NewCircleAnimationLength = attackCircle.CommonCircleLenght;
                     Attack_Circle.instance.CircleCommonActive(true);
                 }
                 else if (gameObject.CompareTag("Ranger"))
                 {
-                    attackCircle.NewCircleAnimationLength = Attack_Circle.RangerCircleLenght;
+                    attackCircle.NewCircleAnimationLength = attackCircle.RangerCircleLenght;
                     Attack_Circle.instance.CircleRangerActive(true);
                 }
                 else if (gameObject.CompareTag("Tank"))
                 {
-                    attackCircle.NewCircleAnimationLength = Attack_Circle.TankCircleLenght;
+                    attackCircle.NewCircleAnimationLength = attackCircle.TankCircleLenght;
                     Attack_Circle.instance.CircleTankActive(true);
                 }
+                else if (gameObject.CompareTag("Boss"))
+                {
+                    attackCircle.NewCircleAnimationLength = attackCircle.BossCircleLenght;
+                    Attack_Circle.instance.CircleBossActive(true);
+                }
 
-                Vector3 snappedDirection = SnapDirection(GameManager.instance.player.position - transform.position);
+                float distance = Vector3.Distance(gameObject.transform.position, Player_Info.instance.player.position);
+                if (distance < 0.3f)
+                {
+                    gameObject.transform.position = LastEnemyChasingPosition; 
+                }
+
+
+                if (attackCircle.End && !Player_Info.instance.playerMoved && IsAdjacentToPlayerWithRaycast())
+                {
+                    if (anim != null)
+                    {
+                        anim.SetTrigger("EnemyAttack");
+
+                    }
+
+                    EnemyAttack();
+                    attackCircle.End = false;
+                }
+                else if (Player_Info.instance.playerMoved || !IsAdjacentToPlayerWithRaycast())
+                {
+                    attackCircle.End = false;
+                }
+
+                Vector3 snappedDirection = SnapDirection(Player_Info.instance.player.position - transform.position);
                 Quaternion targetRotation = Quaternion.LookRotation(snappedDirection, Vector3.up);
                 transform.rotation = targetRotation;
 
             }
-            //else if (GameManager.instance.playerMoved || !IsAdjacentToPlayerWithRaycast())
-            //{
-
-
-            //}
+            
 
         }
 
     }
     private void FixedUpdate()
     {
-        float distanceToPlayer = Vector3.Distance(transform.position, GameManager.instance.player.position);
+        float distanceToPlayer = Vector3.Distance(transform.position, Player_Info.instance.player.position);
         
         if (distanceToPlayer <= detectionRadius /*&& IsPositionValid(Player.position)*/)
         {
@@ -140,7 +171,7 @@ public class EnemyController : MonoBehaviour
             Attack_Circle.instance.CircleCommonActive(false);
             Attack_Circle.instance.CircleRangerActive(false);
             Attack_Circle.instance.CircleTankActive(false);
-
+            Attack_Circle.instance.CircleBossActive(false);
         }
     }
 
@@ -210,10 +241,10 @@ public class EnemyController : MonoBehaviour
         Vector3 RangerNewPostion = CurrentGridPosition - direction * tileSize;
 
 
+        LastEnemyChasingPosition = CurrentGridPosition;
+        
 
-
-
-        if (gameObject.CompareTag("Common") || gameObject.CompareTag("Tank"))
+        if (gameObject.CompareTag("Common") || gameObject.CompareTag("Tank") || gameObject.CompareTag("Boss"))
         {
             if (!IsWallBlocking(direction))
             {
@@ -245,7 +276,7 @@ public class EnemyController : MonoBehaviour
 
                     positionNew = CurrentGridPosition + NewChasingPosition * tileSize;
                 }
-                while (Vector3.Distance(positionNew, GameManager.instance.player.position) > detectionRadius
+                while (Vector3.Distance(positionNew, Player_Info.instance.player.position) > detectionRadius
                  || IsWallBlocking(NewChasingPosition));
 
                 CurrentGridPosition = positionNew;
@@ -254,10 +285,11 @@ public class EnemyController : MonoBehaviour
 
 
             }
+            
         }
         else
         {
-            float distance = Vector3.Distance(transform.position, GameManager.instance.player.position);
+            float distance = Vector3.Distance(transform.position, Player_Info.instance.player.position);
 
             if (gameObject.CompareTag("Ranger"))
             {
@@ -270,7 +302,7 @@ public class EnemyController : MonoBehaviour
                 // Gracz jest za blisko – Ranger ucieka
                 if (distance < 2.9f)
                 {
-                    Vector3 directionAway = (transform.position - GameManager.instance.player.position).normalized;
+                    Vector3 directionAway = (transform.position - Player_Info.instance.player.position).normalized;
                     Vector3 bestEscapeDir = Vector3.zero;
                     float maxDistance = 0f;
 
@@ -286,7 +318,7 @@ public class EnemyController : MonoBehaviour
                         Vector3 testPos = CurrentGridPosition + dir * tileSize;
                         if (/*IsPositionValid(testPos) &&*/ !IsWallBlocking(dir))
                         {
-                            float testDist = Vector3.Distance(testPos, GameManager.instance.player.position);
+                            float testDist = Vector3.Distance(testPos, Player_Info.instance.player.position);
                             if (testDist > maxDistance)
                             {
                                 maxDistance = testDist;
@@ -324,7 +356,7 @@ public class EnemyController : MonoBehaviour
 
     private bool IsAdjacentToPlayerWithRaycast()
     {
-        Vector3 directionToPlayer = GameManager.instance.player.position - transform.position;
+        Vector3 directionToPlayer = Player_Info.instance.player.position - transform.position;
 
 
         if (Mathf.Abs(directionToPlayer.x) > Mathf.Abs(directionToPlayer.z))
@@ -408,10 +440,10 @@ public class EnemyController : MonoBehaviour
 
         if (SceneManager.GetActiveScene().name != "Tutorial")
         {
-            Player_Info.Instance.Player_HP -= 1;
-            Player_Info.Instance.PlayerHpUpdate();
+            Player_Info.instance.Player_HP -= 1;
+            Player_Info.instance.PlayerHpUpdate();
 
-            Player_Info.Instance.CheckIfDead();
+            Player_Info.instance.CheckIfDead();
         }
 
 
@@ -420,40 +452,23 @@ public class EnemyController : MonoBehaviour
     }
     private void UpdateMoveDelay()
     {
-        if (isChasingPlayer)
-        {
-
-            if (attackCircle.End && !GameManager.instance.playerMoved && IsAdjacentToPlayerWithRaycast())
-            {
-                if (anim != null)
-                {
-                    anim.SetTrigger("EnemyAttack");
-
-                }
-
-                EnemyAttack();
-                attackCircle.End = false;
-            }
-            else if (GameManager.instance.playerMoved || !IsAdjacentToPlayerWithRaycast())
-            {
-                attackCircle.End = false;
-            }
-        }
+        
+        
 
         BeatsCollection++;
         if (BeatsCollection == BeatsToMove)
         {
             if (isChasingPlayer)
             {
-                
-                if (GameManager.instance.playerMoved || !IsAdjacentToPlayerWithRaycast())
+
+                if (Player_Info.instance.playerMoved || !IsAdjacentToPlayerWithRaycast())
                 {
                     anim.SetTrigger("EnemyWalk");
                     MoveTowardsPlayer();
 
 
                 }
-                
+
 
             }
             else
@@ -462,6 +477,7 @@ public class EnemyController : MonoBehaviour
                 NewEnemyPosition();
             }
             BeatsCollection = 0;
+            
         }
     }
 

@@ -101,8 +101,8 @@ MonoBehaviour:
   NumberOfMergedSmallCLusters: 2
   NumberOfDestroyedLargeClusters: 1
   NumberOfDestroyedSmallClusters: 1
-  SingleCrystalsAddedFromCrumble: 2
-  SmallClustersAddedFromCrumble: 2
+  SingleCrystalsAddedFromCrumble: 1
+  SmallClustersAddedFromCrumble: 1
   Inventory_SingleCrystal_Slots: []
   Inventory_SmallCrystalCluster_Slots: []
   Inventory_LargeCrystalCLuster_Slots: []
@@ -161,8 +161,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d928486a4ae378e46a1bb7a65f793e55, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerMoved: 0
-  player: {fileID: 0}
 --- !u!114 &1857903123331971676
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -198,6 +196,8 @@ MonoBehaviour:
   - {fileID: 0}
   layoutPotions: {fileID: 8444557732330100493}
   inventory: {fileID: 0}
+  playerMoved: 0
+  player: {fileID: 0}
 --- !u!114 &3880231468505517375
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -211,6 +211,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   WeaponIndex: 0
+  weaponType: 0
   Weapons: []
 --- !u!114 &292376347936807615
 MonoBehaviour:
@@ -226,11 +227,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Inventory_Panel: {fileID: 0}
   inventoryManager: {fileID: 6237917054146957894}
-  SlotsInfo:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
   PausePanel: {fileID: 0}
   DeathPanel: {fileID: 0}
   CursorTexture: {fileID: 2800000, guid: ff6664b0214ea5c47a66a83340f90a66, type: 3}
@@ -280,13 +276,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f4d557d36fa61145a5a055aec374733, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <MusicLevel1>k__BackingField:
+  <MainMenu>k__BackingField:
     Guid:
-      Data1: -1641633159
-      Data2: 1174982547
-      Data3: 1625534598
-      Data4: 913026646
-    Path: event:/Music/MusicTestLevel
+      Data1: -744758299
+      Data2: 1215442020
+      Data3: 640941209
+      Data4: -1006233823
+    Path: event:/Music/MainMenu
   <MusicHUB>k__BackingField:
     Guid:
       Data1: 1988491000
@@ -301,6 +297,34 @@ MonoBehaviour:
       Data3: 1424632492
       Data4: -1781232505
     Path: event:/Music/MusicTutorial
+  <MusicLevel1>k__BackingField:
+    Guid:
+      Data1: -1641633159
+      Data2: 1174982547
+      Data3: 1625534598
+      Data4: 913026646
+    Path: event:/Music/MusicLevel1
+  <MusicLevel2>k__BackingField:
+    Guid:
+      Data1: -98494742
+      Data2: 1230564326
+      Data3: 348034229
+      Data4: 857285314
+    Path: event:/Music/MusicLevel2
+  <MusicLevel3>k__BackingField:
+    Guid:
+      Data1: 227962617
+      Data2: 1274482206
+      Data3: -1032062806
+      Data4: -1516972621
+    Path: event:/Music/MusicLevel3
+  <MusicLevel4>k__BackingField:
+    Guid:
+      Data1: 1308717473
+      Data2: 1304328799
+      Data3: -2000578153
+      Data4: -975694191
+    Path: event:/Music/MusicLevel4
   <CollectCrystal>k__BackingField:
     Guid:
       Data1: 961517206
@@ -350,6 +374,27 @@ MonoBehaviour:
       Data3: 995686318
       Data4: 816208335
     Path: event:/SFX/Shoot
+  <BookPage>k__BackingField:
+    Guid:
+      Data1: -413348246
+      Data2: 1303878859
+      Data3: -1508654694
+      Data4: -1690966571
+    Path: event:/SFX/BookPage
+  <MouseClick>k__BackingField:
+    Guid:
+      Data1: -132251068
+      Data2: 1199701915
+      Data3: -1050123333
+      Data4: 777369908
+    Path: event:/SFX/MouseClick
+  <DeathSound>k__BackingField:
+    Guid:
+      Data1: 1762523452
+      Data2: 1264969292
+      Data3: 695952039
+      Data4: -1069047986
+    Path: event:/SFX/DeathSound
 --- !u!1 &2607633410101402383
 GameObject:
   m_ObjectHideFlags: 0
