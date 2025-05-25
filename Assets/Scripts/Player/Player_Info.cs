@@ -16,7 +16,7 @@ public class Player_Info : MonoBehaviour
     public GameObject[] Heart_Pieces;
     public LayoutPotions layoutPotions;
 
-    private GameObject Player;
+    [HideInInspector] public GameObject Player { get; private set; }  
     
     public Inventory inventory;
 

@@ -1,5 +1,29 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-9171404902063025181
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Beat
+  m_EditorClassIdentifier: 
+  Name: Beat
+  StudioPath: parameter:/Beat
+  Min: 0
+  Max: 1
+  Default: 0
+  ID:
+    data1: 1858406485
+    data2: 3281922252
+  Type: 1
+  IsGlobal: 1
+  Labels: []
+  Exists: 1
 --- !u!114 &-9140102545557837200
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14,19 +38,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Path: event:/Music/MusicLevel4
   Guid:
-    Data1: 1308717473
-    Data2: 1304328799
-    Data3: -2000578153
-    Data4: -975694191
+    Data1: 1331750
+    Data2: 1284438009
+    Data3: -201415784
+    Data4: -1870398052
   Banks:
   - {fileID: -4640426438986835994}
   IsStream: 1
   Is3D: 0
   IsOneShot: 0
-  Parameters: []
+  Parameters:
+  - {fileID: 1991486400465227112}
   MinDistance: 1
   MaxDistance: 20
-  Length: 170666
+  Length: 310166
 --- !u!114 &-4640426438986835994
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -42,10 +67,10 @@ MonoBehaviour:
   Path: fm mod soundtrack/Build/Desktop/Music.bank
   Name: Music
   StudioPath: bank:/Music
-  lastModified: 638835288356635364
+  lastModified: 638837658955140972
   FileSizes:
   - Name: Desktop
-    Value: 14702656
+    Value: 14703552
   Exists: 1
 --- !u!114 &-2369715129201697485
 MonoBehaviour:
@@ -210,13 +235,38 @@ MonoBehaviour:
   - {fileID: -2191561274466870583}
   - {fileID: 2831536711278728477}
   - {fileID: 8420646771072252924}
-  EditorParameters: []
+  EditorParameters:
+  - {fileID: -9171404902063025181}
   MasterBanks:
   - {fileID: 3979666154132642495}
   StringsBanks:
   - {fileID: 4587743775815487838}
-  cacheTime: 638836864045758272
+  cacheTime: 638837658955140972
   cacheVersion: 131622
+--- !u!114 &1991486400465227112
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/MusicLevel4/Beat
+  m_EditorClassIdentifier: 
+  Name: Beat
+  StudioPath: 
+  Min: 0
+  Max: 1
+  Default: 0
+  ID:
+    data1: 1858406485
+    data2: 3281922252
+  Type: 1
+  IsGlobal: 1
+  Labels: []
+  Exists: 1
 --- !u!114 &2831536711278728477
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -259,10 +309,10 @@ MonoBehaviour:
   Path: fm mod soundtrack/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 638836864044336094
+  lastModified: 638837658954151683
   FileSizes:
   - Name: Desktop
-    Value: 1340
+    Value: 1520
   Exists: 1
 --- !u!114 &4139333204490361283
 MonoBehaviour:
@@ -306,10 +356,10 @@ MonoBehaviour:
   Path: fm mod soundtrack/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638836864044366617
+  lastModified: 638837658954171648
   FileSizes:
   - Name: Desktop
-    Value: 1616
+    Value: 1662
   Exists: 1
 --- !u!114 &4733307651093264059
 MonoBehaviour:
@@ -325,10 +375,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Path: event:/Music/MainMenu
   Guid:
-    Data1: -744758299
-    Data2: 1215442020
-    Data3: 640941209
-    Data4: -1006233823
+    Data1: -1762567404
+    Data2: 1324769186
+    Data3: 1676663185
+    Data4: -1181300689
   Banks:
   - {fileID: -4640426438986835994}
   IsStream: 1
@@ -352,10 +402,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Path: event:/Music/MusicLevel2
   Guid:
-    Data1: -98494742
-    Data2: 1230564326
-    Data3: 348034229
-    Data4: 857285314
+    Data1: 1271901726
+    Data2: 1096402824
+    Data3: 1654663556
+    Data4: -1212057219
   Banks:
   - {fileID: -4640426438986835994}
   IsStream: 1

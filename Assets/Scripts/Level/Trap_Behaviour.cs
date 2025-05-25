@@ -6,10 +6,10 @@ public class Trap_Behaviour : MonoBehaviour
 {
     // Start is called before the first frame update
     public Player_Info player_Info;
-    public float TimeToHit;
+    public int BeatToHit;
     public int DamageTakenFromTrap;
-    private bool isTakingDamage = false;
-
+    //private bool isTakingDamage = false;
+    private int Beats = 0;
     private Animator anim;
 
     private void Start()
@@ -20,41 +20,59 @@ public class Trap_Behaviour : MonoBehaviour
     {
         if(collision.gameObject.CompareTag("Player"))
         {
-            isTakingDamage = true;
-            StartCoroutine(TimeToDealDamage());
-            
+            //isTakingDamage = true;
+            //StartCoroutine(TimeToDealDamage());
+            AudioManager.BeatUpdated += TimeToDealDamage;
         }
         
     }
     private void OnTriggerStay(Collider other)
     {
-        isTakingDamage = true;
+        //isTakingDamage = true;
     }
     private void OnCollisionExit(Collision collision)
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            isTakingDamage = false;
-            StopCoroutine(TimeToDealDamage());
-            
+            //isTakingDamage = false;
+            //StopCoroutine(TimeToDealDamage());
+            AudioManager.BeatUpdated -= TimeToDealDamage;
+            Beats = 0;
         }
             
     }
-    IEnumerator TimeToDealDamage()
-    {
-        while (isTakingDamage)
-        {
 
-            yield return new WaitForSeconds(TimeToHit);
+    private void TimeToDealDamage()
+    {
+        Beats++;
+        if(Beats == BeatToHit)
+        {
             anim.SetTrigger("TrapAttack");
-            if (isTakingDamage != false)
+            player_Info.Player_HP -= DamageTakenFromTrap;
+            if(player_Info.Player.activeSelf)
             {
-                
-                player_Info.Player_HP -= DamageTakenFromTrap;
                 player_Info.PlayerHpUpdate();
                 player_Info.CheckIfDead();
             }
             
+            Beats = 0;
         }
     }
+    //IEnumerator TimeToDealDamage()
+    //{
+    //    while (isTakingDamage)
+    //    {
+
+    //        yield return new WaitForSeconds(TimeToHit);
+    //        anim.SetTrigger("TrapAttack");
+    //        if (isTakingDamage != false)
+    //        {
+                
+    //            player_Info.Player_HP -= DamageTakenFromTrap;
+    //            player_Info.PlayerHpUpdate();
+    //            player_Info.CheckIfDead();
+    //        }
+            
+    //    }
+    //}
 }

@@ -111,11 +111,14 @@ public class Settings : MonoBehaviour
     {
         
         
-        for (int i = 0; i < Music.Length; i++)
-            Music[i].isOn = data.Music[i];
+        
+            for (int i = 0; i < Music.Length; i++)
+                Music[i].isOn = data.Music[i];
 
-        for (int i = 0; i < SFX.Length; i++)
-            SFX[i].isOn = data.SFX[i];
+            for (int i = 0; i < SFX.Length; i++)
+                SFX[i].isOn = data.SFX[i];
+        
+        
     }
     
 }

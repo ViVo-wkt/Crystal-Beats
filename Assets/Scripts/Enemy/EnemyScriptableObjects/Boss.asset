@@ -14,5 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 3
   enemyName: Boss
-  HP: 8
+  HP: 6
   enemy_Type: 3
+  Damage: 2

@@ -5,7 +5,8 @@ using UnityEngine;
 public class LightOnBeat : MonoBehaviour
 {
     private Animator animator;
-    
+
+    [HideInInspector] public int LightIndex = 0;
     // Start is called before the first frame update
     void Awake()
     {
@@ -28,7 +29,14 @@ public class LightOnBeat : MonoBehaviour
     }
     private void BeatDrop()
     {
+        if(animator.CompareTag("Boss"))
+        {
+            animator.SetTrigger("BossFight");
+        }
+        else
+        {
+            animator.SetTrigger("IsBeatTriggered");
+        }
         
-        animator.SetTrigger("IsBeatTriggered");
     }
 }

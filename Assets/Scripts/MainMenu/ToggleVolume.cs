@@ -21,7 +21,7 @@ public class ToggleVolume : MonoBehaviour
     public int activeToggles = 0;
     private float ToggleValue;
 
-    private void Awake()
+    private void Start()
     {
         //VolumUpdate();
         if(GameManager.asd)
@@ -96,15 +96,23 @@ public class ToggleVolume : MonoBehaviour
     {
         Toggle[] toggles = GetComponentsInChildren<Toggle>();
 
-        toggles[activeToggles -1].isOn = false;
-        OnToggleValueChanged();
+        if (activeToggles > 0)
+        {
+            toggles[activeToggles - 1].isOn = false;
+            OnToggleValueChanged();
+        }
+        
     }
     public void IncreaseButton()
     {
         Toggle[] toggles = GetComponentsInChildren<Toggle>();
 
-        toggles[activeToggles].isOn = true;
-        OnToggleValueChanged();
+        if(activeToggles < 5)
+        {
+            toggles[activeToggles].isOn = true;
+            OnToggleValueChanged();
+        }
+        
     }
 
 }

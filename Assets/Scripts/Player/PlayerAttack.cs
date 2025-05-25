@@ -22,7 +22,7 @@ public class PlayerAttack : MonoBehaviour
 
 
     [HideInInspector] public float AttackTimer;
-    public float AttackWindow;
+    //public float AttackWindow;
     public int BlockDuration; // number of beats when Block is active
     [HideInInspector] public int blockCounter = 0; // Block counter (measure: number of beats)
     //private bool BlockIsActive = false;

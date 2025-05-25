@@ -16,3 +16,4 @@ MonoBehaviour:
   enemyName: Ranger
   HP: 2
   enemy_Type: 1
+  Damage: 1

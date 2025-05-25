@@ -93,7 +93,7 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 112000000, guid: d663a6f5c990aea4292d6f49b91a3a15, type: 2}
+  m_LightingDataAsset: {fileID: 0}
   m_LightingSettings: {fileID: 0}
 --- !u!196 &4
 NavMeshSettings:
@@ -41088,6 +41088,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5104013666197074241, guid: 20352066aa004f44399fff42ded7e974, type: 3}
+      propertyPath: m_Intensity
+      value: 1.5
+      objectReference: {fileID: 0}
     - target: {fileID: 6578801055219224514, guid: 20352066aa004f44399fff42ded7e974, type: 3}
       propertyPath: attenuationObject
       value: 
@@ -66364,7 +66368,6 @@ MonoBehaviour:
   Axe: {fileID: 11400000, guid: 56818a9e009c8534787e9ee0e4839584, type: 2}
   Gun: {fileID: 11400000, guid: 6a656336b53511c469fb72b2465fe0a3, type: 2}
   AttackTimer: 0
-  AttackWindow: 0.35
   BlockDuration: 0
   blockCounter: 0
   Attackbeats: 2

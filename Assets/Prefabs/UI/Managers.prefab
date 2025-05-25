@@ -212,6 +212,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   WeaponIndex: 0
   weaponType: 0
+  weaponName: 
   Weapons: []
 --- !u!114 &292376347936807615
 MonoBehaviour:
@@ -278,10 +279,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <MainMenu>k__BackingField:
     Guid:
-      Data1: -744758299
-      Data2: 1215442020
-      Data3: 640941209
-      Data4: -1006233823
+      Data1: -1762567404
+      Data2: 1324769186
+      Data3: 1676663185
+      Data4: -1181300689
     Path: event:/Music/MainMenu
   <MusicHUB>k__BackingField:
     Guid:
@@ -306,10 +307,10 @@ MonoBehaviour:
     Path: event:/Music/MusicLevel1
   <MusicLevel2>k__BackingField:
     Guid:
-      Data1: -98494742
-      Data2: 1230564326
-      Data3: 348034229
-      Data4: 857285314
+      Data1: 1271901726
+      Data2: 1096402824
+      Data3: 1654663556
+      Data4: -1212057219
     Path: event:/Music/MusicLevel2
   <MusicLevel3>k__BackingField:
     Guid:
@@ -320,10 +321,10 @@ MonoBehaviour:
     Path: event:/Music/MusicLevel3
   <MusicLevel4>k__BackingField:
     Guid:
-      Data1: 1308717473
-      Data2: 1304328799
-      Data3: -2000578153
-      Data4: -975694191
+      Data1: 1331750
+      Data2: 1284438009
+      Data3: -201415784
+      Data4: -1870398052
     Path: event:/Music/MusicLevel4
   <CollectCrystal>k__BackingField:
     Guid:

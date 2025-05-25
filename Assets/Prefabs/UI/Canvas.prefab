@@ -2214,9 +2214,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 11500000, guid: d928486a4ae378e46a1bb7a65f793e55, type: 3}
         m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
-        m_MethodName: RestartLevel
+        m_MethodName: 
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -6645,9 +6645,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 11500000, guid: d928486a4ae378e46a1bb7a65f793e55, type: 3}
         m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
-        m_MethodName: OnClickQuitToMenu
+        m_MethodName: 
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -11257,7 +11257,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2371538429662932144, guid: d1874bac84cd5bc4fbffb1f7946a5d52, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2412091302299852162, guid: d1874bac84cd5bc4fbffb1f7946a5d52, type: 3}
       propertyPath: m_Type
@@ -11586,6 +11586,10 @@ PrefabInstance:
     - target: {fileID: 7277147691052712425, guid: d1874bac84cd5bc4fbffb1f7946a5d52, type: 3}
       propertyPath: m_hasFontAssetChanged
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7513470976200300501, guid: d1874bac84cd5bc4fbffb1f7946a5d52, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 700
       objectReference: {fileID: 0}
     - target: {fileID: 7682631873377043003, guid: d1874bac84cd5bc4fbffb1f7946a5d52, type: 3}
       propertyPath: m_IsOn

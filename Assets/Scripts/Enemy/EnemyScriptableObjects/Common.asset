@@ -15,3 +15,5 @@ MonoBehaviour:
   id: 0
   enemyName: Common
   HP: 2
+  enemy_Type: 0
+  Damage: 1

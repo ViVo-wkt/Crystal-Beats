@@ -16,3 +16,4 @@ MonoBehaviour:
   enemyName: Tank
   HP: 4
   enemy_Type: 2
+  Damage: 1

@@ -36,8 +36,18 @@ public class EnemyController : MonoBehaviour
     public Attack_Circle attackCircle;
 
     private Animator anim;
+    private Enemy enemy;
+    
+    private void Awake()
+    {
+        enemy = GetComponent<Enemy>();
+    }
     void Start()
     {
+       
+        
+
+
         // Grid Center as a start enemy position
         gridCenter = transform.position;
         CurrentGridPosition = transform.position;
@@ -89,8 +99,9 @@ public class EnemyController : MonoBehaviour
         }
         if (isChasingPlayer)
         {
-
-
+            
+            float distance = Vector3.Distance(gameObject.transform.position, Player_Info.instance.player.position);
+            
             if (IsAdjacentToPlayerWithRaycast() && !Player_Info.instance.playerMoved)
             {
 
@@ -116,8 +127,8 @@ public class EnemyController : MonoBehaviour
                     Attack_Circle.instance.CircleBossActive(true);
                 }
 
-                float distance = Vector3.Distance(gameObject.transform.position, Player_Info.instance.player.position);
-                if (distance < 0.3f)
+                
+                if (distance < 0.1f)
                 {
                     gameObject.transform.position = LastEnemyChasingPosition; 
                 }
@@ -127,15 +138,18 @@ public class EnemyController : MonoBehaviour
                 {
                     if (anim != null)
                     {
+                        
                         anim.SetTrigger("EnemyAttack");
 
                     }
 
                     EnemyAttack();
                     attackCircle.End = false;
+                    BeatsCollection = 0;
                 }
                 else if (Player_Info.instance.playerMoved || !IsAdjacentToPlayerWithRaycast())
                 {
+                    BeatsCollection = 0;
                     attackCircle.End = false;
                 }
 
@@ -440,7 +454,7 @@ public class EnemyController : MonoBehaviour
 
         if (SceneManager.GetActiveScene().name != "Tutorial")
         {
-            Player_Info.instance.Player_HP -= 1;
+            Player_Info.instance.Player_HP -= enemy.EnemyAttackDamage;
             Player_Info.instance.PlayerHpUpdate();
 
             Player_Info.instance.CheckIfDead();

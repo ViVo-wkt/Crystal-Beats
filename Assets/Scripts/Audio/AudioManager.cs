@@ -64,6 +64,8 @@ public class AudioManager : MonoBehaviour
 
         eventInstances = new List<EventInstance>();
 
+
+        
         MusicBus = RuntimeManager.GetBus("bus:/Music");
         SFXBus = RuntimeManager.GetBus("bus:/SFX");
 
@@ -74,7 +76,7 @@ public class AudioManager : MonoBehaviour
     {
         LoadMusic();
 
-        if(FMODEvents.Instance != null)
+        if (FMODEvents.Instance != null)
         {
             timelineinfo = new TimeLineInfo();
             beatCallback = new FMOD.Studio.EVENT_CALLBACK(BeatEventCallback);
@@ -202,27 +204,32 @@ public class AudioManager : MonoBehaviour
         {
             InitializeMusic(FMODEvents.Instance.MusicLevel1);
         }
+
         else if (SceneManager.GetActiveScene().name == "Level 2")
         {
             InitializeMusic(FMODEvents.Instance.MusicLevel2);
         }
+
         else if (SceneManager.GetActiveScene().name == "Level 4")
-        {
+        {   
             InitializeMusic(FMODEvents.Instance.MusicLevel4);
         }
+
         else if (SceneManager.GetActiveScene().name == "HUB")
         {
             InitializeMusic(FMODEvents.Instance.MusicHUB);
-
         }
+
         else if (SceneManager.GetActiveScene().name == "Tutorial")
         {
             InitializeMusic(FMODEvents.Instance.MusicTutorial);
         }
+
         else if (SceneManager.GetActiveScene().name == "MainMenu")
         {
-            InitializeMusic(FMODEvents.Instance.MusicTutorial);
+            InitializeMusic(FMODEvents.Instance.MainMenu);
         }
+
         else
         {
             Debug.Log("B³¹d nie wyczytuje Sceny");

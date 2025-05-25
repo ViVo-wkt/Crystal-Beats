@@ -9,7 +9,7 @@ public class EnemyInfo : ScriptableObject
     public string enemyName;
     public int HP;
     public Enemy_type enemy_Type;
-
+    public int Damage;
 
     public enum Enemy_type
     {

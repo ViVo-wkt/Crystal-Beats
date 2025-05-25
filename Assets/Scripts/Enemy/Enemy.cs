@@ -8,8 +8,10 @@ public class Enemy : MonoBehaviour
     public EnemyInfo enemyInfo;
 
     private int EnemyHP;
+    [HideInInspector]public int EnemyAttackDamage;
     private void Start()
     {
+        EnemyAttackDamage = enemyInfo.Damage;
         //enemyInfo = Instantiate(enemyInfo);
         EnemyHP = enemyInfo.HP;
     }

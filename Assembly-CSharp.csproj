@@ -78,6 +78,7 @@
     <Compile Include="Assets\Scripts\Managers\SaveScript.cs" />
     <Compile Include="Assets\Scripts\MainMenu\ToggleVolume.cs" />
     <Compile Include="Assets\Scripts\Tutorial\Trigger2.cs" />
+    <Compile Include="Assets\Scripts\BossTrigger.cs" />
     <Compile Include="Assets\Scripts\Player\Inventory\Crystal.cs" />
     <Compile Include="Assets\Scripts\UI_Scripts\Indicators\SpawnIndicators.cs" />
     <Compile Include="Assets\Scripts\Hub\WeaponShop.cs" />
@@ -116,6 +117,7 @@
     <Compile Include="Assets\Scripts\UI_Scripts\AgrroStatus.cs" />
     <Compile Include="Assets\Scripts\Level\LoadHub.cs" />
     <Compile Include="Assets\Scripts\Attack_Circle.cs" />
+    <Compile Include="Assets\Scripts\Enemy\Boss\BossWeapons.cs" />
     <Compile Include="Assets\Scripts\Player\Inventory\Inventory.cs" />
     <Compile Include="Assets\Scripts\Tutorial\Tutorial_Guid_Panels.cs" />
     <Compile Include="Assets\Scripts\Player\Inventory\Potions_item\Potion.cs" />

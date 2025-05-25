@@ -10,7 +10,7 @@ public class WeaponManager : MonoBehaviour
     
      public int WeaponIndex = 0;
     public WeaponType weaponType;
-    
+    public string weaponName;
     public GameObject[] Weapons = new GameObject[4];
     void Awake()
     {
@@ -37,8 +37,8 @@ public class WeaponManager : MonoBehaviour
             
         }
         Weapons[(int)weaponType].SetActive(true);
-        
 
+        weaponName = weaponType.ToString();
         
     }
     public void Save(ref WeaponSaveData data)
