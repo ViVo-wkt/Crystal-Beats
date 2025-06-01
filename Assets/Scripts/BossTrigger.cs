@@ -11,6 +11,8 @@ public class BossTrigger : MonoBehaviour
 
     public GameObject Boss;
     private EnemyController BossScript;
+
+    public GameObject[] Gate;
     private void Start()
     {
         BossScript = Boss.GetComponent<EnemyController>();
@@ -25,6 +27,7 @@ public class BossTrigger : MonoBehaviour
     {
         if(Boss != null)
         {
+            GateClose();
             BossMusic();
         }
         
@@ -46,5 +49,12 @@ public class BossTrigger : MonoBehaviour
         RuntimeManager.StudioSystem.setParameterByName("Beat", 0);
         
         
+    }
+    private void GateClose()
+    {
+        foreach (GameObject block in Gate)
+        {
+            block.SetActive(true);
+        }
     }
 }

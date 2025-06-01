@@ -203,28 +203,53 @@ public class WeaponShop : MonoBehaviour
     public void EquipPickaxe()
     {
         WeaponManager.Instance.weaponType = WeaponType.Pickaxe;
-        
+
+        ColorButtonSwitch();
         WeaponManager.Instance.WeaponSwitch();
     }
     public void EquipHammer()
     {
         WeaponManager.Instance.weaponType = WeaponType.Hammer;
-
+        ColorButtonSwitch();
         WeaponManager.Instance.WeaponSwitch();
     }
     public void EquipAxe()
     {
         WeaponManager.Instance.weaponType = WeaponType.Axe;
-
+        ColorButtonSwitch();
         WeaponManager.Instance.WeaponSwitch();
     }
     public void EquipGun()
     {
         WeaponManager.Instance.weaponType = WeaponType.Gun;
-
+        ColorButtonSwitch();
         WeaponManager.Instance.WeaponSwitch();
     }
-    
+    private void ColorButtonSwitch()
+    {
+        foreach (var button in Buttons)
+        {
+            button.GetComponentInChildren<TextMeshProUGUI>().color = Color.white;
+        }
+        switch ((int)WeaponManager.Instance.weaponType)
+
+        {
+            case 0:
+                Buttons[3].GetComponentInChildren<TextMeshProUGUI>().color = Color.yellow;
+                break;
+            case 1:
+                Buttons[0].GetComponentInChildren<TextMeshProUGUI>().color = Color.yellow;
+                break;
+            case 2:
+                Buttons[1].GetComponentInChildren<TextMeshProUGUI>().color = Color.yellow;
+                break;
+            case 3:
+                Buttons[2].GetComponentInChildren<TextMeshProUGUI>().color = Color.yellow;
+                break;
+            default:
+                break;
+        }
+    }
     private void UpdateCostText()
     {
         QuantityOfSinglesCrystals = inventoryManager.Inventory_SingleCrystal_Slots.Count;

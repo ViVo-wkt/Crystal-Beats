@@ -43,7 +43,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 904e5c89255fbf044b5bcfc1b01607ac, type: 2}
+  m_Motion: {fileID: 7400000, guid: 83d92c713ef5a1c45a4a5c33cf1f6518, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -81,7 +81,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: empty
+  m_Name: BossIdle
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -96,7 +96,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: a48e420c9df473140aaed9bdbe7ac644, type: 2}
+  m_Motion: {fileID: 7400000, guid: ccae113514d98b543abac6b6e7682e30, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -153,7 +153,7 @@ AnimatorStateMachine:
     m_Position: {x: 663.9235, y: -1.9508514, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -7716825027286944092}
-    m_Position: {x: 595.3485, y: 252.24951, z: 0}
+    m_Position: {x: 600, y: 250, z: 0}
   m_ChildStateMachines: []
   m_AnyStateTransitions: []
   m_EntryTransitions: []
@@ -185,7 +185,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 3df9196dd53ae324e96c239d1c68a2f1, type: 2}
+  m_Motion: {fileID: 7400000, guid: 6b7da1691ae097d438a3867a7cacdcfd, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 

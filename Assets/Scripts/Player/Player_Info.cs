@@ -19,7 +19,7 @@ public class Player_Info : MonoBehaviour
     [HideInInspector] public GameObject Player { get; private set; }  
     
     public Inventory inventory;
-
+    public Movement movement;
     public bool playerMoved;
     private Vector3 lastPlayerPosition;
     public Transform player;
@@ -40,9 +40,11 @@ public class Player_Info : MonoBehaviour
 
     public void Update()
     {
-
+        lastPlayerPosition = movement.LastPosition;
+        
         playerMoved = Vector3.Distance(lastPlayerPosition, player.position) > 0.2f;
-        lastPlayerPosition = player.position;
+        
+
 
         if (Input.GetKeyDown(KeyCode.Alpha1) && layoutPotions.Smallpotions.Count > 0 && Player_HP < 4)
         {
@@ -98,6 +100,10 @@ public class Player_Info : MonoBehaviour
         Player_HP += smallPotion.heal;
 
         PlayerHpUpdate();
+        if(layoutPotions.Smallpotions.Count == 0)
+        {
+            layoutPotions.PotionCounter[0].text = "";
+        }
     }
     private void UsemediumPotion()
     {
@@ -121,6 +127,10 @@ public class Player_Info : MonoBehaviour
             Player_HP = 4;
         }
         PlayerHpUpdate();
+        if (layoutPotions.Mediumpotions.Count == 0)
+        {
+            layoutPotions.PotionCounter[1].text = "";
+        }
     }
     private void UsebigPotion()
     {
@@ -145,6 +155,11 @@ public class Player_Info : MonoBehaviour
             Player_HP = 4;
         }
         PlayerHpUpdate();
+
+        if (layoutPotions.Bigpotions.Count == 0)
+        {
+            layoutPotions.PotionCounter[2].text = "";
+        }
     }
     public void CheckIfDead()
     {

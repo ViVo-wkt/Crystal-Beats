@@ -15,6 +15,10 @@ public class GameManager : MonoBehaviour
     private InventoryManager inventoryManager;
 
     public static bool asd; // What should be turn on before loading Hub scene for the firs time;
+
+    public static bool Level_1_Complete;
+    public static bool Level_2_Complete;
+    public static bool Level_3_Complete;
     // Start is called before the first frame update
     void Start()
     {
@@ -34,6 +38,7 @@ public class GameManager : MonoBehaviour
             
             
             SaveScript.LoadFromJson();
+            
             AudioManager.Instance.Load(saveValues.saveVolumes);
             SaveScript.ClearJsonData();
         }

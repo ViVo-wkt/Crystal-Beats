@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 //using Unity.Mathematics;
 using Unity.VisualScripting;
-
+using DG.Tweening;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -86,10 +86,24 @@ public class EnemyController : MonoBehaviour
         
 
     }
-    private void Update()
+    
+    private void FixedUpdate()
     {
-        
-        
+
+        float distance = Vector3.Distance(gameObject.transform.position, Player_Info.instance.player.position);
+
+        if (distance <= detectionRadius /*&& IsPositionValid(Player.position)*/)
+        {
+            isChasingPlayer = true;
+            AgrroStatus.instance.SetAggroState(true);
+        }
+
+
+        if (isChasingPlayer && distance > detectionRadius /*&& !IsPositionValid(Player.position)*/)
+        {
+            isChasingPlayer = false;
+            AgrroStatus.instance.SetAggroState(false);
+        }
 
 
 
@@ -99,9 +113,9 @@ public class EnemyController : MonoBehaviour
         }
         if (isChasingPlayer)
         {
-            
-            float distance = Vector3.Distance(gameObject.transform.position, Player_Info.instance.player.position);
-            
+
+
+
             if (IsAdjacentToPlayerWithRaycast() && !Player_Info.instance.playerMoved)
             {
 
@@ -127,10 +141,10 @@ public class EnemyController : MonoBehaviour
                     Attack_Circle.instance.CircleBossActive(true);
                 }
 
-                
+
                 if (distance < 0.1f)
                 {
-                    gameObject.transform.position = LastEnemyChasingPosition; 
+                    gameObject.transform.position = LastEnemyChasingPosition;
                 }
 
 
@@ -138,55 +152,39 @@ public class EnemyController : MonoBehaviour
                 {
                     if (anim != null)
                     {
-                        
+
                         anim.SetTrigger("EnemyAttack");
 
                     }
 
                     EnemyAttack();
                     attackCircle.End = false;
-                    BeatsCollection = 0;
+
                 }
-                else if (Player_Info.instance.playerMoved || !IsAdjacentToPlayerWithRaycast())
-                {
-                    BeatsCollection = 0;
-                    attackCircle.End = false;
-                }
+
 
                 Vector3 snappedDirection = SnapDirection(Player_Info.instance.player.position - transform.position);
                 Quaternion targetRotation = Quaternion.LookRotation(snappedDirection, Vector3.up);
-                transform.rotation = targetRotation;
+                
+                transform.DORotateQuaternion(targetRotation.normalized, .3f);
+                BeatsCollection = 0;
+            }
+            else if (/*Player_Info.instance.playerMoved &&*/ !IsAdjacentToPlayerWithRaycast())
+            {
+                Attack_Circle.instance.CircleCommonActive(false);
+                Attack_Circle.instance.CircleRangerActive(false);
+                Attack_Circle.instance.CircleTankActive(false);
+                Attack_Circle.instance.CircleBossActive(false);
+                attackCircle.End = false;
+                
+
 
             }
             
-
-        }
-
-    }
-    private void FixedUpdate()
-    {
-        float distanceToPlayer = Vector3.Distance(transform.position, Player_Info.instance.player.position);
-        
-        if (distanceToPlayer <= detectionRadius /*&& IsPositionValid(Player.position)*/)
-        {
-            isChasingPlayer = true;
-            AgrroStatus.instance.SetAggroState(true);
         }
 
 
-        if (isChasingPlayer && distanceToPlayer > detectionRadius /*&& !IsPositionValid(Player.position)*/)
-        {
-            isChasingPlayer = false;
-            AgrroStatus.instance.SetAggroState(false);
-        }
 
-        if (distanceToPlayer > ReachDistanceToAttack)
-        {
-            Attack_Circle.instance.CircleCommonActive(false);
-            Attack_Circle.instance.CircleRangerActive(false);
-            Attack_Circle.instance.CircleTankActive(false);
-            Attack_Circle.instance.CircleBossActive(false);
-        }
     }
 
 
@@ -235,7 +233,7 @@ public class EnemyController : MonoBehaviour
     //Move in Player Direction
     private void MoveTowardsPlayer()
     {
-
+        LastEnemyChasingPosition = gameObject.transform.position;
         Vector3 playerGridPosition = WorldToGrid(Player.position);
         Vector3 direction = playerGridPosition - CurrentGridPosition;
 
@@ -250,15 +248,15 @@ public class EnemyController : MonoBehaviour
         }
 
         Vector3 newPosition = CurrentGridPosition + direction * tileSize;
-
-
-        Vector3 RangerNewPostion = CurrentGridPosition - direction * tileSize;
-
-
-        LastEnemyChasingPosition = CurrentGridPosition;
         
 
-        if (gameObject.CompareTag("Common") || gameObject.CompareTag("Tank") || gameObject.CompareTag("Boss"))
+        Vector3 BossNewPostion = CurrentGridPosition - direction * tileSize;
+
+
+        
+        
+
+        if (gameObject.CompareTag("Common") || gameObject.CompareTag("Tank"))
         {
             if (!IsWallBlocking(direction))
             {
@@ -266,13 +264,14 @@ public class EnemyController : MonoBehaviour
 
 
                 CurrentGridPosition = newPosition;
-                transform.position = CurrentGridPosition;
+                transform.DOMove(newPosition, .2f);
 
 
                 if (!IsAdjacentToPlayerWithRaycast())
                 {
                     Quaternion targetRotation = Quaternion.LookRotation(direction, Vector3.up);
-                    transform.rotation = targetRotation;
+                    
+                    transform.DORotateQuaternion(targetRotation.normalized, .3f);
                 }
 
             }
@@ -294,25 +293,26 @@ public class EnemyController : MonoBehaviour
                  || IsWallBlocking(NewChasingPosition));
 
                 CurrentGridPosition = positionNew;
-                transform.position = CurrentGridPosition;
+                transform.DOMove(positionNew, .6f);
 
 
 
             }
             
         }
-        else
+        else if(gameObject.CompareTag("Ranger"))
         {
             float distance = Vector3.Distance(transform.position, Player_Info.instance.player.position);
 
-            if (gameObject.CompareTag("Ranger"))
-            {
+            
+            
                 bool hasLineOfSight = IsAdjacentToPlayerWithRaycast();
 
                 // Ranger ma możliwość strzału – nie rusza się
                 if (hasLineOfSight)
                     return;
 
+                
                 // Gracz jest za blisko – Ranger ucieka
                 if (distance < 2.9f)
                 {
@@ -344,27 +344,79 @@ public class EnemyController : MonoBehaviour
                     if (bestEscapeDir != Vector3.zero)
                     {
                         CurrentGridPosition += bestEscapeDir * tileSize;
-                        transform.position = CurrentGridPosition;
+                    
+                    
+                        Quaternion targetRotation = Quaternion.LookRotation(bestEscapeDir, Vector3.up);
+
+                        transform.DORotateQuaternion(targetRotation.normalized, .3f);
+                    
+                    transform.DOMove(CurrentGridPosition, .6f);
                     }
                 }
                 else
                 {
-                    // Gracz jest w zasięgu, ale nie ma pozycji do strzału – próbuj się ustawić
+                    
                     Vector3 moveDir = GenerateDirectionToRanger();
                     Vector3 potentialPosition = CurrentGridPosition + moveDir * tileSize;
 
                     if (/*IsPositionValid(potentialPosition) &&*/ !IsWallBlocking(moveDir))
                     {
                         CurrentGridPosition = potentialPosition;
-                        transform.position = CurrentGridPosition;
-                    }
+                    Quaternion targetRotation = Quaternion.LookRotation(potentialPosition, Vector3.up);
+
+                    transform.DORotateQuaternion(targetRotation.normalized, .3f);
+                    transform.DOMove(CurrentGridPosition, .6f);
+
                 }
+                }
+
+
+            
+        }
+        else if(gameObject.CompareTag("Boss"))
+        {
+            if (!IsWallBlocking(direction))
+            {
+
+
+
+                CurrentGridPosition = newPosition;
+                transform.DOMove(CurrentGridPosition, .6f);
+
+
+                if (!IsAdjacentToPlayerWithRaycast())
+                {
+                    Quaternion targetRotation = Quaternion.LookRotation(direction, Vector3.up);
+                    transform.DORotateQuaternion(targetRotation.normalized, .3f);
+
+                }
+
+            }
+            else
+            {
+
+
+
+                Vector3 NewChasingPosition;
+                Vector3 positionNew;
+
+                do
+                {
+                    NewChasingPosition = GenerateRandomDirection();
+
+                    positionNew = CurrentGridPosition + NewChasingPosition * tileSize;
+                }
+                while (Vector3.Distance(positionNew, Player_Info.instance.player.position) > detectionRadius
+                 || IsWallBlocking(NewChasingPosition));
+
+                CurrentGridPosition = positionNew;
+                transform.DOMove(CurrentGridPosition, .6f);
+
 
 
             }
         }
-
-
+        
     }
 
 
@@ -406,7 +458,7 @@ public class EnemyController : MonoBehaviour
                Mathf.Abs(position.z - gridCenter.z) <= (gridSizeZ / 2) * tileSize;
     }
 
-    // Konwersja pozycji œwiata na siatkę
+    
     private Vector3 WorldToGrid(Vector3 worldPosition)
     {
         return new Vector3(
@@ -477,9 +529,10 @@ public class EnemyController : MonoBehaviour
 
                 if (Player_Info.instance.playerMoved || !IsAdjacentToPlayerWithRaycast())
                 {
+
                     anim.SetTrigger("EnemyWalk");
                     MoveTowardsPlayer();
-
+                    
 
                 }
 
@@ -487,8 +540,9 @@ public class EnemyController : MonoBehaviour
             }
             else
             {
-                //anim.SetTrigger("EnemyWalk");
+                anim.SetTrigger("EnemyWalk");
                 NewEnemyPosition();
+                
             }
             BeatsCollection = 0;
             
@@ -524,11 +578,11 @@ public class EnemyController : MonoBehaviour
         // Position Update
         UpdateMovementHistory(chosenDirection);
         CurrentGridPosition = newPosition;
-        transform.position = CurrentGridPosition;
-
+        //transform.position = CurrentGridPosition;
+        transform.DOMove(CurrentGridPosition, .6f);
         //Vector3 snappedDirection = SnapDirection(EnemyFront);
         Quaternion targetRotation = Quaternion.LookRotation(chosenDirection, Vector3.up);
-        transform.rotation = targetRotation;
+        transform.DORotateQuaternion(targetRotation.normalized, .3f);
 
     }
 

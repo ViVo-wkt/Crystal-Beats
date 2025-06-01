@@ -50,9 +50,12 @@ public class LayoutPotions : MonoBehaviour
         {
             SmallPotionsObjects[1].SetActive(true);
         }
-        
-        
-        
+
+        if (Smallpotions.Count == 0)
+        {
+            PotionCounter[0].text = "";
+        }
+
     }
     public void ShowLayoutMediumPotions()
     {
@@ -69,7 +72,10 @@ public class LayoutPotions : MonoBehaviour
             MediumPotionsObjects[1].SetActive(true);
         }
         
-
+        if(Mediumpotions.Count == 0)
+        {
+            PotionCounter[1].text = "";
+        }
         
     }
     public void ShowLayoutBigPotions()
@@ -86,9 +92,12 @@ public class LayoutPotions : MonoBehaviour
         {
             BigPotionsObjects[1].SetActive(true);
         }
-        
 
-        
+        if (Bigpotions.Count == 0)
+        {
+            PotionCounter[2].text = "";
+        }
+
     }
     public void AddPotion(Potion potion)
     {

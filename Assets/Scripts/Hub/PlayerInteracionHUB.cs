@@ -27,8 +27,10 @@ public class PlayerInteracionHUB : MonoBehaviour
 
     public Inventory inventory;
 
+    public GameObject[] Barrels = new GameObject[3];
     private void Awake()
     {
+        CheckIfComplete();
         if (!GameManager.asd)
         {
             StartPanel.SetActive(true);
@@ -153,5 +155,21 @@ public class PlayerInteracionHUB : MonoBehaviour
         Lore_Panel.SetActive(false);
         
     }
+    
     //Buttons------------------------
+    private void CheckIfComplete()
+    {
+        if(GameManager.Level_1_Complete)
+        {
+            Barrels[0].SetActive(false);
+        }
+        if (GameManager.Level_2_Complete)
+        {
+            Barrels[1].SetActive(false);
+        }
+        if (GameManager.Level_3_Complete)
+        {
+            Barrels[2].SetActive(false);
+        }
+    }
 }

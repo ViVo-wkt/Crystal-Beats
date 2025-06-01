@@ -9,7 +9,7 @@ public class Movement : MonoBehaviour
     [HideInInspector] public float moveTimer = 0f; // Attack window
     public float timeWindow = 0.5f; // Attack window duration to Set in inspector
 
-    public int BlockDuration; // ustawianie iloœci blokad
+    public int BlockDuration; 
    [HideInInspector] public int blockCounter = 0; // Block counter (measure: number of beats)
     private bool BlockIsActive = false;
 
@@ -28,7 +28,8 @@ public class Movement : MonoBehaviour
     private bool canMoveBackward = true;
 
     private Animator player_anim;
-    
+
+   public Vector3 LastPosition;
     void Start()
     {
         
@@ -83,48 +84,35 @@ public class Movement : MonoBehaviour
         //AudioManager.BeatUpdated -= OnBeat;
     }
 
-    // Funkcja sprawdzaj¹ca możliwoœæ ruchu w oknie czasowym
+    
     private void CheckOnBeat()
     {
-
-
-
-
-
-        
-
-
-
+        LastPosition = gameObject.transform.position;
         if (Input.GetKeyDown(KeyCode.A) && canMoveLeft && KeyboardActivity && !HasMovedThisBeat)
         {
-
+            TriggerAnimation();
             Move(Vector3.left);
             HasMovedThisBeat = true;
         }
         else if (Input.GetKeyDown(KeyCode.D) && canMoveRight && KeyboardActivity && !HasMovedThisBeat)
         {
-
+            TriggerAnimation();
             Move(Vector3.right);
             HasMovedThisBeat = true;
         }
         else if (Input.GetKeyDown(KeyCode.W) && canMoveForward && KeyboardActivity && !HasMovedThisBeat )
         {
-
+            TriggerAnimation();
             Move(Vector3.forward);
             HasMovedThisBeat = true;
         }
         else if (Input.GetKeyDown(KeyCode.S) && canMoveBackward && KeyboardActivity && !HasMovedThisBeat)
         {
-            
+            TriggerAnimation();
             Move(Vector3.back);
             HasMovedThisBeat = true;
 
         }
-
-
-        
-
-
 
     }
 
@@ -187,7 +175,11 @@ public class Movement : MonoBehaviour
         {
             transform.DOMove(direction, .1f).SetRelative(true);
         }
-        
+
+        if(HeartHighLight.instance != null)
+        {
+            HeartHighLight.instance.BeatDrop();
+        }
         
         //if(direction == Vector3.forward) {
         //    gameObject.transform.rotation = Quaternion.Euler(0, -360, 0);
@@ -212,20 +204,28 @@ public class Movement : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.A) && KeyboardActivity && !HasMovedThisBeat)
         {
-            gameObject.transform.rotation = Quaternion.Euler(0, -90, 0);
+            //gameObject.transform.rotation = Quaternion.Euler(0, -90, 0);
+            transform.DORotateQuaternion(Quaternion.Euler(0, -90, 0), 0.1f);
         }
         else if (Input.GetKeyDown(KeyCode.D) && KeyboardActivity && !HasMovedThisBeat)
         {
-            gameObject.transform.rotation = Quaternion.Euler(0, -270, 0);
+            //gameObject.transform.rotation = Quaternion.Euler(0, -270, 0);
+            transform.DORotateQuaternion(Quaternion.Euler(0, -270, 0), 0.1f);
         }
         else if (Input.GetKeyDown(KeyCode.W) && KeyboardActivity && !HasMovedThisBeat)
         {
-            gameObject.transform.rotation = Quaternion.Euler(0, -360, 0);
+            //gameObject.transform.rotation = Quaternion.Euler(0, -360, 0);
+            transform.DORotateQuaternion(Quaternion.Euler(0, -360, 0), 0.1f);
         }
         else if (Input.GetKeyDown(KeyCode.S) && KeyboardActivity && !HasMovedThisBeat)
         {
-            gameObject.transform.rotation = Quaternion.Euler(0, -180, 0);
+            //gameObject.transform.rotation = Quaternion.Euler(0, -180, 0);
+            transform.DORotateQuaternion(Quaternion.Euler(0, -180, 0), 0.1f);
         }
+    }
+    private void TriggerAnimation()
+    {
+        player_anim.SetTrigger("TriggerSwoosh");
     }
 }
 
