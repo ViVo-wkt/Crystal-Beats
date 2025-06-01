@@ -5,6 +5,7 @@ using DG.Tweening;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using UnityEditor.Experimental.GraphView;
 
 public class EnemyController : MonoBehaviour
 {
@@ -37,7 +38,10 @@ public class EnemyController : MonoBehaviour
 
     private Animator anim;
     private Enemy enemy;
-    
+
+
+    private int BossBehaviourAfterAttack = 2;
+    private int BossBehaviourIndex = 0;
     private void Awake()
     {
         enemy = GetComponent<Enemy>();
@@ -89,7 +93,7 @@ public class EnemyController : MonoBehaviour
     
     private void FixedUpdate()
     {
-
+        
         float distance = Vector3.Distance(gameObject.transform.position, Player_Info.instance.player.position);
 
         if (distance <= detectionRadius /*&& IsPositionValid(Player.position)*/)
@@ -116,7 +120,7 @@ public class EnemyController : MonoBehaviour
 
 
 
-            if (IsAdjacentToPlayerWithRaycast() && !Player_Info.instance.playerMoved)
+            if (IsAdjacentToPlayerWithRaycast() && !Player_Info.instance.playerMoved && BossBehaviourIndex <= 0)
             {
 
 
@@ -148,7 +152,7 @@ public class EnemyController : MonoBehaviour
                 }
 
 
-                if (attackCircle.End && !Player_Info.instance.playerMoved && IsAdjacentToPlayerWithRaycast())
+                if (attackCircle.End && !Player_Info.instance.playerMoved && IsAdjacentToPlayerWithRaycast() && BossBehaviourIndex <= 0)
                 {
                     if (anim != null)
                     {
@@ -158,6 +162,10 @@ public class EnemyController : MonoBehaviour
                     }
 
                     EnemyAttack();
+                    if(gameObject.CompareTag("Boss"))
+                    {
+                        BossBehaviourIndex = BossBehaviourAfterAttack;
+                    }
                     attackCircle.End = false;
 
                 }
@@ -367,7 +375,7 @@ public class EnemyController : MonoBehaviour
                     transform.DORotateQuaternion(targetRotation.normalized, .3f);
                     transform.DOMove(CurrentGridPosition, .6f);
 
-                }
+                    }
                 }
 
 
@@ -375,7 +383,7 @@ public class EnemyController : MonoBehaviour
         }
         else if(gameObject.CompareTag("Boss"))
         {
-            if (!IsWallBlocking(direction))
+            if (!IsWallBlocking(direction) && BossBehaviourIndex <= 0)
             {
 
 
@@ -392,7 +400,7 @@ public class EnemyController : MonoBehaviour
                 }
 
             }
-            else
+            else if(BossBehaviourIndex <= 0)
             {
 
 
@@ -411,10 +419,20 @@ public class EnemyController : MonoBehaviour
 
                 CurrentGridPosition = positionNew;
                 transform.DOMove(CurrentGridPosition, .6f);
+                if (!IsAdjacentToPlayerWithRaycast())
+                {
+                    Quaternion targetRotation = Quaternion.LookRotation(direction, Vector3.up);
+                    transform.DORotateQuaternion(targetRotation.normalized, .3f);
 
+                }
 
 
             }
+            else
+            {
+                BossTactic();
+            }
+         
         }
         
     }
@@ -532,10 +550,15 @@ public class EnemyController : MonoBehaviour
 
                     anim.SetTrigger("EnemyWalk");
                     MoveTowardsPlayer();
-                    
 
+                    Debug.Log("działa");
                 }
 
+                if(gameObject.CompareTag("Boss") && BossBehaviourIndex > 0 && IsAdjacentToPlayerWithRaycast())
+                {
+                    BossTactic();
+                    Debug.Log("działa2");
+                }
 
             }
             else
@@ -631,7 +654,46 @@ public class EnemyController : MonoBehaviour
         return bestDirection;
     }
 
-    
+    private void BossTactic()
+    {
+
+        if(BossBehaviourIndex > 0)
+        {
+            Vector3 moveDir = GenerateDirectionToRanger();
+            Vector3 potentialPosition = CurrentGridPosition + moveDir * tileSize;
+
+            if (/*IsPositionValid(potentialPosition) &&*/ !IsWallBlocking(moveDir))
+            {
+                CurrentGridPosition = potentialPosition;
+                Quaternion targetRotation = Quaternion.LookRotation(potentialPosition, Vector3.up);
+
+                transform.DORotateQuaternion(targetRotation.normalized, .3f);
+                transform.DOMove(CurrentGridPosition, .6f);
+
+            }
+            else
+            {
+                Vector3 NewChasingPosition;
+                Vector3 positionNew;
+
+                do
+                {
+                    NewChasingPosition = GenerateRandomDirection();
+
+                    positionNew = CurrentGridPosition + NewChasingPosition * tileSize;
+                }
+                while (Vector3.Distance(positionNew, Player_Info.instance.player.position) > detectionRadius
+                 || IsWallBlocking(NewChasingPosition));
+
+                CurrentGridPosition = positionNew;
+                transform.DOMove(CurrentGridPosition, .6f);
+            }
+            BossBehaviourIndex -= 1;
+        }
+            
+
+        
+    }
 }
 
 

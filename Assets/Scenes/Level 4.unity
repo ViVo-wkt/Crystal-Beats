@@ -4117,7 +4117,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2731325996928813172, guid: 76b603fdb54c56d44a5453c613b214f9, type: 3}
       propertyPath: m_TagString
-      value: Common
+      value: Boss
       objectReference: {fileID: 0}
     - target: {fileID: 4676051370306976488, guid: 76b603fdb54c56d44a5453c613b214f9, type: 3}
       propertyPath: Player
@@ -4139,6 +4139,26 @@ PrefabInstance:
       propertyPath: detectionRadius
       value: 20
       objectReference: {fileID: 0}
+    - target: {fileID: 4676051370306976488, guid: 76b603fdb54c56d44a5453c613b214f9, type: 3}
+      propertyPath: RangerPositionsToAttack.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4676051370306976488, guid: 76b603fdb54c56d44a5453c613b214f9, type: 3}
+      propertyPath: 'RangerPositionsToAttack.Array.data[0]'
+      value: 
+      objectReference: {fileID: 1451490334}
+    - target: {fileID: 4676051370306976488, guid: 76b603fdb54c56d44a5453c613b214f9, type: 3}
+      propertyPath: 'RangerPositionsToAttack.Array.data[1]'
+      value: 
+      objectReference: {fileID: 112365492}
+    - target: {fileID: 4676051370306976488, guid: 76b603fdb54c56d44a5453c613b214f9, type: 3}
+      propertyPath: 'RangerPositionsToAttack.Array.data[2]'
+      value: 
+      objectReference: {fileID: 1958949917}
+    - target: {fileID: 4676051370306976488, guid: 76b603fdb54c56d44a5453c613b214f9, type: 3}
+      propertyPath: 'RangerPositionsToAttack.Array.data[3]'
+      value: 
+      objectReference: {fileID: 1618862211}
     - target: {fileID: 5286450510270112911, guid: 76b603fdb54c56d44a5453c613b214f9, type: 3}
       propertyPath: m_Enabled
       value: 1
