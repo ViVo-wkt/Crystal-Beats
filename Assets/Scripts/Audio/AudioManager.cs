@@ -210,6 +210,11 @@ public class AudioManager : MonoBehaviour
             InitializeMusic(FMODEvents.Instance.MusicLevel2);
         }
 
+        else if (SceneManager.GetActiveScene().name == "Level 3")
+        {
+            InitializeMusic(FMODEvents.Instance.MusicLevel3);
+        }
+
         else if (SceneManager.GetActiveScene().name == "Level 4")
         {   
             InitializeMusic(FMODEvents.Instance.MusicLevel4);

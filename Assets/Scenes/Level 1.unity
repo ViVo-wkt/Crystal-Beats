@@ -98075,6 +98075,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 150192921}
     - target: {fileID: 3702141963763226057, guid: 299b71b57fd789949a8569d1c7f46619, type: 3}
+      propertyPath: movement
+      value: 
+      objectReference: {fileID: 150192920}
+    - target: {fileID: 3702141963763226057, guid: 299b71b57fd789949a8569d1c7f46619, type: 3}
       propertyPath: Player_HP
       value: 4
       objectReference: {fileID: 0}
