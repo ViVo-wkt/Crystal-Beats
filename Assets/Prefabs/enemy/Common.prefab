@@ -267,7 +267,7 @@ GameObject:
   - component: {fileID: 2374542557601302137}
   - component: {fileID: 5651017458368847209}
   m_Layer: 3
-  m_Name: CommonWithRig
+  m_Name: Common
   m_TagString: Common
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
