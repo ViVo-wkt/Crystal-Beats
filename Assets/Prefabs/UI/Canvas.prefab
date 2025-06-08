@@ -7409,6 +7409,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 5394237080693084911}
     m_Modifications:
+    - target: {fileID: 37599736377790208, guid: d68475079d839494981ab07eaf5a5d8c, type: 3}
+      propertyPath: 'm_ActiveFontFeatures.Array.data[0]'
+      value: 1801810542
+      objectReference: {fileID: 0}
     - target: {fileID: 2259257155300697918, guid: d68475079d839494981ab07eaf5a5d8c, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -7491,7 +7495,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4470716189171747908, guid: d68475079d839494981ab07eaf5a5d8c, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6848071111782191323, guid: d68475079d839494981ab07eaf5a5d8c, type: 3}
       propertyPath: m_Name
@@ -7499,7 +7503,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6848071111782191323, guid: d68475079d839494981ab07eaf5a5d8c, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

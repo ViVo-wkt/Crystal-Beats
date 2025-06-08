@@ -1,3 +1,4 @@
+using JetBrains.Annotations;
 using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
@@ -52,7 +53,8 @@ public class WeaponShop : MonoBehaviour
     public GameObject[] SlotsPrefabs;
     private GameObject[] Slots;
 
-    public GameObject[] Buttons;
+    public GameObject[] ButtonsEquip;
+    public GameObject[] ButtonsBuy;
 
 
     private enum ChoosenCrystalToPay
@@ -123,13 +125,14 @@ public class WeaponShop : MonoBehaviour
 
                 ActiveCase = false;
                 UpdateCostText();
+                
             }
 
 
-            
-            
 
-            Buttons[0].SetActive(true);
+
+            ButtonsBuy[0].SetActive(false);
+            ButtonsEquip[0].SetActive(true);
         }
         else
         {
@@ -161,8 +164,8 @@ public class WeaponShop : MonoBehaviour
 
                 UpdateCostText();
             }
-
-            Buttons[1].SetActive(true);
+            ButtonsBuy[1].SetActive(false);
+            ButtonsEquip[1].SetActive(true);
         }
         else
         {
@@ -191,8 +194,8 @@ public class WeaponShop : MonoBehaviour
 
                 ActiveCase = false;
             }
-
-            Buttons[2].SetActive(true);
+            ButtonsBuy[2].SetActive(false);
+            ButtonsEquip[2].SetActive(true);
         }
         else
         {
@@ -227,7 +230,7 @@ public class WeaponShop : MonoBehaviour
     }
     private void ColorButtonSwitch()
     {
-        foreach (var button in Buttons)
+        foreach (var button in ButtonsEquip)
         {
             button.GetComponentInChildren<TextMeshProUGUI>().color = Color.white;
         }
@@ -235,16 +238,16 @@ public class WeaponShop : MonoBehaviour
 
         {
             case 0:
-                Buttons[3].GetComponentInChildren<TextMeshProUGUI>().color = Color.yellow;
+                ButtonsEquip[3].GetComponentInChildren<TextMeshProUGUI>().color = Color.yellow;
                 break;
             case 1:
-                Buttons[0].GetComponentInChildren<TextMeshProUGUI>().color = Color.yellow;
+                ButtonsEquip[0].GetComponentInChildren<TextMeshProUGUI>().color = Color.yellow;
                 break;
             case 2:
-                Buttons[1].GetComponentInChildren<TextMeshProUGUI>().color = Color.yellow;
+                ButtonsEquip[1].GetComponentInChildren<TextMeshProUGUI>().color = Color.yellow;
                 break;
             case 3:
-                Buttons[2].GetComponentInChildren<TextMeshProUGUI>().color = Color.yellow;
+                ButtonsEquip[2].GetComponentInChildren<TextMeshProUGUI>().color = Color.yellow;
                 break;
             default:
                 break;
@@ -413,6 +416,34 @@ public class WeaponShop : MonoBehaviour
         }
     }
 
+    public void Save(ref WeaponShop_data data)
+    {
+        data.ButtonsEquipStates = new bool[ButtonsEquip.Length];
+        data.ButtonsBuyStates = new bool[ButtonsBuy.Length];
+
+        for (int i = 0; i < ButtonsEquip.Length; i++)
+            data.ButtonsEquipStates[i] = ButtonsEquip[i].activeSelf;
+
+        for (int i = 0; i < ButtonsBuy.Length; i++)
+            data.ButtonsBuyStates[i] = ButtonsBuy[i].activeSelf;
+    }
+
+
+    public void Load(WeaponShop_data data)
+    {
+        for (int i = 0; i < ButtonsEquip.Length; i++)
+            ButtonsEquip[i].SetActive(data.ButtonsEquipStates[i]);
+
+        for (int i = 0; i < ButtonsBuy.Length; i++)
+            ButtonsBuy[i].SetActive(data.ButtonsBuyStates[i]);
+    }
+
+}
+
+public struct WeaponShop_data
+{
+    public bool[] ButtonsEquipStates; 
+    public bool[] ButtonsBuyStates;
 }
 
 

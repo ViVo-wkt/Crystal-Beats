@@ -17,7 +17,7 @@ public class SaveScript : MonoBehaviour
         public WeaponSaveData weaponSaveData;
         public SaveVolumes saveVolumes;
         public SaveToggles saveToggles;
-        
+        public WeaponShop_data weaponShop_Data;
     }
 
 
@@ -31,6 +31,10 @@ public class SaveScript : MonoBehaviour
         WeaponManager.Instance.Save(ref saveValues.weaponSaveData);
         AudioManager.Instance.Save(ref saveValues.saveVolumes);
         Settings.instance.Save(ref saveValues.saveToggles);
+        
+        
+            //WeaponShop.instance.Save(ref saveValues.weaponShop_Data);
+        
         
 
         string SaveValuesData = JsonUtility.ToJson(saveValues, true);
@@ -55,6 +59,10 @@ public class SaveScript : MonoBehaviour
             WeaponManager.Instance.Load(saveValues.weaponSaveData);
             AudioManager.Instance.Load(saveValues.saveVolumes);
             Settings.instance.Load(saveValues.saveToggles);
+            
+            
+            
+                //WeaponShop.instance.Load(saveValues.weaponShop_Data);
             
             Debug.Log("Loaded");
         }

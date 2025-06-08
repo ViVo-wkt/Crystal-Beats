@@ -98,6 +98,10 @@ public class PlayerAttack : MonoBehaviour
                     {
                         player_anim.SetTrigger("TriggerAttack");
                     }
+                    else
+                    {
+                        player_anim.SetTrigger("TriggerShot");
+                    }
                     if (CanAttackEnemy && WeaponManager.Instance.weaponType != WeaponType.Gun) //CloseCombat
                     {
                         
@@ -214,14 +218,14 @@ public class PlayerAttack : MonoBehaviour
 
         if (WeaponManager.Instance.weaponType == WeaponType.Gun)
         {
-
+            AudioManager.Instance.PlayOneShot(FMODEvents.Instance.Shoot, this.transform.position);
             int layerMask = LayerMask.GetMask("Enemy");
             PlayerForward = transform.forward;
             if (Physics.Raycast(transform.position + Vector3.up, PlayerForward, out RaycastHit shoot, GunRangeRaycast, layerMask))
             {
 
 
-                AudioManager.Instance.PlayOneShot(FMODEvents.Instance.Shoot, this.transform.position);
+                
                 if (shoot.collider.CompareTag("Common") || shoot.collider.CompareTag("Ranger") || shoot.collider.CompareTag("Tank"))
                 {
 

@@ -2567,6 +2567,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: LargeCrystal (10)
       objectReference: {fileID: 0}
+    - target: {fileID: 6838198859753170012, guid: d6a50c1ae44af0f4db30d0db57f8b857, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2931,6 +2935,11 @@ Transform:
 Transform:
   m_CorrespondingSourceObject: {fileID: 2496160240478653879, guid: aeef0c19a1192144da2ecb3dead468cb, type: 3}
   m_PrefabInstance: {fileID: 1432752075}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &34866924 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4173324690426478898, guid: 80047e8a94784cf4bb8ef3d42a762012, type: 3}
+  m_PrefabInstance: {fileID: 1987227934}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &36061504
 PrefabInstance:
@@ -8921,21 +8930,21 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1165846357}
-  - {fileID: 146636020}
-  - {fileID: 756088714}
-  - {fileID: 1481085448}
-  - {fileID: 1760866088}
-  - {fileID: 1392821459}
-  - {fileID: 1256147870}
-  - {fileID: 1964876152}
-  - {fileID: 955479498}
-  - {fileID: 1071961281}
-  - {fileID: 666048977}
-  - {fileID: 1109516353}
-  - {fileID: 383925844}
-  - {fileID: 1229293123}
-  - {fileID: 531251148}
+  - {fileID: 1594220742}
+  - {fileID: 405779797}
+  - {fileID: 1799087430}
+  - {fileID: 2058661998}
+  - {fileID: 1509151718}
+  - {fileID: 1161218627}
+  - {fileID: 1371014369}
+  - {fileID: 620809377}
+  - {fileID: 1969041572}
+  - {fileID: 1630451366}
+  - {fileID: 139427943}
+  - {fileID: 1261664202}
+  - {fileID: 2098019665}
+  - {fileID: 2058512224}
+  - {fileID: 1488150923}
   m_Father: {fileID: 511863820}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &102722057
@@ -12534,6 +12543,11 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!4 &139427943 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4030128570472262290, guid: d6a50c1ae44af0f4db30d0db57f8b857, type: 3}
+  m_PrefabInstance: {fileID: 2120925432}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &140123341
 GameObject:
   m_ObjectHideFlags: 0
@@ -13173,11 +13187,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!4 &146636020 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4030128570472262290, guid: d6a50c1ae44af0f4db30d0db57f8b857, type: 3}
-  m_PrefabInstance: {fileID: 718392937}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &147511840
 GameObject:
   m_ObjectHideFlags: 0
@@ -15569,6 +15578,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: LargeCrystal (17)
       objectReference: {fileID: 0}
+    - target: {fileID: 6838198859753170012, guid: d6a50c1ae44af0f4db30d0db57f8b857, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -16699,6 +16712,10 @@ PrefabInstance:
     - target: {fileID: 6838198859753170012, guid: d6a50c1ae44af0f4db30d0db57f8b857, type: 3}
       propertyPath: m_Name
       value: LargeCrystal (15)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6838198859753170012, guid: d6a50c1ae44af0f4db30d0db57f8b857, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -21694,6 +21711,11 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!4 &220689916 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4173324690426478898, guid: 80047e8a94784cf4bb8ef3d42a762012, type: 3}
+  m_PrefabInstance: {fileID: 816299158}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &223108600
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -23218,6 +23240,11 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!4 &240201007 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4173324690426478898, guid: 80047e8a94784cf4bb8ef3d42a762012, type: 3}
+  m_PrefabInstance: {fileID: 1391282384}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &240707222
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -24120,6 +24147,10 @@ PrefabInstance:
     - target: {fileID: 6838198859753170012, guid: d6a50c1ae44af0f4db30d0db57f8b857, type: 3}
       propertyPath: m_Name
       value: LargeCrystal (16)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6838198859753170012, guid: d6a50c1ae44af0f4db30d0db57f8b857, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -34345,11 +34376,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 427408, guid: 1de99f1c9e134fa8b97f4d761833de57, type: 3}
   m_PrefabInstance: {fileID: 1318786806}
   m_PrefabAsset: {fileID: 0}
---- !u!4 &383925844 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4030128570472262290, guid: d6a50c1ae44af0f4db30d0db57f8b857, type: 3}
-  m_PrefabInstance: {fileID: 814481654}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &384619922 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2496160240478653879, guid: aeef0c19a1192144da2ecb3dead468cb, type: 3}
@@ -35187,11 +35213,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!4 &392455869 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4173324690426478898, guid: 80047e8a94784cf4bb8ef3d42a762012, type: 3}
-  m_PrefabInstance: {fileID: 1987227934}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &392631765
 GameObject:
   m_ObjectHideFlags: 0
@@ -36214,6 +36235,11 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!4 &405779797 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4030128570472262290, guid: d6a50c1ae44af0f4db30d0db57f8b857, type: 3}
+  m_PrefabInstance: {fileID: 718392937}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &407493881
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -42972,6 +42998,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: LargeCrystal (18)
       objectReference: {fileID: 0}
+    - target: {fileID: 6838198859753170012, guid: d6a50c1ae44af0f4db30d0db57f8b857, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -46763,6 +46793,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Portal(Hub)
       objectReference: {fileID: 0}
+    - target: {fileID: 3314255026114036805, guid: 4bc6094aded163441ad5b278bcda2420, type: 3}
+      propertyPath: m_TagString
+      value: Level_1
+      objectReference: {fileID: 0}
     - target: {fileID: 5768712048603325219, guid: 4bc6094aded163441ad5b278bcda2420, type: 3}
       propertyPath: m_LocalPosition.x
       value: 45.94
@@ -47622,11 +47656,6 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: 2496160240478653879, guid: aeef0c19a1192144da2ecb3dead468cb, type: 3}
   m_PrefabInstance: {fileID: 530108658}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &531251148 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4030128570472262290, guid: d6a50c1ae44af0f4db30d0db57f8b857, type: 3}
-  m_PrefabInstance: {fileID: 1383563462}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &531843728
 GameObject:
@@ -51496,6 +51525,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: LargeCrystal (9)
       objectReference: {fileID: 0}
+    - target: {fileID: 6838198859753170012, guid: d6a50c1ae44af0f4db30d0db57f8b857, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -53894,6 +53927,11 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: 2496160240478653879, guid: aeef0c19a1192144da2ecb3dead468cb, type: 3}
   m_PrefabInstance: {fileID: 619797560}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &620809377 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4030128570472262290, guid: d6a50c1ae44af0f4db30d0db57f8b857, type: 3}
+  m_PrefabInstance: {fileID: 583488721}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &623099507
 GameObject:
@@ -59289,11 +59327,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!4 &666048977 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4030128570472262290, guid: d6a50c1ae44af0f4db30d0db57f8b857, type: 3}
-  m_PrefabInstance: {fileID: 2120925432}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &666133161
 GameObject:
   m_ObjectHideFlags: 0
@@ -63272,6 +63305,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: LargeCrystal (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 6838198859753170012, guid: d6a50c1ae44af0f4db30d0db57f8b857, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -66870,16 +66907,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!4 &756088714 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4030128570472262290, guid: d6a50c1ae44af0f4db30d0db57f8b857, type: 3}
-  m_PrefabInstance: {fileID: 162693250}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &757721152 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4173324690426478898, guid: 80047e8a94784cf4bb8ef3d42a762012, type: 3}
-  m_PrefabInstance: {fileID: 1391282384}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &759807688
 GameObject:
   m_ObjectHideFlags: 0
@@ -75314,6 +75341,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: LargeCrystal (22)
       objectReference: {fileID: 0}
+    - target: {fileID: 6838198859753170012, guid: d6a50c1ae44af0f4db30d0db57f8b857, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -75491,6 +75522,10 @@ PrefabInstance:
     - target: {fileID: 4216247575424456933, guid: 80047e8a94784cf4bb8ef3d42a762012, type: 3}
       propertyPath: m_Name
       value: RedCrystal (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4216247575424456933, guid: 80047e8a94784cf4bb8ef3d42a762012, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4536821363925472270, guid: 80047e8a94784cf4bb8ef3d42a762012, type: 3}
       propertyPath: inventoryManager
@@ -80495,6 +80530,10 @@ PrefabInstance:
     - target: {fileID: 6838198859753170012, guid: d6a50c1ae44af0f4db30d0db57f8b857, type: 3}
       propertyPath: m_Name
       value: LargeCrystal (23)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6838198859753170012, guid: d6a50c1ae44af0f4db30d0db57f8b857, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -88093,11 +88132,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!4 &955479498 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4030128570472262290, guid: d6a50c1ae44af0f4db30d0db57f8b857, type: 3}
-  m_PrefabInstance: {fileID: 1663835172}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &955992083
 GameObject:
   m_ObjectHideFlags: 0
@@ -91501,6 +91535,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: LargeCrystal (7)
       objectReference: {fileID: 0}
+    - target: {fileID: 6838198859753170012, guid: d6a50c1ae44af0f4db30d0db57f8b857, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -91903,11 +91941,6 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: 2496160240478653879, guid: aeef0c19a1192144da2ecb3dead468cb, type: 3}
   m_PrefabInstance: {fileID: 994087511}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &994397504 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4173324690426478898, guid: 80047e8a94784cf4bb8ef3d42a762012, type: 3}
-  m_PrefabInstance: {fileID: 816299158}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &995730718
 GameObject:
@@ -98171,6 +98204,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6237917054146957894, guid: 299b71b57fd789949a8569d1c7f46619, type: 3}
+      propertyPath: RedClusters_slots
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 6237917054146957894, guid: 299b71b57fd789949a8569d1c7f46619, type: 3}
       propertyPath: 'CrystalContent.Array.data[0]'
       value: 
       objectReference: {fileID: 1205036442}
@@ -99633,11 +99670,6 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: 2496160240478653879, guid: aeef0c19a1192144da2ecb3dead468cb, type: 3}
   m_PrefabInstance: {fileID: 1071954819}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &1071961281 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4030128570472262290, guid: d6a50c1ae44af0f4db30d0db57f8b857, type: 3}
-  m_PrefabInstance: {fileID: 871833884}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1072024512
 GameObject:
@@ -102877,11 +102909,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!4 &1109516353 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4030128570472262290, guid: d6a50c1ae44af0f4db30d0db57f8b857, type: 3}
-  m_PrefabInstance: {fileID: 1667221508}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1109874263
 GameObject:
   m_ObjectHideFlags: 0
@@ -106624,6 +106651,11 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!4 &1161218627 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4030128570472262290, guid: d6a50c1ae44af0f4db30d0db57f8b857, type: 3}
+  m_PrefabInstance: {fileID: 247572898}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1161479211
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -106978,11 +107010,6 @@ Transform:
 Transform:
   m_CorrespondingSourceObject: {fileID: 2496160240478653879, guid: aeef0c19a1192144da2ecb3dead468cb, type: 3}
   m_PrefabInstance: {fileID: 181987729}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &1165846357 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4030128570472262290, guid: d6a50c1ae44af0f4db30d0db57f8b857, type: 3}
-  m_PrefabInstance: {fileID: 1761490313}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1166254665
 PrefabInstance:
@@ -110886,7 +110913,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6246565816457529218, guid: 1f8e8e31d82ff2a48b38c6db457c695a, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6561955895148755821, guid: 1f8e8e31d82ff2a48b38c6db457c695a, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
@@ -112372,11 +112399,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!4 &1229293123 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4030128570472262290, guid: d6a50c1ae44af0f4db30d0db57f8b857, type: 3}
-  m_PrefabInstance: {fileID: 26420850}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1230964207
 GameObject:
   m_ObjectHideFlags: 0
@@ -114441,11 +114463,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!4 &1256147870 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4030128570472262290, guid: d6a50c1ae44af0f4db30d0db57f8b857, type: 3}
-  m_PrefabInstance: {fileID: 989808205}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1256749829
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -115010,6 +115027,11 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!4 &1261664202 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4030128570472262290, guid: d6a50c1ae44af0f4db30d0db57f8b857, type: 3}
+  m_PrefabInstance: {fileID: 1667221508}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1262536937
 GameObject:
   m_ObjectHideFlags: 0
@@ -124072,6 +124094,11 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 8430953955755242483, guid: 1a1137fb1e08a3d44aea3532b74fa75d, type: 3}
   m_PrefabInstance: {fileID: 150192914}
   m_PrefabAsset: {fileID: 0}
+--- !u!4 &1371014369 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4030128570472262290, guid: d6a50c1ae44af0f4db30d0db57f8b857, type: 3}
+  m_PrefabInstance: {fileID: 989808205}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1371993606
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -125642,6 +125669,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: LargeCrystal (12)
       objectReference: {fileID: 0}
+    - target: {fileID: 6838198859753170012, guid: d6a50c1ae44af0f4db30d0db57f8b857, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -126956,6 +126987,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: RedCrystal (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 4216247575424456933, guid: 80047e8a94784cf4bb8ef3d42a762012, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4536821363925472270, guid: 80047e8a94784cf4bb8ef3d42a762012, type: 3}
       propertyPath: inventoryManager
       value: 
@@ -127074,11 +127109,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!4 &1392821459 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4030128570472262290, guid: d6a50c1ae44af0f4db30d0db57f8b857, type: 3}
-  m_PrefabInstance: {fileID: 247572898}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1394207629
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -134333,11 +134363,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!4 &1481085448 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4030128570472262290, guid: d6a50c1ae44af0f4db30d0db57f8b857, type: 3}
-  m_PrefabInstance: {fileID: 171812062}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1483604216
 GameObject:
   m_ObjectHideFlags: 0
@@ -134778,6 +134803,11 @@ SpriteRenderer:
 Transform:
   m_CorrespondingSourceObject: {fileID: 3901798191011242788, guid: 0bb4c4021f324bc47ab04b1628193cac, type: 3}
   m_PrefabInstance: {fileID: 1822789381}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1488150923 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4030128570472262290, guid: d6a50c1ae44af0f4db30d0db57f8b857, type: 3}
+  m_PrefabInstance: {fileID: 1383563462}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1488736751
 GameObject:
@@ -137074,6 +137104,11 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!4 &1509151718 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4030128570472262290, guid: d6a50c1ae44af0f4db30d0db57f8b857, type: 3}
+  m_PrefabInstance: {fileID: 484196291}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1509917756
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -143721,6 +143756,11 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!4 &1594220742 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4030128570472262290, guid: d6a50c1ae44af0f4db30d0db57f8b857, type: 3}
+  m_PrefabInstance: {fileID: 1761490313}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1595711781
 GameObject:
   m_ObjectHideFlags: 0
@@ -147666,6 +147706,11 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!4 &1630451366 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4030128570472262290, guid: d6a50c1ae44af0f4db30d0db57f8b857, type: 3}
+  m_PrefabInstance: {fileID: 871833884}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1630467148
 GameObject:
   m_ObjectHideFlags: 0
@@ -149801,6 +149846,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: LargeCrystal (20)
       objectReference: {fileID: 0}
+    - target: {fileID: 6838198859753170012, guid: d6a50c1ae44af0f4db30d0db57f8b857, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -150145,6 +150194,10 @@ PrefabInstance:
     - target: {fileID: 6838198859753170012, guid: d6a50c1ae44af0f4db30d0db57f8b857, type: 3}
       propertyPath: m_Name
       value: LargeCrystal (21)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6838198859753170012, guid: d6a50c1ae44af0f4db30d0db57f8b857, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -159461,11 +159514,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2496160240478653879, guid: aeef0c19a1192144da2ecb3dead468cb, type: 3}
   m_PrefabInstance: {fileID: 1759755817}
   m_PrefabAsset: {fileID: 0}
---- !u!4 &1760866088 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4030128570472262290, guid: d6a50c1ae44af0f4db30d0db57f8b857, type: 3}
-  m_PrefabInstance: {fileID: 484196291}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1761490313
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -159521,6 +159569,10 @@ PrefabInstance:
     - target: {fileID: 6838198859753170012, guid: d6a50c1ae44af0f4db30d0db57f8b857, type: 3}
       propertyPath: m_Name
       value: LargeCrystal (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6838198859753170012, guid: d6a50c1ae44af0f4db30d0db57f8b857, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -162725,6 +162777,11 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!4 &1799087430 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4030128570472262290, guid: d6a50c1ae44af0f4db30d0db57f8b857, type: 3}
+  m_PrefabInstance: {fileID: 162693250}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1804501288
 GameObject:
   m_ObjectHideFlags: 0
@@ -177251,11 +177308,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 443218, guid: 8ae5714440a54f42a374a1787987d54f, type: 3}
   m_PrefabInstance: {fileID: 16474060}
   m_PrefabAsset: {fileID: 0}
---- !u!4 &1964876152 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4030128570472262290, guid: d6a50c1ae44af0f4db30d0db57f8b857, type: 3}
-  m_PrefabInstance: {fileID: 583488721}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1967189596
 GameObject:
   m_ObjectHideFlags: 0
@@ -177365,6 +177417,11 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!4 &1969041572 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4030128570472262290, guid: d6a50c1ae44af0f4db30d0db57f8b857, type: 3}
+  m_PrefabInstance: {fileID: 1663835172}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1970053016
 GameObject:
   m_ObjectHideFlags: 0
@@ -179301,6 +179358,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: RedCrystal (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 4216247575424456933, guid: 80047e8a94784cf4bb8ef3d42a762012, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4536821363925472270, guid: 80047e8a94784cf4bb8ef3d42a762012, type: 3}
       propertyPath: inventoryManager
       value: 
@@ -179671,9 +179732,9 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 994397504}
-  - {fileID: 757721152}
-  - {fileID: 392455869}
+  - {fileID: 220689916}
+  - {fileID: 240201007}
+  - {fileID: 34866924}
   m_Father: {fileID: 511863820}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2000312751
@@ -185210,6 +185271,16 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!4 &2058512224 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4030128570472262290, guid: d6a50c1ae44af0f4db30d0db57f8b857, type: 3}
+  m_PrefabInstance: {fileID: 26420850}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &2058661998 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4030128570472262290, guid: d6a50c1ae44af0f4db30d0db57f8b857, type: 3}
+  m_PrefabInstance: {fileID: 171812062}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2059916296
 GameObject:
   m_ObjectHideFlags: 0
@@ -187961,6 +188032,11 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!4 &2098019665 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4030128570472262290, guid: d6a50c1ae44af0f4db30d0db57f8b857, type: 3}
+  m_PrefabInstance: {fileID: 814481654}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2099290687
 GameObject:
   m_ObjectHideFlags: 0
@@ -190658,6 +190734,10 @@ PrefabInstance:
     - target: {fileID: 6838198859753170012, guid: d6a50c1ae44af0f4db30d0db57f8b857, type: 3}
       propertyPath: m_Name
       value: LargeCrystal (24)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6838198859753170012, guid: d6a50c1ae44af0f4db30d0db57f8b857, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
