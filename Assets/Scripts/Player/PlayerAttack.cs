@@ -189,7 +189,7 @@ public class PlayerAttack : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("Common") || other.gameObject.CompareTag("Ranger") || other.gameObject.CompareTag("Tank"))
+        if (other.gameObject.CompareTag("Common") || other.gameObject.CompareTag("Ranger") || other.gameObject.CompareTag("Tank") || other.gameObject.CompareTag("Boss"))
         {
 
             enemy = other.gameObject.GetComponent<Enemy>();

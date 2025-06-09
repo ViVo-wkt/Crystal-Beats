@@ -451,6 +451,7 @@ public class WeaponShop : MonoBehaviour
                     ButtonsBuy[i].SetActive(data.ButtonsBuyStates[i]);
             }
         }
+        ColorButtonSwitch();
     }
 
 

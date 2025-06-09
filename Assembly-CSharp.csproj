@@ -97,6 +97,7 @@
     <Compile Include="Assets\UnityAssets\Matthew Guz\Spell Area of Effect FREE\Scripts\CameraRotation.cs" />
     <Compile Include="Assets\Scripts\Enemy\Ranger.cs" />
     <Compile Include="Assets\Scripts\Player\Inventory\Crystal_Controller.cs" />
+    <Compile Include="Assets\Scripts\End.cs" />
     <Compile Include="Assets\Scripts\Enemy\Enemy.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerAttack.cs" />
     <Compile Include="Assets\Scripts\Audio\FMODEvents.cs" />

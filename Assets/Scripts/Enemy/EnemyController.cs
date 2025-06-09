@@ -39,8 +39,8 @@ public class EnemyController : MonoBehaviour
     private Animator anim;
     private Enemy enemy;
 
-    private EnemyController currentCollidingEnemy;
-    [HideInInspector]public bool IsColliding;
+    private static EnemyController currentCollidingEnemy = null;
+    [HideInInspector]public bool IsColliding = false;
     private int BossBehaviourAfterAttack = 2;
     private int BossBehaviourIndex = 0;
     private void Awake()
@@ -98,14 +98,31 @@ public class EnemyController : MonoBehaviour
         {
             EnemyController enemy = other.GetComponent<EnemyController>();
 
-            if (enemy != null)
+            if (enemy != null && EnemyController.currentCollidingEnemy == null)
             {
                 enemy.IsColliding = true;
-                currentCollidingEnemy = enemy;
-                
+                EnemyController.currentCollidingEnemy = enemy;
             }
         }
     }
+
+    private void OnTriggerExit(Collider other)
+    {
+        int enemyLayer = LayerMask.NameToLayer("Enemy");
+
+        if (other.gameObject.layer == enemyLayer)
+        {
+            EnemyController enemy = other.GetComponent<EnemyController>();
+
+            if (enemy != null && enemy == EnemyController.currentCollidingEnemy)
+            {
+                enemy.IsColliding = false;
+                EnemyController.currentCollidingEnemy = null;
+            }
+        }
+    }
+
+
     private void FixedUpdate()
     {
         
@@ -130,6 +147,9 @@ public class EnemyController : MonoBehaviour
         {
             gridCenter = transform.position;
         }
+
+        
+
         if (isChasingPlayer)
         {
             if (distance < 0.1f || (currentCollidingEnemy != null && currentCollidingEnemy.IsColliding))
@@ -137,12 +157,13 @@ public class EnemyController : MonoBehaviour
                 gameObject.transform.position = LastEnemyChasingPosition;
                 CurrentGridPosition = LastEnemyChasingPosition;
                 if (currentCollidingEnemy != null)
+                {
                     currentCollidingEnemy.IsColliding = false;
+                    //currentCollidingEnemy = null;
+                }
+                    
 
-                
             }
-            
-
 
             if (IsAdjacentToPlayerWithRaycast() && !Player_Info.instance.playerMoved && BossBehaviourIndex <= 0)
             {
@@ -150,6 +171,7 @@ public class EnemyController : MonoBehaviour
 
                 if (gameObject.CompareTag("Common"))
                 {
+
                     attackCircle.NewCircleAnimationLength = attackCircle.CommonCircleLenght;
                     Attack_Circle.instance.CircleCommonActive(true);
                 }
@@ -170,7 +192,9 @@ public class EnemyController : MonoBehaviour
                 }
 
 
-                
+
+
+
 
 
                 if (attackCircle.End && !Player_Info.instance.playerMoved && IsAdjacentToPlayerWithRaycast() && BossBehaviourIndex <= 0)
