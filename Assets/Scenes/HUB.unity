@@ -1303,10 +1303,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1374068529}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
+      - m_Target: {fileID: 919132148039220129}
+        m_TargetAssemblyTypeName: PlayerInteracionHUB, Assembly-CSharp
+        m_MethodName: ExitWeaponShop
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -5966,7 +5966,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 3314255026114036805, guid: 4bc6094aded163441ad5b278bcda2420, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 856594017}
   m_SourcePrefab: {fileID: 100100000, guid: 4bc6094aded163441ad5b278bcda2420, type: 3}
 --- !u!4 &181123688 stripped
 Transform:
@@ -26071,6 +26074,24 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8586624047013505997, guid: f5bd02b36f7480144a59ccde65a5f3b5, type: 3}
   m_PrefabInstance: {fileID: 856068681}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &856594013 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3314255026114036805, guid: 4bc6094aded163441ad5b278bcda2420, type: 3}
+  m_PrefabInstance: {fileID: 181123687}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &856594017
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 856594013}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9ca5369918df964896446939381449d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  saveScript: {fileID: 0}
 --- !u!1001 &858723226
 PrefabInstance:
   m_ObjectHideFlags: 0

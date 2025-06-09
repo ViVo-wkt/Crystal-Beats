@@ -6,6 +6,7 @@ using Unity.VisualScripting;
 
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using static SaveScript;
 using static Weapon_Controller;
 
 public class PlayerAttack : MonoBehaviour
@@ -262,7 +263,7 @@ public class PlayerAttack : MonoBehaviour
             if (playerInteracionHUB.CanInteractShop)
             {
                 playerInteracionHUB.WeaponPanel.gameObject.SetActive(true);
-
+                SaveScript.LoadWeaponShop();
             }
 
             if (playerInteracionHUB.CanInteractTutorial)

@@ -65,10 +65,10 @@
     <Compile Include="Assets\Scripts\Hub\Level_2.cs" />
     <Compile Include="Assets\Scripts\Player\Movement.cs" />
     <Compile Include="Assets\Scripts\Enemy\Common.cs" />
+    <Compile Include="Assets\Scripts\TreasureChest.cs" />
     <Compile Include="Assets\Scripts\Enemy\EnemyController.cs" />
     <Compile Include="Assets\Scripts\MouseTexture.cs" />
     <Compile Include="Assets\Scripts\Player\Inventory\ImageCrystal.cs" />
-    <Compile Include="Assets\Scripts\MainMenu\SaveVolume.cs" />
     <Compile Include="Assets\Scripts\Hub\GameManager.cs" />
     <Compile Include="Assets\UnityAssets\Old Torch\Script\FlickLight.cs" />
     <Compile Include="Assets\Scripts\Player\Inventory\InventoryCrystalController.cs" />
@@ -90,6 +90,7 @@
     <Compile Include="Assets\Scripts\Player\Inventory\Weapons\Weapon_Controller.cs" />
     <Compile Include="Assets\Scripts\Level\LightAnimationsScrips\LightOnBeat.cs" />
     <Compile Include="Assets\Scripts\UI_Scripts\Slots\SlotsOutlineColor.cs" />
+    <Compile Include="Assets\Scripts\Hub\Level_3.cs" />
     <Compile Include="Assets\Scripts\Hub\Level_4.cs" />
     <Compile Include="Assets\Scripts\Player\Inventory\InventoryCrumbleController.cs" />
     <Compile Include="Assets\Scripts\Player\Player_Info.cs" />

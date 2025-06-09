@@ -90,7 +90,10 @@ public class WeaponShop : MonoBehaviour
             }
         }
     }
-
+    private void OnDisable()
+    {
+        DontDestroyOnLoad(this);
+    }
     private void RefreshInstances()
     {
         for (int i = 0; i < SlotsPrefabs.Length; i++)
@@ -431,15 +434,28 @@ public class WeaponShop : MonoBehaviour
 
     public void Load(WeaponShop_data data)
     {
-        for (int i = 0; i < ButtonsEquip.Length; i++)
-            ButtonsEquip[i].SetActive(data.ButtonsEquipStates[i]);
+        if (data.ButtonsEquipStates != null && ButtonsEquip != null)
+        {
+            for (int i = 0; i < Mathf.Min(ButtonsEquip.Length, data.ButtonsEquipStates.Length); i++)
+            {
+                if (ButtonsEquip[i] != null)
+                    ButtonsEquip[i].SetActive(data.ButtonsEquipStates[i]);
+            }
+        }
 
-        for (int i = 0; i < ButtonsBuy.Length; i++)
-            ButtonsBuy[i].SetActive(data.ButtonsBuyStates[i]);
+        if (data.ButtonsBuyStates != null && ButtonsBuy != null)
+        {
+            for (int i = 0; i < Mathf.Min(ButtonsBuy.Length, data.ButtonsBuyStates.Length); i++)
+            {
+                if (ButtonsBuy[i] != null)
+                    ButtonsBuy[i].SetActive(data.ButtonsBuyStates[i]);
+            }
+        }
     }
 
-}
 
+}
+[System.Serializable]
 public struct WeaponShop_data
 {
     public bool[] ButtonsEquipStates; 

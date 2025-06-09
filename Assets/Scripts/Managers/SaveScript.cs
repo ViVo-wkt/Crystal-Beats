@@ -32,16 +32,16 @@ public class SaveScript : MonoBehaviour
         AudioManager.Instance.Save(ref saveValues.saveVolumes);
         Settings.instance.Save(ref saveValues.saveToggles);
         
-        
-            //WeaponShop.instance.Save(ref saveValues.weaponShop_Data);
-        
-        
+
+
+
+
 
         string SaveValuesData = JsonUtility.ToJson(saveValues, true);
         string FilePath = Application.persistentDataPath + "/SaveValuesData.json";
-        Debug.Log(FilePath);
+        //Debug.Log(FilePath);
         System.IO.File.WriteAllText(FilePath, SaveValuesData);
-        Debug.Log("saved");
+        //Debug.Log("saved");
     }
     
     public static void LoadFromJson()
@@ -60,11 +60,11 @@ public class SaveScript : MonoBehaviour
             AudioManager.Instance.Load(saveValues.saveVolumes);
             Settings.instance.Load(saveValues.saveToggles);
             
-            
-            
-                //WeaponShop.instance.Load(saveValues.weaponShop_Data);
-            
-            Debug.Log("Loaded");
+
+
+
+
+            //Debug.Log("Loaded");
         }
         
     }
@@ -82,7 +82,35 @@ public class SaveScript : MonoBehaviour
         }
         
     }
-    
+
+
+
+    public static void SaveWeaponShop()
+    {
+        WeaponShop.instance.Save(ref saveValues.weaponShop_Data);
+
+        //string SaveValuesData = JsonUtility.ToJson(saveValues, true);
+        //string FilePath = Application.persistentDataPath + "/SaveWeaponShopData.json";
+        //System.IO.File.WriteAllText(FilePath, SaveValuesData);
+
+        
+    }
+    public static void LoadWeaponShop()
+    {
+        //string FilePath = Application.persistentDataPath + "/SaveWeaponShopData.json";
+        //if (System.IO.File.Exists(FilePath))
+        //{
+        //    string SaveValuesData = System.IO.File.ReadAllText(FilePath);
+
+        //    saveValues = JsonUtility.FromJson<SaveValues>(SaveValuesData);
+
+            
+
+        //    System.IO.File.Delete(FilePath);
+        
+        //}
+        WeaponShop.instance.Load(saveValues.weaponShop_Data);
+    }
 }
 
 

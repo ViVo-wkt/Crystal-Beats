@@ -39,7 +39,8 @@ public class EnemyController : MonoBehaviour
     private Animator anim;
     private Enemy enemy;
 
-
+    private EnemyController currentCollidingEnemy;
+    [HideInInspector]public bool IsColliding;
     private int BossBehaviourAfterAttack = 2;
     private int BossBehaviourIndex = 0;
     private void Awake()
@@ -87,15 +88,29 @@ public class EnemyController : MonoBehaviour
     {
         AudioManager.BeatUpdated -= UpdateMoveDelay;
 
-        
-
     }
-    
+
+    private void OnTriggerEnter(Collider other)
+    {
+        int enemyLayer = LayerMask.NameToLayer("Enemy");
+
+        if (other.gameObject.layer == enemyLayer)
+        {
+            EnemyController enemy = other.GetComponent<EnemyController>();
+
+            if (enemy != null)
+            {
+                enemy.IsColliding = true;
+                currentCollidingEnemy = enemy;
+                
+            }
+        }
+    }
     private void FixedUpdate()
     {
         
         float distance = Vector3.Distance(gameObject.transform.position, Player_Info.instance.player.position);
-
+        
         if (distance <= detectionRadius /*&& IsPositionValid(Player.position)*/)
         {
             isChasingPlayer = true;
@@ -117,7 +132,16 @@ public class EnemyController : MonoBehaviour
         }
         if (isChasingPlayer)
         {
+            if (distance < 0.1f || (currentCollidingEnemy != null && currentCollidingEnemy.IsColliding))
+            {
+                gameObject.transform.position = LastEnemyChasingPosition;
+                CurrentGridPosition = LastEnemyChasingPosition;
+                if (currentCollidingEnemy != null)
+                    currentCollidingEnemy.IsColliding = false;
 
+                
+            }
+            
 
 
             if (IsAdjacentToPlayerWithRaycast() && !Player_Info.instance.playerMoved && BossBehaviourIndex <= 0)
@@ -146,10 +170,7 @@ public class EnemyController : MonoBehaviour
                 }
 
 
-                if (distance < 0.1f)
-                {
-                    gameObject.transform.position = LastEnemyChasingPosition;
-                }
+                
 
 
                 if (attackCircle.End && !Player_Info.instance.playerMoved && IsAdjacentToPlayerWithRaycast() && BossBehaviourIndex <= 0)
@@ -223,6 +244,7 @@ public class EnemyController : MonoBehaviour
     {
         secondLastDirection = lastDirection;
         lastDirection = newDirection;
+        
     }
 
     // Wall Checker
@@ -230,7 +252,7 @@ public class EnemyController : MonoBehaviour
     {
         if (Physics.Raycast(transform.position, direction.normalized, out RaycastHit hit, tileSize))
         {
-            if (hit.collider != null && hit.collider.CompareTag("Wall") || hit.collider.CompareTag("Enemy"))
+            if (hit.collider != null && hit.collider.CompareTag("Wall") || hit.collider.CompareTag("Common") || hit.collider.CompareTag("Tank") || hit.collider.CompareTag("Ranger"))
             {
                 return true;
             }
@@ -241,7 +263,8 @@ public class EnemyController : MonoBehaviour
     //Move in Player Direction
     private void MoveTowardsPlayer()
     {
-        LastEnemyChasingPosition = gameObject.transform.position;
+        LastEnemyChasingPosition = gameObject.transform.position * tileSize;
+        
         Vector3 playerGridPosition = WorldToGrid(Player.position);
         Vector3 direction = playerGridPosition - CurrentGridPosition;
 
@@ -551,13 +574,13 @@ public class EnemyController : MonoBehaviour
                     anim.SetTrigger("EnemyWalk");
                     MoveTowardsPlayer();
 
-                    Debug.Log("działa");
+                    
                 }
 
                 if(gameObject.CompareTag("Boss") && BossBehaviourIndex > 0 && IsAdjacentToPlayerWithRaycast())
                 {
                     BossTactic();
-                    Debug.Log("działa2");
+                    
                 }
 
             }

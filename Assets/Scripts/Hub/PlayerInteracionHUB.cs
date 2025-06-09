@@ -172,4 +172,10 @@ public class PlayerInteracionHUB : MonoBehaviour
             Barrels[2].SetActive(false);
         }
     }
+
+    public void ExitWeaponShop()
+    {
+        SaveScript.SaveWeaponShop();
+        WeaponPanel.SetActive(false);
+    }
 }

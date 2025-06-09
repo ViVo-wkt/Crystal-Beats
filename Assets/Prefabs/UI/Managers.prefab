@@ -196,6 +196,7 @@ MonoBehaviour:
   - {fileID: 0}
   layoutPotions: {fileID: 8444557732330100493}
   inventory: {fileID: 0}
+  movement: {fileID: 0}
   playerMoved: 0
   player: {fileID: 0}
 --- !u!114 &3880231468505517375
@@ -314,10 +315,10 @@ MonoBehaviour:
     Path: event:/Music/MusicLevel2
   <MusicLevel3>k__BackingField:
     Guid:
-      Data1: 227962617
-      Data2: 1274482206
-      Data3: -1032062806
-      Data4: -1516972621
+      Data1: -120545685
+      Data2: 1323152432
+      Data3: -757505884
+      Data4: 744490871
     Path: event:/Music/MusicLevel3
   <MusicLevel4>k__BackingField:
     Guid:
