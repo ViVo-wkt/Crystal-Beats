@@ -33655,8 +33655,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -1002}
-  m_SizeDelta: {x: 200, y: 50}
+  m_AnchoredPosition: {x: 0, y: -1414.1218}
+  m_SizeDelta: {x: 1600, y: 1904.2437}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &781468094
 MonoBehaviour:
@@ -33678,7 +33678,22 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: End
+  m_text: "You\u2019ve defeated it. It? Him? Just what was that creature? The resemblance
+    was way too uncanny to be a simple coincidence. There are answers somewhere,
+    and you need to know them. Approaching the body laying right in front, you reach
+    to grab it. But it grabs you instead! Or so you think, its arm shooting upwards,
+    aiming at yours. It doesn\u2019t reach for your wrist, however - instead, its
+    fingertips touch yours and, to your surprise, phase into them. Soon, it\u2019s
+    not just the fingers, but the whole hand. A moment later, the entire arm. You
+    try to pull away, but its other arm reaches out in the same manner, dragging
+    you even closer. Their face, which might as well be your face, is now inches
+    in front of you. There\u2019s only one way forward now, you think, before shoving
+    yourself forward, making the both of you occupy the exact same space. Your vision
+    goes blank. After what seemed like an eternity, it came back to you. Lo and behold,
+    in front of you there was the resonance core - you were back in your lab. But
+    this time, it emitted a stable, bright glow, and a slight hum. It would take
+    many days of research to find out what had just happened, but deep in your heart
+    you\u2019d known you succeeded."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -33705,8 +33720,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 106.08
-  m_fontSizeBase: 106.08
+  m_fontSize: 50
+  m_fontSizeBase: 50
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
