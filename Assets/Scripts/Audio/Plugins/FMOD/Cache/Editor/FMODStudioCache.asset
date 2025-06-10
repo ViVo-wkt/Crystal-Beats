@@ -67,7 +67,7 @@ MonoBehaviour:
   Path: fm mod soundtrack/Build/Desktop/Music.bank
   Name: Music
   StudioPath: bank:/Music
-  lastModified: 638851544578310619
+  lastModified: 638851676382081160
   FileSizes:
   - Name: Desktop
     Value: 14703552
@@ -297,7 +297,7 @@ MonoBehaviour:
   - {fileID: 3979666154132642495}
   StringsBanks:
   - {fileID: 4587743775815487838}
-  cacheTime: 638851544578937056
+  cacheTime: 638851676382081160
   cacheVersion: 131622
 --- !u!114 &1991486400465227112
 MonoBehaviour:
@@ -365,7 +365,7 @@ MonoBehaviour:
   Path: fm mod soundtrack/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 638851544576613741
+  lastModified: 638851676381270412
   FileSizes:
   - Name: Desktop
     Value: 1520
@@ -412,7 +412,7 @@ MonoBehaviour:
   Path: fm mod soundtrack/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638851544576640525
+  lastModified: 638851676381280479
   FileSizes:
   - Name: Desktop
     Value: 1754
@@ -539,10 +539,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Path: event:/Music/MusicTutorial
   Guid:
-    Data1: 989300958
-    Data2: 1140123906
-    Data3: 1424632492
-    Data4: -1781232505
+    Data1: 1289872568
+    Data2: 1117520320
+    Data3: 1959477913
+    Data4: 663592578
   Banks:
   - {fileID: -4640426438986835994}
   IsStream: 1

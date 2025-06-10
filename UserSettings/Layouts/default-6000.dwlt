@@ -19,7 +19,7 @@ MonoBehaviour:
     width: 1536
     height: 772.8
   m_ShowMode: 4
-  m_Title: Hierarchy
+  m_Title: Project
   m_RootView: {fileID: 2}
   m_MinSize: {x: 875, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
@@ -218,8 +218,8 @@ MonoBehaviour:
     y: 0
     width: 805.60004
     height: 512
-  m_MinSize: {x: 200, y: 200}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 202, y: 226}
+  m_MaxSize: {x: 4002, y: 4026}
   m_ActualView: {fileID: 14}
   m_Panes:
   - {fileID: 14}
@@ -421,9 +421,9 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 
+      m_SelectedIDs: c8ec0000
       m_LastClickedID: 0
-      m_ExpandedIDs: 5857fcff7057fcff5caafcff201cfdff6a75fdff30b1fdff88d1fdff54fefdff5007feff4c28feffc677feff84e9feffcc42ffff8e7effffd69effff4ecbffff1ad4ffffb2f9ffff
+      m_ExpandedIDs: c21dfcfffe26fcff1227fcff4827fcff8866fcff9866fcff6477fcffbe8cfcffce8cfcffbce9fcff54fcfcff62fcfcff9e43fdff2c4ffdff384ffdff0a80fdffd081fdffd881fdff54adfdff9eb8fdff74d9fdffece2fdfff432feff40a5feff16fffeff663bffff4069ffff86d5ffffa0f9ffff
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -1483,7 +1483,7 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Scenes
+    - Assets
     m_Globs: []
     m_ProductIds: 
     m_AnyWithAssetOrigin: 0
@@ -1493,15 +1493,15 @@ MonoBehaviour:
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/Scenes
+  - Assets
   m_LastFoldersGridSize: -1
   m_LastProjectPath: C:\Users\smako\Crystal-Beats
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 737.2}
-    m_SelectedIDs: c8ec0000
-    m_LastClickedID: 60616
+    scrollPos: {x: 0, y: 79}
+    m_SelectedIDs: 7cec0000
+    m_LastClickedID: 60540
     m_ExpandedIDs: 00000000c2eb0000c4eb0000c6eb0000c8eb0000caeb0000cceb0000ceeb0000d0eb0000d2eb0000d4eb0000d6eb0000d8eb0000daeb0000dceb0000deeb0000e0eb0000e2eb0000e4eb0000e6eb0000e8eb0000eaeb0000eceb0000eeeb0000f0eb0000f2eb0000f4eb0000f6eb00007cec000000ca9a3bffffff7f
     m_RenameOverlay:
       m_UserAcceptedRename: 0
@@ -1559,7 +1559,7 @@ MonoBehaviour:
   m_ListAreaState:
     m_SelectedInstanceIDs: 
     m_LastClickedInstanceID: 0
-    m_HadKeyboardFocusLastEvent: 0
+    m_HadKeyboardFocusLastEvent: 1
     m_ExpandedInstanceIDs: c623000040940000869d0000fc94000098af000054b90000b8960000aa960000a69600009aa100001ac0000096b8000018ba0000ac770000a09b0000f67d0000e8610300ca8c00005eb70000d4400500d097000020960000b29e0300a08f040034a30000bccc0300186c0100308af6ff8edc00009ac70000f0030100000000008eb60000ceb60000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
