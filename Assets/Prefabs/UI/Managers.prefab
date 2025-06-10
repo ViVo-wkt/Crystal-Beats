@@ -301,10 +301,10 @@ MonoBehaviour:
     Path: event:/Music/MusicTutorial
   <MusicLevel1>k__BackingField:
     Guid:
-      Data1: -1641633159
-      Data2: 1174982547
-      Data3: 1625534598
-      Data4: 913026646
+      Data1: 528749152
+      Data2: 1134273573
+      Data3: -1209587545
+      Data4: -186050756
     Path: event:/Music/MusicLevel1
   <MusicLevel2>k__BackingField:
     Guid:

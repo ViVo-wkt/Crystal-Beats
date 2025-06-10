@@ -40,6 +40,7 @@ public class GameManager : MonoBehaviour
             SaveScript.LoadFromJson();
             
             AudioManager.Instance.Load(saveValues.saveVolumes);
+            WeaponManager.Instance.Load(saveValues.weaponSaveData);
             SaveScript.ClearJsonData();
         }
         if (SceneManager.GetActiveScene().name == "MainMenu")

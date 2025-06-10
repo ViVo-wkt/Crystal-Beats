@@ -71,8 +71,15 @@ public class WeaponShop : MonoBehaviour
 
         CrystalsMultiplication();
         
-
-        instance = this;
+        if(instance == null)
+        {
+            instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+        
         Slots = new GameObject[SlotsPrefabs.Length];
         
         WeaponManager.Instance.WeaponSwitch();
@@ -90,10 +97,10 @@ public class WeaponShop : MonoBehaviour
             }
         }
     }
-    private void OnDisable()
-    {
-        DontDestroyOnLoad(this);
-    }
+    //private void OnDisable()
+    //{
+    //    DontDestroyOnLoad(this);
+    //}
     private void RefreshInstances()
     {
         for (int i = 0; i < SlotsPrefabs.Length; i++)
@@ -166,6 +173,7 @@ public class WeaponShop : MonoBehaviour
                 ActiveCase = false;
 
                 UpdateCostText();
+                Debug.Log(payment);
             }
             ButtonsBuy[1].SetActive(false);
             ButtonsEquip[1].SetActive(true);
@@ -196,6 +204,7 @@ public class WeaponShop : MonoBehaviour
                 payment = Payment(payment);
 
                 ActiveCase = false;
+                UpdateCostText();
             }
             ButtonsBuy[2].SetActive(false);
             ButtonsEquip[2].SetActive(true);
@@ -204,7 +213,7 @@ public class WeaponShop : MonoBehaviour
         {
             Debug.Log("Brakuje Kryszta³ów do zakupu");
         }
-        UpdateCostText();
+        
     }
     public void EquipPickaxe()
     {
@@ -284,31 +293,31 @@ public class WeaponShop : MonoBehaviour
     
     private void Case_1()
     {
-        if (inventoryManager.Inventory_SingleCrystal_Slots.Count > inventoryManager.Inventory_SmallCrystalCluster_Slots.Count )
+        if (inventoryManager.Inventory_SingleCrystal_Slots.Count > inventoryManager.Inventory_SmallCrystalCluster_Slots.Count && inventoryManager.Inventory_SingleCrystal_Slots.Count > inventoryManager.Inventory_LargeCrystalCLuster_Slots.Count)
         {
-            if(inventoryManager.Inventory_SingleCrystal_Slots.Count > inventoryManager.Inventory_LargeCrystalCLuster_Slots.Count)
-            {
+            
+            
                 choosenCrystalToPay = ChoosenCrystalToPay.Single;
                 ActiveCase = true;
-            }
+            
             
         }
-        else if (inventoryManager.Inventory_SmallCrystalCluster_Slots.Count > inventoryManager.Inventory_SingleCrystal_Slots.Count)
+        else if (inventoryManager.Inventory_SmallCrystalCluster_Slots.Count > inventoryManager.Inventory_SingleCrystal_Slots.Count && inventoryManager.Inventory_SmallCrystalCluster_Slots.Count > inventoryManager.Inventory_LargeCrystalCLuster_Slots.Count)
         {
-            if(inventoryManager.Inventory_SmallCrystalCluster_Slots.Count > inventoryManager.Inventory_LargeCrystalCLuster_Slots.Count)
-            {
+            
+            
                 choosenCrystalToPay = ChoosenCrystalToPay.Small;
                 ActiveCase = true;
-            }
+            
             
         }
-        else if (inventoryManager.Inventory_LargeCrystalCLuster_Slots.Count > inventoryManager.Inventory_SingleCrystal_Slots.Count)
+        else if (inventoryManager.Inventory_LargeCrystalCLuster_Slots.Count > inventoryManager.Inventory_SingleCrystal_Slots.Count && inventoryManager.Inventory_LargeCrystalCLuster_Slots.Count > inventoryManager.Inventory_SmallCrystalCluster_Slots.Count)
         {
-            if(inventoryManager.Inventory_LargeCrystalCLuster_Slots.Count > inventoryManager.Inventory_SmallCrystalCluster_Slots.Count)
-            {
+            
+            
                 choosenCrystalToPay = ChoosenCrystalToPay.Large;
                 ActiveCase = true;
-            }
+            
             
         }
     }
@@ -342,7 +351,7 @@ public class WeaponShop : MonoBehaviour
             choosenCrystalToPay = ChoosenCrystalToPay.Large;
         }
         
-        else if (restOfPayment <= SmallCluster_Value && QuantityOfSinglesCrystals > 0)
+        else if (restOfPayment <= SmallCluster_Value && QuantityOfSmallsClusters > 0)
         {
             choosenCrystalToPay = ChoosenCrystalToPay.Small;
         }
