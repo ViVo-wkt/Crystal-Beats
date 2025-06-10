@@ -250,7 +250,7 @@ MonoBehaviour:
   m_ChildAlignment: 4
   m_StartCorner: 0
   m_StartAxis: 0
-  m_CellSize: {x: 130, y: 130}
+  m_CellSize: {x: 120, y: 120}
   m_Spacing: {x: 0, y: 0}
   m_Constraint: 0
   m_ConstraintCount: 2
@@ -269,6 +269,7 @@ MonoBehaviour:
   crystal: {fileID: 11400000, guid: e52683ed7523e174c9dcf5e0c62bd85c, type: 2}
   inventoryManager: {fileID: 0}
   imageCrystal: {fileID: 2710533830893110765}
+  craftArea: {fileID: 0}
   inventoryCrystalController: {fileID: 7020499415449801899}
   inventoryCrumbleController: {fileID: 2340524948411808575}
 --- !u!114 &2340524948411808575

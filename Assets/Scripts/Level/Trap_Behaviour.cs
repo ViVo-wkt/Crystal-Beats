@@ -47,6 +47,7 @@ public class Trap_Behaviour : MonoBehaviour
         Beats++;
         if(Beats == BeatToHit)
         {
+            AudioManager.Instance.PlayOneShot(FMODEvents.Instance.TrapSound, this.transform.position);
             anim.SetTrigger("TrapAttack");
             player_Info.Player_HP -= DamageTakenFromTrap;
             if(player_Info.Player.activeSelf)

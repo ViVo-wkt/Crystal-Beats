@@ -219,15 +219,15 @@ public class PlayerAttack : MonoBehaviour
 
         if (WeaponManager.Instance.weaponType == WeaponType.Gun)
         {
-            AudioManager.Instance.PlayOneShot(FMODEvents.Instance.Shoot, this.transform.position);
+            
             int layerMask = LayerMask.GetMask("Enemy");
             PlayerForward = transform.forward;
             if (Physics.Raycast(transform.position + Vector3.up, PlayerForward, out RaycastHit shoot, GunRangeRaycast, layerMask))
             {
+                AudioManager.Instance.PlayOneShot(FMODEvents.Instance.Shoot, this.transform.position);
 
 
-                
-                if (shoot.collider.CompareTag("Common") || shoot.collider.CompareTag("Ranger") || shoot.collider.CompareTag("Tank"))
+                if (shoot.collider.CompareTag("Common") || shoot.collider.CompareTag("Ranger") || shoot.collider.CompareTag("Tank") || shoot.collider.CompareTag("Boss"))
                 {
 
                     enemy = shoot.collider.GetComponent<Enemy>();

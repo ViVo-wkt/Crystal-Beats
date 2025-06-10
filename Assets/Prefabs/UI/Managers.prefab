@@ -397,6 +397,20 @@ MonoBehaviour:
       Data3: 695952039
       Data4: -1069047986
     Path: event:/SFX/DeathSound
+  <EnemyPunch>k__BackingField:
+    Guid:
+      Data1: -1341905417
+      Data2: 1108705003
+      Data3: 128711352
+      Data4: 724222280
+    Path: event:/SFX/EnemyPunch
+  <TrapSound>k__BackingField:
+    Guid:
+      Data1: 875279147
+      Data2: 1125828020
+      Data3: -744874355
+      Data4: 888129822
+    Path: event:/SFX/TrapSound
 --- !u!1 &2607633410101402383
 GameObject:
   m_ObjectHideFlags: 0

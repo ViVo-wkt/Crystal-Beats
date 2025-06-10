@@ -9,13 +9,13 @@ public class Settings : MonoBehaviour
 {
     public static Settings instance;
 
-    public Toggle[] Music; // Lista Toggle dla muzyki
-    public Toggle[] SFX;   // Lista Toggle dla efektów
+    public Toggle[] Music; 
+    public Toggle[] SFX;   
 
 
     
     
-    void Start()
+    void Awake()
     {
 
 

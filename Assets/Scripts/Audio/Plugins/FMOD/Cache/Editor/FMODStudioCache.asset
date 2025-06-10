@@ -126,6 +126,33 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 135005
+--- !u!114 &-2256334434505277158
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/TrapSound
+  m_EditorClassIdentifier: 
+  Path: event:/SFX/TrapSound
+  Guid:
+    Data1: 875279147
+    Data2: 1125828020
+    Data3: -744874355
+    Data4: 888129822
+  Banks:
+  - {fileID: -622560233282263979}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
 --- !u!114 &-2191561274466870583
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -168,10 +195,10 @@ MonoBehaviour:
   Path: fm mod soundtrack/Build/Desktop/SFX.bank
   Name: SFX
   StudioPath: bank:/SFX
-  lastModified: 638849954179411793
+  lastModified: 638851028527406963
   FileSizes:
   - Name: Desktop
-    Value: 280224
+    Value: 301600
   Exists: 1
 --- !u!114 &-535870375602626164
 MonoBehaviour:
@@ -200,6 +227,33 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 150000
+--- !u!114 &-249684474362902168
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/EnemyPunch
+  m_EditorClassIdentifier: 
+  Path: event:/SFX/EnemyPunch
+  Guid:
+    Data1: -1341905417
+    Data2: 1108705003
+    Data3: 128711352
+    Data4: 724222280
+  Banks:
+  - {fileID: -622560233282263979}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -235,13 +289,15 @@ MonoBehaviour:
   - {fileID: -2191561274466870583}
   - {fileID: 2831536711278728477}
   - {fileID: 8420646771072252924}
+  - {fileID: -2256334434505277158}
+  - {fileID: -249684474362902168}
   EditorParameters:
   - {fileID: -9171404902063025181}
   MasterBanks:
   - {fileID: 3979666154132642495}
   StringsBanks:
   - {fileID: 4587743775815487838}
-  cacheTime: 638850613240327226
+  cacheTime: 638851028527406963
   cacheVersion: 131622
 --- !u!114 &1991486400465227112
 MonoBehaviour:
@@ -309,7 +365,7 @@ MonoBehaviour:
   Path: fm mod soundtrack/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 638850613238955800
+  lastModified: 638850909520857561
   FileSizes:
   - Name: Desktop
     Value: 1520
@@ -356,10 +412,10 @@ MonoBehaviour:
   Path: fm mod soundtrack/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638850613238984817
+  lastModified: 638851028527406963
   FileSizes:
   - Name: Desktop
-    Value: 1662
+    Value: 1754
   Exists: 1
 --- !u!114 &4733307651093264059
 MonoBehaviour:

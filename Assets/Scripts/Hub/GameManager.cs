@@ -50,9 +50,10 @@ public class GameManager : MonoBehaviour
                 AudioManager.Instance.Load(saveValues.saveVolumes);
                 Settings.instance.Load(saveValues.saveToggles);
             }
-            else if(!asd)
+            else 
             {
                 Settings.instance.ToggleUpdate();
+
             }
         }
 
@@ -79,6 +80,7 @@ public class GameManager : MonoBehaviour
     public void OpenSettings()
     {
         AudioManager.Instance.PlayOneShot(FMODEvents.Instance.MouseClick, this.transform.position);
+       
     }
     public void RestartLevel()
     {

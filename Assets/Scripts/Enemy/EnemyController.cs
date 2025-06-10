@@ -5,7 +5,7 @@ using DG.Tweening;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
-using UnityEditor.Experimental.GraphView;
+
 
 public class EnemyController : MonoBehaviour
 {
@@ -568,7 +568,7 @@ public class EnemyController : MonoBehaviour
     }
     private void EnemyAttack()
     {
-
+        AudioManager.Instance.PlayOneShot(FMODEvents.Instance.EnemyPunch, this.transform.position);
         if (SceneManager.GetActiveScene().name != "Tutorial")
         {
             Player_Info.instance.Player_HP -= enemy.EnemyAttackDamage;

@@ -153,10 +153,10 @@ public class AudioManager : MonoBehaviour
         }
         
     }
-    private void OnGUI()
-    {
-        GUILayout.Box($"Current Beat = {timelineinfo.currentBeat},LastMarker = {(string)timelineinfo.lastMarker}");
-    }
+    //private void OnGUI()
+    //{
+    //    GUILayout.Box($"Current Beat = {timelineinfo.currentBeat},LastMarker = {(string)timelineinfo.lastMarker}");
+    //}
     [AOT.MonoPInvokeCallback(typeof(FMOD.Studio.EVENT_CALLBACK))]
     static FMOD.RESULT BeatEventCallback(FMOD.Studio.EVENT_CALLBACK_TYPE type, IntPtr instancePtr, IntPtr parameterPtr)
     {

@@ -7,6 +7,11 @@ public class End : MonoBehaviour
 
     private void OnDestroy()
     {
-        EndPanel.SetActive(true);
+        if(EndPanel != null)
+        {
+            EndPanel.SetActive(true);
+        }
+        
+        BossTrigger.instance.HubMusic();
     }
 }

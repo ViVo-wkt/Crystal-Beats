@@ -27,6 +27,8 @@ public class FMODEvents : MonoBehaviour
     [field: SerializeField] public EventReference BookPage { get; private set; }
     [field: SerializeField] public EventReference MouseClick { get; private set; }
     [field: SerializeField] public EventReference DeathSound { get; private set; }
+    [field: SerializeField] public EventReference EnemyPunch { get; private set; }
+    [field: SerializeField] public EventReference TrapSound { get; private set; }
 
     public static FMODEvents Instance { get; private set; }
     private void Awake()
