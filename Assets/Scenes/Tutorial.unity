@@ -10982,7 +10982,7 @@ MonoBehaviour:
 
 
     When an enemy is about to hit you there will
-    be a target on the ground, make sure to move out of the way'
+    be a target on the ground, make sure to move out of the way!'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: aa9690349e011964aaa78700753f6328, type: 2}
   m_sharedMaterial: {fileID: -5494141874244254509, guid: aa9690349e011964aaa78700753f6328, type: 2}
@@ -59616,15 +59616,15 @@ MonoBehaviour:
 
 
     Timing
-    is correct whenever indicators move inbetween their brackets
+    is correct whenever indicators move to touch the center crystal
 
 
-    Movement timing
-    indicators are on the left side
+    Movement
+    timing indicators are on the left side
 
 
-    To move around on the grid, press w a s
-    d
+    To move around on the grid, press
+    w a s d
 
 
 '
