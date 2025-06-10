@@ -23855,6 +23855,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 966903926}
     m_Modifications:
+    - target: {fileID: 2082224884576076221, guid: 47342b798b7144840b5fb6ad18444c34, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: f76c02230ef1c0f4c8651712f1afa059, type: 2}
     - target: {fileID: 3334107772470261423, guid: 47342b798b7144840b5fb6ad18444c34, type: 3}
       propertyPath: m_LocalScale.x
       value: 1
@@ -31753,6 +31757,10 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8079611603242678867, guid: e0e4f4f5a96d537409b2ef5b8557134d, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 8323fed671baefc4ba7fb7c29b822112, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -39733,6 +39741,10 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6878199960244899668, guid: b002061e2371a8149b14d56488781175, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 6e3098b491ad077439ba034317669426, type: 2}
     - target: {fileID: 8175154706835608748, guid: b002061e2371a8149b14d56488781175, type: 3}
       propertyPath: m_Name
       value: Pickaxe
